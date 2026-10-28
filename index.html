@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Academy — Four templates, one brand</title>
+<meta name="description" content="Four academy and landing-page templates built from one visual identity: Nova, Atelier, Aero and Folio.">
+<meta name="theme-color" content="#001A3D">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="01-nova-academy/dist/assets/brand/favicon-nova.svg" type="image/svg+xml">
+<link rel="preload" href="shared/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face {
+    font-family: 'Lexend';
+    src: url('shared/fonts/lexend-latin.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('shared/fonts/jetbrains-mono-latin.woff2') format('woff2-variations');
+    font-weight: 100 800;
+    font-display: swap;
+  }
+  :root {
+    --navy: #012a5d;
+    --deep: #001a3d;
+    --mid: #14427f;
+    --sky: #8db8ff;
+    --ice: #eaf1fb;
+    --lime: #c8f560;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sans: 'Lexend', system-ui, sans-serif;
+    --ease: cubic-bezier(.16, 1, .3, 1);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--ice);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  .glow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(60% 50% at 20% 0%, rgba(200, 245, 96, .13), transparent 70%),
+      radial-gradient(50% 55% at 90% 20%, rgba(141, 184, 255, .16), transparent 70%);
+    z-index: 0;
+  }
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .35;
+    background-image: radial-gradient(rgba(255, 255, 255, .09) 1px, transparent 1px);
+    background-size: 26px 26px;
+    mask-image: radial-gradient(70% 60% at 50% 0%, #000, transparent 85%);
+    z-index: 0;
+  }
+  .wrap { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  header.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 26px 0;
+  }
+  .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ice); }
+  .brand img { width: 34px; height: 34px; }
+  .brand b { font-size: 17px; font-weight: 600; letter-spacing: -.03em; }
+  .chip {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    background: var(--lime);
+    color: var(--navy);
+    padding: 4px 7px;
+    border-radius: 3px;
+  }
+  .top nav { display: flex; gap: 4px; }
+  .top nav a {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(234, 241, 251, .66);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 999px;
+  }
+  .top nav a:hover { color: var(--ice); background: rgba(255, 255, 255, .07); }
+
+  .hero { padding: clamp(28px, 6vw, 72px) 0 clamp(32px, 5vw, 56px); }
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(234, 241, 251, .6);
+    margin: 0 0 20px;
+  }
+  .kicker::before { content: ''; width: 7px; height: 7px; border-radius: 99px; background: var(--lime); }
+  h1 {
+    margin: 0;
+    font-size: clamp(38px, 7vw, 82px);
+    line-height: .96;
+    letter-spacing: -.045em;
+    font-weight: 600;
+    max-width: 16ch;
+  }
+  h1 em { font-style: normal; color: var(--lime); }
+  .sub { margin: 24px 0 0; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.6; color: rgba(234, 241, 251, .7); max-width: 54ch; }
+
+  .grid { display: grid; gap: 18px; padding: 8px 0 64px; }
+  .tile {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid rgba(234, 241, 251, .12);
+    border-radius: 22px;
+    padding: 24px;
+    background: rgba(255, 255, 255, .035);
+    overflow: hidden;
+    transition: transform .4s var(--ease), border-color .4s var(--ease), background-color .4s var(--ease);
+  }
+  .tile::after {
+    content: '';
+    position: absolute;
+    inset: auto -20% -60% 30%;
+    height: 220px;
+    background: radial-gradient(closest-side, var(--tint, rgba(200, 245, 96, .3)), transparent);
+    opacity: .55;
+    transition: opacity .5s var(--ease);
+  }
+  .tile:hover { transform: translateY(-4px); border-color: rgba(200, 245, 96, .45); background: rgba(255, 255, 255, .06); }
+  .tile:hover::after { opacity: 1; }
+  .tile__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .tile__n { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; color: rgba(234, 241, 251, .45); }
+  .tile__temp {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    border: 1px solid rgba(234, 241, 251, .18);
+    border-radius: 99px;
+    padding: 4px 8px;
+    color: rgba(234, 241, 251, .6);
+  }
+  .tile h2 { margin: 22px 0 6px; font-size: clamp(24px, 2.6vw, 32px); letter-spacing: -.03em; font-weight: 600; }
+  .tile p { margin: 0; font-size: 14.5px; line-height: 1.55; color: rgba(234, 241, 251, .62); max-width: 34ch; }
+  .tile__go {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-block-start: 22px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--lime);
+  }
+  .tile__go svg { width: 14px; height: 14px; transition: transform .4s var(--ease); }
+  .tile:hover .tile__go svg { transform: translateX(4px); }
+
+  /* the micro-preview: each tile shows its own nav + type in miniature */
+  .prev { margin-block-start: 20px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 0, 0, .18); }
+  .prev__bar { display: flex; align-items: center; gap: 5px; padding: 7px 9px; }
+  .prev__dot { width: 5px; height: 5px; border-radius: 99px; }
+  .prev__word { margin-inline-start: auto; font-size: 7px; font-weight: 600; letter-spacing: -.02em; }
+  .prev__body { display: grid; gap: 5px; padding: 10px 9px 14px; }
+  .prev__line { height: 5px; border-radius: 3px; }
+  .prev__line:nth-child(1) { width: 74%; }
+  .prev__line:nth-child(2) { width: 52%; }
+  .prev__line:nth-child(3) { width: 62%; }
+
+  /* theme-specific preview tints */
+  .t--nova .prev { background: #fdf7ef; }
+  .t--nova .prev__bar { background: #fff; border-block-end: 1px solid #f0e3d2; }
+  .t--nova .prev__word { color: #012a5d; }
+  .t--nova .prev__dot { background: #c8f560; }
+  .t--nova .prev__line { background: #f1e2d0; }
+  .t--nova .prev__line:nth-child(2) { background: #012a5d; }
+  .t--nova { --tint: rgba(200, 245, 96, .34); }
+
+  .t--atelier .prev { background: #fff; }
+  .t--atelier .prev__bar { background: #fff; border-block-end: 1px solid #e6e6e6; }
+  .t--atelier .prev__word { color: #012a5d; font-weight: 200; }
+  .t--atelier .prev__dot { background: #012a5d; }
+  .t--atelier .prev__line { background: #efefef; }
+  .t--atelier .prev__line:nth-child(3) { background: #012a5d; }
+  .t--atelier { --tint: rgba(141, 184, 255, .22); }
+
+  .t--aero .prev { background: #001a3d; }
+  .t--aero .prev__bar { background: rgba(255, 255, 255, .06); }
+  .t--aero .prev__word { color: #eaf1fb; }
+  .t--aero .prev__dot { background: #c8f560; }
+  .t--aero .prev__line { background: rgba(234, 241, 251, .22); }
+  .t--aero .prev__line:nth-child(2) { background: #c8f560; }
+  .t--aero { --tint: rgba(200, 245, 96, .3); }
+
+  .t--folio .prev { background: #fff; }
+  .t--folio .prev__bar { background: #fff; border-block-end: 1px solid #eef2f8; }
+  .t--folio .prev__word { color: #012a5d; }
+  .t--folio .prev__dot { background: #8db8ff; }
+  .t--folio .prev__line { background: #eaf1fb; }
+  .t--folio .prev__line:nth-child(1) { background: #c8f560; }
+  .t--folio { --tint: rgba(141, 184, 255, .3); }
+
+  footer.foot {
+    border-block-start: 1px solid rgba(234, 241, 251, .12);
+    padding: 26px 0 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12.5px;
+    color: rgba(234, 241, 251, .5);
+  }
+  footer.foot a { color: rgba(234, 241, 251, .72); text-decoration: none; }
+  footer.foot a:hover { color: var(--lime); }
+  .foot__mono { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(234, 241, 251, .35); }
+  .swatches { display: flex; gap: 6px; }
+  .swatches span { width: 16px; height: 16px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, .18); }
+
+  @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .top nav { display: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition-duration: .001ms !important; animation-duration: .001ms !important; }
+  }
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="index.html">
+      <img src="01-nova-academy/dist/assets/brand/wa-icon-lime.svg" alt="" width="34" height="34">
+      <b>Web&nbsp;Academy</b>
+      <span class="chip">Family</span>
+    </a>
+    <nav aria-label="Templates">
+      <a href="01-nova-academy/dist/">Nova</a>
+      <a href="02-atelier-academy/dist/">Atelier</a>
+      <a href="03-aero-academy/dist/">Aero</a>
+      <a href="04-folio-landing/dist/">Folio</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <p class="kicker">One identity · four expressions</p>
+    <h1>Four templates.<br>One <em>brand.</em></h1>
+    <p class="sub">
+      Three full academy websites and one landing page for visual instructors, built from the same
+      logo, the same navy-and-lime palette, and the same motion language — each with its own point of view.
+    </p>
+  </section>
+
+  <div class="grid">
+    <a class="tile t--nova" href="01-nova-academy/dist/">
+      <div class="tile__top"><span class="tile__n">01</span><span class="tile__temp">Light · playful</span></div>
+      <div class="prev" aria-hidden="true">
+        <div class="prev__bar"><i class="prev__dot"></i><i class="prev__dot"></i><i class="prev__dot"></i><span class="prev__word">Web Academy</span></div>
+        <div class="prev__body"><div class="prev__line"></div><div class="prev__line"></div><div class="prev__line"></div></div>
+      </div>
+      <h2>Nova</h2>
+      <p>The consumer catalogue. Bright, card-led, built for browsing at speed.</p>
+      <span class="tile__go">Open Nova
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
+
+    <a class="tile t--atelier" href="02-atelier-academy/dist/">
+      <div class="tile__top"><span class="tile__n">02</span><span class="tile__temp">Paper · editorial</span></div>
+      <div class="prev" aria-hidden="true">
+        <div class="prev__bar"><i class="prev__dot"></i><i class="prev__dot"></i><i class="prev__dot"></i><span class="prev__word">Web Academy</span></div>
+        <div class="prev__body"><div class="prev__line"></div><div class="prev__line"></div><div class="prev__line"></div></div>
+      </div>
+      <h2>Atelier</h2>
+      <p>White paper and hairlines. A cohort academy for people who read closely.</p>
+      <span class="tile__go">Open Atelier
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
+
+    <a class="tile t--aero" href="03-aero-academy/dist/">
+      <div class="tile__top"><span class="tile__n">03</span><span class="tile__temp">Dark · cinematic</span></div>
+      <div class="prev" aria-hidden="true">
+        <div class="prev__bar"><i class="prev__dot"></i><i class="prev__dot"></i><i class="prev__dot"></i><span class="prev__word">Web Academy</span></div>
+        <div class="prev__body"><div class="prev__line"></div><div class="prev__line"></div><div class="prev__line"></div></div>
+      </div>
+      <h2>Aero</h2>
+      <p>The live academy. Glass, glow and a room you can walk into.</p>
+      <span class="tile__go">Open Aero
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
+
+    <a class="tile t--folio" href="04-folio-landing/dist/">
+      <div class="tile__top"><span class="tile__n">04</span><span class="tile__temp">Bright · conversion</span></div>
+      <div class="prev" aria-hidden="true">
+        <div class="prev__bar"><i class="prev__dot"></i><i class="prev__dot"></i><i class="prev__dot"></i><span class="prev__word">Web Academy</span></div>
+        <div class="prev__body"><div class="prev__line"></div><div class="prev__line"></div><div class="prev__line"></div></div>
+      </div>
+      <h2>Folio</h2>
+      <p>A gallery that converts. One page for instructors whose work is the pitch.</p>
+      <span class="tile__go">Open Folio
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
+  </div>
+
+  <footer class="foot">
+    <div class="swatches" aria-label="Brand palette">
+      <span style="background:#012A5D" title="Navy #012A5D"></span>
+      <span style="background:#001A3D" title="Navy deep #001A3D"></span>
+      <span style="background:#8DB8FF" title="Sky #8DB8FF"></span>
+      <span style="background:#EAF1FB" title="Ice #EAF1FB"></span>
+      <span style="background:#C8F560" title="Lime #C8F560"></span>
+    </div>
+    <span class="foot__mono">© <span id="y">2026</span> Web Academy · fictional brand</span>
+    <span><a href="README.md">README</a></span>
+  </footer>
+</div>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

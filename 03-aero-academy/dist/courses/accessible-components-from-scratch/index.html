@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="no-js" data-theme="aero">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessible components from scratch · Web Academy</title>
+<meta name="description" content="A 7-lesson engineering course with Idris.">
+<meta name="theme-color" content="#001A3D">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Accessible components from scratch · Web Academy">
+<meta property="og:description" content="A 7-lesson engineering course with Idris.">
+<meta property="og:image" content="assets/brand/og-aero.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/brand/favicon-aero.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/brand/wa-icon-lime.svg">
+<link rel="preload" href="../../assets/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/aero.css">
+<script>document.documentElement.classList.remove('no-js')</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Web Academy","description":"The live academy","slogan":"Teach the world","url":"https://webacademy.example","sameAs":[]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Accessible components from scratch","description":"This course is built around one idea: you learn a craft by making things and having them looked at. Each section pairs a short demonstration with a project you can finish in an evening, then reviews the result against a clear standard.","provider":{"@type":"Organization","name":"Web Academy"}}</script>
+</head>
+<body class="" data-page="aero">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress" data-progress aria-hidden="true"></div>
+<header class="nav nav--split" data-nav>
+    <div class="nav__inner container">
+      <ul class="nav__links nav__links--start"><li class="nav__item"><a class="nav__link" href="../../courses/">Courses</a></li><li class="nav__item"><a class="nav__link" href="../../live/">Live</a></li><li class="nav__item"><a class="nav__link" href="../../instructors/">Instructors</a></li><li class="nav__item"><a class="nav__link" href="../../teach/">Teach</a></li><li class="nav__item"><a class="nav__link" href="../../library/">Library</a></li><li class="nav__item"><a class="nav__link" href="../../blog/">Journal</a></li><li class="nav__item"><a class="nav__link" href="../../about/">About</a></li></ul>
+      <a class="brand brand--nav" href="../../" aria-label="Web Academy — home">
+    <img class="brand__mark" src="../../assets/brand/wa-icon-navy-small.svg" alt="" width="34" height="34" decoding="async">
+    <span class="brand__word">Web&nbsp;Academy</span>
+    <span class="brand__chip">AERO</span>
+  </a>
+      <div class="nav__end">
+        <ul class="nav__links nav__links--end"></ul>
+        <div class="nav__actions">
+          <div class="nav__themes " data-menu>
+      <button class="nav__link nav__link--themes" type="button" data-menu-trigger aria-expanded="false" aria-haspopup="true" title="Switch template">
+        <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span class="nav__themes-label">Themes</span>
+      </button>
+      <div class="menu-panel menu-panel--themes" data-menu-panel hidden>
+        <p class="menu-panel__title mono">Four templates · one brand</p>
+        <ul class="themes__list"><li>
+      <a class="themes__item " href="../../../../01-nova-academy/dist/"
+         >
+        <span class="themes__swatch themes__swatch--nova" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Nova</strong><small>Light · playful</small></span>
+        <svg class="ic themes__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li><li>
+      <a class="themes__item " href="../../../../02-atelier-academy/dist/"
+         >
+        <span class="themes__swatch themes__swatch--atelier" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Atelier</strong><small>Paper · editorial</small></span>
+        <svg class="ic themes__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li><li>
+      <a class="themes__item is-current" href="../../../../03-aero-academy/dist/"
+         aria-current="true">
+        <span class="themes__swatch themes__swatch--aero" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Aero</strong><small>Dark · cinematic</small></span>
+        <span class="themes__now">Current</span>
+      </a>
+    </li><li>
+      <a class="themes__item " href="../../../../04-folio-landing/dist/"
+         >
+        <span class="themes__swatch themes__swatch--folio" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Folio</strong><small>Bright · conversion</small></span>
+        <svg class="ic themes__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li></ul>
+        <a class="themes__all" href="../../../../index.html">All themes <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </div>
+          <a class="btn btn--ghost btn--sm nav__login" href="../../signin/">Log in</a>
+          <a class="btn btn--primary btn--sm nav__cta" href="../../pricing/">Start learning</a>
+          <button class="nav__burger" type="button" data-drawer-toggle aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+            <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer" id="drawer" data-drawer hidden>
+      <div class="drawer__head">
+        <a class="brand brand--nav" href="../../" aria-label="Web Academy — home">
+    <img class="brand__mark" src="../../assets/brand/wa-icon-navy-small.svg" alt="" width="34" height="34" decoding="async">
+    <span class="brand__word">Web&nbsp;Academy</span>
+    <span class="brand__chip">AERO</span>
+  </a>
+        <button class="drawer__close" type="button" data-drawer-close aria-label="Close menu"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+      </div>
+      <nav class="drawer__nav" aria-label="Mobile">
+        <ul><li><a class="drawer__link" href="../../courses/"><span class="drawer__num">01</span>Courses</a>
+            </li><li><a class="drawer__link" href="../../live/"><span class="drawer__num">02</span>Live</a>
+            </li><li><a class="drawer__link" href="../../instructors/"><span class="drawer__num">03</span>Instructors</a>
+            </li><li><a class="drawer__link" href="../../teach/"><span class="drawer__num">04</span>Teach</a>
+            </li><li><a class="drawer__link" href="../../library/"><span class="drawer__num">05</span>Library</a>
+            </li><li><a class="drawer__link" href="../../blog/"><span class="drawer__num">06</span>Journal</a>
+            </li><li><a class="drawer__link" href="../../about/"><span class="drawer__num">07</span>About</a>
+            </li></ul>
+        <p class="drawer__label mono">Templates</p>
+        <ul class="drawer__themes"><li><a href="../../../../01-nova-academy/dist/" >Nova<small>Light · playful</small></a></li><li><a href="../../../../02-atelier-academy/dist/" >Atelier<small>Paper · editorial</small></a></li><li><a href="../../../../03-aero-academy/dist/" aria-current="true">Aero<small>Dark · cinematic</small></a></li><li><a href="../../../../04-folio-landing/dist/" >Folio<small>Bright · conversion</small></a></li></ul>
+      </nav>
+      <div class="drawer__foot">
+        <a class="btn btn--ghost btn--block" href="../../signin/">Log in</a>
+        <a class="btn btn--primary btn--block" href="../../pricing/">Start learning</a>
+      </div>
+    </div>
+  </header>
+<main id="main">
+
+  <div class="page-head"><div class="container page-head__inner">
+    <ol class="breadcrumb"><li><a href="../../">Home</a></li><li><a href="../">Courses</a></li><li>Engineering</li></ol>
+    <div class="flex wrap gap-2"><span class="chip chip--lime">Advanced</span><span class="chip chip--outline">Engineering</span><span class="chip chip--outline">Updated September 2026</span></div>
+    <h1>Accessible components from scratch</h1>
+    <p class="lede">A 7-lesson engineering course with Idris.</p>
+    <div class="flex wrap gap-5 items-center">
+      <span class="flex items-center gap-2"><span class="stars" role="img" aria-label="5 out of 5"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 4 2.3 5.1 5.7.6-4.3 3.8 1.2 5.5L12 16.2 7.1 19l1.2-5.5L4 9.7l5.7-.6L12 4Z" fill="currentColor" stroke="none"/></svg><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 4 2.3 5.1 5.7.6-4.3 3.8 1.2 5.5L12 16.2 7.1 19l1.2-5.5L4 9.7l5.7-.6L12 4Z" fill="currentColor" stroke="none"/></svg><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 4 2.3 5.1 5.7.6-4.3 3.8 1.2 5.5L12 16.2 7.1 19l1.2-5.5L4 9.7l5.7-.6L12 4Z" fill="currentColor" stroke="none"/></svg><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 4 2.3 5.1 5.7.6-4.3 3.8 1.2 5.5L12 16.2 7.1 19l1.2-5.5L4 9.7l5.7-.6L12 4Z" fill="currentColor" stroke="none"/></svg><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 4 2.3 5.1 5.7.6-4.3 3.8 1.2 5.5L12 16.2 7.1 19l1.2-5.5L4 9.7l5.7-.6L12 4Z" fill="currentColor" stroke="none"/></svg></span> <strong class="num">4.7</strong> <span class="meta">(902)</span></span>
+      <span class="flex items-center gap-2 meta"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9.5" cy="8.5" r="3.2"/><path d="M3.5 19.5c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><path d="M16.5 6.2a3 3 0 0 1 0 5.6M18 14.8c2 .5 3.2 2.2 3.5 4.7"/></svg> <span class="num">168</span> learners</span>
+      <span class="flex items-center gap-2 meta"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg> 8h 18m</span>
+    </div>
+  </div></div>
+  <section class="section section--flush">
+    <div class="container grid" style="grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:clamp(24px,4vw,48px);align-items:start">
+      <div class="stack" style="--stack:var(--sp-8)">
+        <div class="stage" style="aspect-ratio:16/9">
+          <div class="stage__media"><img src="../../assets/img/cover-c7.svg" alt="" width="1280" height="720"></div>
+          <div class="stage__join"><button class="btn btn--primary btn--lg" type="button"><svg class="ic btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg> Play preview</button></div>
+        </div>
+        <div>
+          <h2 class="h3">What you will be able to do</h2>
+          <div class="grid grid--2 mt-4" style="gap:12px">
+            <p class="flex gap-2 items-start" style="font-size:.9375rem"><span class="chip chip--lime" style="height:20px;width:20px;padding:0;justify-content:center;flex:none;border-radius:50%"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span> ARIA patterns</p><p class="flex gap-2 items-start" style="font-size:.9375rem"><span class="chip chip--lime" style="height:20px;width:20px;padding:0;justify-content:center;flex:none;border-radius:50%"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span> Focus management</p><p class="flex gap-2 items-start" style="font-size:.9375rem"><span class="chip chip--lime" style="height:20px;width:20px;padding:0;justify-content:center;flex:none;border-radius:50%"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span> Testing</p><p class="flex gap-2 items-start" style="font-size:.9375rem"><span class="chip chip--lime" style="height:20px;width:20px;padding:0;justify-content:center;flex:none;border-radius:50%"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span> Explain your decisions to a team</p><p class="flex gap-2 items-start" style="font-size:.9375rem"><span class="chip chip--lime" style="height:20px;width:20px;padding:0;justify-content:center;flex:none;border-radius:50%"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span> Ship a project you can show</p>
+          </div>
+        </div>
+        <div>
+          <h2 class="h3">Curriculum</h2>
+          <div class="acc mt-4" data-acc="single">
+            
+              <div class="acc__item">
+                <h3><button class="acc__btn" type="button" data-acc-btn aria-expanded="true" aria-controls="s0">
+                  <span>Foundations <span class="meta" style="font-weight:400">· 4 lessons</span></span><span class="acc__sign" aria-hidden="true"></span>
+                </button></h3>
+                <div class="acc__panel" id="s0"><div>
+                  <div class="flex items-center gap-3" style="padding-block:10px;border-block-start:1px solid var(--line);font-size:.875rem;color:var(--ink-2)"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg><span>Why this matters</span><span class="chip chip--lime">PREVIEW</span><span class="meta" style="margin-inline-start:auto">8 min</span></div><div class="flex items-center gap-3" style="padding-block:10px;border-block-start:1px solid var(--line);font-size:.875rem;color:var(--ink-2)"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="6" width="17" height="12" rx="2.6"/><path d="m10 9.5 5 2.5-5 2.5v-5Z" fill="currentColor" stroke="none"/></svg><span>The vocabulary</span><span class="meta" style="margin-inline-start:auto">11 min</span></div><div class="flex items-center gap-3" style="padding-block:10px;border-block-start:1px solid var(--line);font-size:.875rem;color:var(--ink-2)"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="6" width="17" height="12" rx="2.6"/><path d="m10 9.5 5 2.5-5 2.5v-5Z" fill="currentColor" stroke="none"/></svg><span>A worked example</span><span class="meta" style="margin-inline-start:auto">14 min</span></div><div class="flex items-center gap-3" style="padding-block:10px;border-block-start:1px solid var(--line);font-size:.875rem;color:var(--ink-2)"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="6" width="17" height="12" rx="2.6"/><path d="m10 9.5 5 2.5-5 2.5v-5Z" fill="currentColor" stroke="none"/></svg><span>Common traps</span><span class="meta" style="margin-inline-start:auto">17 min</span></div>
+                </div></div>
+              </div>
+              <div class="acc__item">
+                <h3><button class="acc__btn" type="button" data-acc-btn aria-expanded="false" aria-controls="s1">
+                  <span>Practice <span class="meta" style="font-weight:400">· 4 lessons</span></span><span class="acc__sign" aria-hidden="true"></span>
+                </button></h3>
+                <div class="acc__panel" id="s1"><div>
+                  <div class="flex items-center gap-3" style="padding-block:10px;border-block-start:1px solid var(--line);font-size:.875rem;color:var(--ink-2)"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg><span>First build</span><span class="chip chip--lime">PREVIEW</span><span class="meta" style="margin-inline-start:auto">8 min</span></div><div class="flex items-center gap-3" style="padding-block:10px;border-block-start:1px solid var(--line);font-size:.875rem;color:var(--ink-2)"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="6" width="17" height="12" rx="2.6"/><path d="m10 9.5 5 2.5-5 2.5v-5Z" fill="currentColor" stroke="none"/></svg><span>Critique</span><span class="meta" style="margin-inline-start:auto">11 min</span></div><div class="flex items-center gap-3" style="padding-block:10px;border-block-start:1px solid var(--line);font-size:.875rem;color:var(--ink-2)"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="6" width="17" height="12" rx="2.6"/><path d="m10 9.5 5 2.5-5 2.5v-5Z" fill="currentColor" stroke="none"/></svg><span>Iterating with intent</span><span class="meta" style="margin-inline-start:auto">14 min</span></div><div class="flex items-center gap-3" style="padding-block:10px;border-block-start:1px solid var(--line);font-size:.875rem;color:var(--ink-2)"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="6" width="17" height="12" rx="2.6"/><path d="m10 9.5 5 2.5-5 2.5v-5Z" fill="currentColor" stroke="none"/></svg><span>Shipping checklists</span><span class="meta" style="margin-inline-start:auto">17 min</span></div>
+                </div></div>
+              </div>
+              <div class="acc__item">
+                <h3><button class="acc__btn" type="button" data-acc-btn aria-expanded="false" aria-controls="s2">
+                  <span>Going further <span class="meta" style="font-weight:400">· 3 lessons</span></span><span class="acc__sign" aria-hidden="true"></span>
+                </button></h3>
+                <div class="acc__panel" id="s2"><div>
+                  <div class="flex items-center gap-3" style="padding-block:10px;border-block-start:1px solid var(--line);font-size:.875rem;color:var(--ink-2)"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg><span>Advanced patterns</span><span class="chip chip--lime">PREVIEW</span><span class="meta" style="margin-inline-start:auto">8 min</span></div><div class="flex items-center gap-3" style="padding-block:10px;border-block-start:1px solid var(--line);font-size:.875rem;color:var(--ink-2)"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="6" width="17" height="12" rx="2.6"/><path d="m10 9.5 5 2.5-5 2.5v-5Z" fill="currentColor" stroke="none"/></svg><span>Case study</span><span class="meta" style="margin-inline-start:auto">11 min</span></div><div class="flex items-center gap-3" style="padding-block:10px;border-block-start:1px solid var(--line);font-size:.875rem;color:var(--ink-2)"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="6" width="17" height="12" rx="2.6"/><path d="m10 9.5 5 2.5-5 2.5v-5Z" fill="currentColor" stroke="none"/></svg><span>Where to read next</span><span class="meta" style="margin-inline-start:auto">14 min</span></div>
+                </div></div>
+              </div>
+          </div>
+        </div>
+        <div>
+          <h2 class="h3">Live schedule</h2>
+          <ul class="session-list mt-4">
+<li class="session-row">
+  <div class="session-row__time">
+    <span class="num" data-datetime="2026-11-03T18:00:00Z" data-datetime-format="time">—</span>
+    <span class="meta" data-datetime="2026-11-03T18:00:00Z">—</span>
+  </div>
+  <div class="session-row__main">
+    <div class="flex gap-2 items-center">
+      <span class="chip chip--outline">90 MIN</span>
+      <span class="meta">Ana Torres</span>
+    </div>
+    <h3 class="session-row__title"><a href="../../live/critique-night-portfolio-reviews/">Critique night: portfolio reviews</a></h3>
+  </div>
+  <div class="session-row__seats">
+    <span class="meta num">7 of 40 seats</span>
+    <div class="meter" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="40" aria-label="Seats filled"><span style="width:83%"></span></div>
+  </div>
+  <div class="session-row__cta"><a class="btn btn--ghost btn--sm" href="../../live/critique-night-portfolio-reviews/">Reserve</a></div>
+</li>
+<li class="session-row">
+  <div class="session-row__time">
+    <span class="num" data-datetime="2026-11-05T16:00:00Z" data-datetime-format="time">—</span>
+    <span class="meta" data-datetime="2026-11-05T16:00:00Z">—</span>
+  </div>
+  <div class="session-row__main">
+    <div class="flex gap-2 items-center">
+      <span class="chip chip--outline">60 MIN</span>
+      <span class="meta">Mei Lin</span>
+    </div>
+    <h3 class="session-row__title"><a href="../../live/interface-teardown-three-banks-one-flow/">Interface teardown: three banks, one flow</a></h3>
+  </div>
+  <div class="session-row__seats">
+    <span class="meta num">9 of 60 seats</span>
+    <div class="meter" role="progressbar" aria-valuenow="51" aria-valuemin="0" aria-valuemax="60" aria-label="Seats filled"><span style="width:85%"></span></div>
+  </div>
+  <div class="session-row__cta"><a class="btn btn--ghost btn--sm" href="../../live/interface-teardown-three-banks-one-flow/">Reserve</a></div>
+</li>
+<li class="session-row">
+  <div class="session-row__time">
+    <span class="num" data-datetime="2026-11-10T15:00:00Z" data-datetime-format="time">—</span>
+    <span class="meta" data-datetime="2026-11-10T15:00:00Z">—</span>
+  </div>
+  <div class="session-row__main">
+    <div class="flex gap-2 items-center">
+      <span class="chip chip--outline">75 MIN</span>
+      <span class="meta">Idris Bello</span>
+    </div>
+    <h3 class="session-row__title"><a href="../../live/accessibility-clinic-focus-and-keyboard/">Accessibility clinic: focus and keyboard</a></h3>
+  </div>
+  <div class="session-row__seats">
+    <span class="meta num">28 of 50 seats</span>
+    <div class="meter" role="progressbar" aria-valuenow="22" aria-valuemin="0" aria-valuemax="50" aria-label="Seats filled"><span style="width:44%"></span></div>
+  </div>
+  <div class="session-row__cta"><a class="btn btn--ghost btn--sm" href="../../live/accessibility-clinic-focus-and-keyboard/">Reserve</a></div>
+</li></ul>
+        </div>
+        <div>
+          <h2 class="h3">About this course</h2>
+          <div class="prose mt-3"><p>This course is built around one idea: you learn a craft by making things and having them looked at. Each section pairs a short demonstration with a project you can finish in an evening, then reviews the result against a clear standard.</p>
+            <p>Lessons are recorded in the same room you join, so you see the questions people actually ask. Files and code are yours to keep.</p></div>
+        </div>
+        <div>
+          <h2 class="h3">Reviews</h2>
+          <div class="mt-3"><div style="padding-block:16px;border-block-start:1px solid var(--line)">
+            <div class="flex items-center gap-3"><img class="avatar" src="../../assets/img/av-ana.svg" alt="" width="32" height="32"><strong style="font-size:.875rem">Priya S.</strong><span class="stars"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 4 2.3 5.1 5.7.6-4.3 3.8 1.2 5.5L12 16.2 7.1 19l1.2-5.5L4 9.7l5.7-.6L12 4Z" fill="currentColor" stroke="none"/></svg></span><span class="meta" style="margin-inline-start:auto">Sep 2026</span></div>
+            <p class="small" style="margin-block-start:8px">The clearest explanation of this material I have found. The critique sections alone were worth it.</p></div><div style="padding-block:16px;border-block-start:1px solid var(--line)">
+            <div class="flex items-center gap-3"><img class="avatar" src="../../assets/img/av-ana.svg" alt="" width="32" height="32"><strong style="font-size:.875rem">Daniel K.</strong><span class="stars"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 4 2.3 5.1 5.7.6-4.3 3.8 1.2 5.5L12 16.2 7.1 19l1.2-5.5L4 9.7l5.7-.6L12 4Z" fill="currentColor" stroke="none"/></svg></span><span class="meta" style="margin-inline-start:auto">Aug 2026</span></div>
+            <p class="small" style="margin-block-start:8px">Practical, well-paced, and generous with real examples. I shipped something in week two.</p></div><div style="padding-block:16px;border-block-start:1px solid var(--line)">
+            <div class="flex items-center gap-3"><img class="avatar" src="../../assets/img/av-ana.svg" alt="" width="32" height="32"><strong style="font-size:.875rem">Marwa A.</strong><span class="stars"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 4 2.3 5.1 5.7.6-4.3 3.8 1.2 5.5L12 16.2 7.1 19l1.2-5.5L4 9.7l5.7-.6L12 4Z" fill="currentColor" stroke="none"/></svg></span><span class="meta" style="margin-inline-start:auto">Aug 2026</span></div>
+            <p class="small" style="margin-block-start:8px">Excellent structure. I would have liked one more session on the advanced material.</p></div></div>
+        </div>
+      </div>
+      <aside class="earn__card" style="position:sticky;inset-block-start:96px">
+        <p class="kicker">Enrol</p>
+        <p class="calc__big" style="font-size:2rem">$135</p>
+        <a class="btn btn--primary btn--block btn--lg" href="../../pricing/">Enrol now</a>
+        <button class="btn btn--ghost btn--block" type="button" data-fav aria-pressed="false"><svg class="ic btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19.5s-7-4.3-7-9A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7 2.9c0 4.7-7 9-7 9Z"/></svg> Save for later</button>
+        <ul class="plan__list" style="margin-block-start:8px">
+          <li><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Lifetime access to the recordings</li>
+          <li><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Live office hours with the instructor</li>
+          <li><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Certificate of completion</li>
+          <li><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7"/></svg> 30-day refund</li>
+        </ul>
+        <div class="flex items-center gap-3" style="margin-block-start:8px;padding-block-start:16px;border-block-start:1px solid var(--line)">
+          <img class="avatar" src="../../assets/img/av-idris.svg" alt="" width="40" height="40">
+          <span><strong style="font-size:.875rem">Idris Bello</strong><br><span class="meta">Front-end engineering</span></span>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+<footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a class="brand brand--nav" href="../../" aria-label="Web Academy — home">
+    <img class="brand__mark" src="../../assets/brand/wa-icon-white-small.svg" alt="" width="34" height="34" decoding="async">
+    <span class="brand__word">Web&nbsp;Academy</span>
+    <span class="brand__chip">AERO</span>
+  </a>
+          <p class="footer__blurb">Live teaching, real rooms, and a way for instructors to earn from what they know. A fictional academy used to demonstrate this template.</p>
+          <p class="footer__tag mono">// keep looping</p>
+        </div>
+        <div class="footer__col">
+      <p class="footer__title mono">Learn</p>
+      <ul class="footer__list"><li><a href="../../courses/">Courses</a></li><li><a href="../../live/">Live sessions</a></li><li><a href="../../library/">Library</a></li><li><a href="../../pricing/">Membership</a></li></ul>
+    </div><div class="footer__col">
+      <p class="footer__title mono">Teach</p>
+      <ul class="footer__list"><li><a href="../../teach/">Teach with us</a></li><li><a href="../../teach/earnings/">Earnings calculator</a></li><li><a href="../../instructors/">Instructors</a></li><li><a href="../../contact/">Support</a></li></ul>
+    </div><div class="footer__col">
+      <p class="footer__title mono">Academy</p>
+      <ul class="footer__list"><li><a href="../../about/">About</a></li><li><a href="../../blog/">Journal</a></li><li><a href="../../contact/">Contact</a></li><li><a href="../../legal/accessibility/">Accessibility</a></li></ul>
+    </div>
+        <div class="footer__col footer__col--news">
+          <p class="footer__title mono">Stay in the loop</p>
+          <p class="small">One email a month. New courses, live sessions, no noise.</p>
+          <form class="footer__form" data-validate novalidate>
+            <label class="sr-only" for="footer-email">Email address</label>
+            <div class="field" data-field>
+              <input class="input" id="footer-email" name="email" type="email" placeholder="you@work.com" data-rules="required email" data-msg="Enter a valid email address." required aria-describedby="footer-email-err">
+              <p class="field__error" id="footer-email-err"></p>
+            </div>
+            <button class="btn btn--primary btn--sm" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="meta">© <span data-year>2026</span> Web Academy. A fictional brand used for design demonstration.</p>
+        <ul class="footer__legal">
+          <li><a href="../../legal/privacy/">Privacy</a></li>
+          <li><a href="../../legal/terms/">Terms</a></li>
+          <li><a href="../../legal/accessibility/">Accessibility</a></li>
+          <li><a href="../../../../index.html">All themes</a></li>
+        </ul>
+        <span class="footer__mark" aria-hidden="true"><img src="../../assets/brand/wa-mark-white.svg" alt="" width="18" height="18"></span>
+      </div>
+    </div>
+  </footer>
+<div class="switcher" data-switcher>
+    <div class="switcher__panel" id="switcher-panel">
+      <p class="switcher__title mono">Templates</p>
+      <ul class="themes__list"><li>
+      <a class="themes__item " href="../../../../01-nova-academy/dist/"
+         >
+        <span class="themes__swatch themes__swatch--nova" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Nova</strong><small>Light · playful</small></span>
+        <svg class="ic themes__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li><li>
+      <a class="themes__item " href="../../../../02-atelier-academy/dist/"
+         >
+        <span class="themes__swatch themes__swatch--atelier" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Atelier</strong><small>Paper · editorial</small></span>
+        <svg class="ic themes__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li><li>
+      <a class="themes__item is-current" href="../../../../03-aero-academy/dist/"
+         aria-current="true">
+        <span class="themes__swatch themes__swatch--aero" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Aero</strong><small>Dark · cinematic</small></span>
+        <span class="themes__now">Current</span>
+      </a>
+    </li><li>
+      <a class="themes__item " href="../../../../04-folio-landing/dist/"
+         >
+        <span class="themes__swatch themes__swatch--folio" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Folio</strong><small>Bright · conversion</small></span>
+        <svg class="ic themes__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li></ul>
+    </div>
+    <button class="switcher__btn" type="button" data-switcher-btn aria-expanded="false" aria-controls="switcher-panel" aria-label="Switch template">
+      <img src="../../assets/brand/wa-icon-navy-small.svg" alt="" width="22" height="22">
+      <span class="switcher__close" aria-hidden="true"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></span>
+    </button>
+  </div>
+<script src="../../assets/js/aero.js" defer></script>
+</body>
+</html>
