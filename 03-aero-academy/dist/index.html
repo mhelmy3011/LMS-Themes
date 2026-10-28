@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="no-js" data-theme="aero">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Academy Aero · Web Academy</title>
+<meta name="description" content="Live courses taught by working instructors, plus a way to earn from what you already know.">
+<meta name="theme-color" content="#001A3D">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Web Academy Aero · Web Academy">
+<meta property="og:description" content="Live courses taught by working instructors, plus a way to earn from what you already know.">
+<meta property="og:image" content="assets/brand/og-aero.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/brand/favicon-aero.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/brand/wa-icon-lime.svg">
+<link rel="preload" href="assets/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/aero.css">
+<script>document.documentElement.classList.remove('no-js')</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Web Academy","description":"The live academy","slogan":"Teach the world","url":"https://webacademy.example","sameAs":[]}</script>
+</head>
+<body class="home" data-page="aero">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav nav--split" data-nav>
+    <div class="nav__inner container">
+      <ul class="nav__links nav__links--start"><li class="nav__item"><a class="nav__link" href="courses/">Courses</a></li><li class="nav__item"><a class="nav__link" href="live/">Live</a></li><li class="nav__item"><a class="nav__link" href="instructors/">Instructors</a></li><li class="nav__item"><a class="nav__link" href="teach/">Teach</a></li><li class="nav__item"><a class="nav__link" href="library/">Library</a></li><li class="nav__item"><a class="nav__link" href="blog/">Journal</a></li><li class="nav__item"><a class="nav__link" href="about/">About</a></li></ul>
+      <a class="brand brand--nav" href="" aria-label="Web Academy — home">
+    <img class="brand__mark" src="assets/brand/wa-icon-navy-small.svg" alt="" width="34" height="34" decoding="async">
+    <span class="brand__word">Web&nbsp;Academy</span>
+    <span class="brand__chip">AERO</span>
+  </a>
+      <div class="nav__end">
+        <ul class="nav__links nav__links--end"></ul>
+        <div class="nav__actions">
+          <div class="nav__themes " data-menu>
+      <button class="nav__link nav__link--themes" type="button" data-menu-trigger aria-expanded="false" aria-haspopup="true" title="Switch template">
+        <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span class="nav__themes-label">Themes</span>
+      </button>
+      <div class="menu-panel menu-panel--themes" data-menu-panel hidden>
+        <p class="menu-panel__title mono">Four templates · one brand</p>
+        <ul class="themes__list"><li>
+      <a class="themes__item " href="../../01-nova-academy/dist/"
+         >
+        <span class="themes__swatch themes__swatch--nova" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Nova</strong><small>Light · playful</small></span>
+        <svg class="ic themes__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li><li>
+      <a class="themes__item " href="../../02-atelier-academy/dist/"
+         >
+        <span class="themes__swatch themes__swatch--atelier" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Atelier</strong><small>Paper · editorial</small></span>
+        <svg class="ic themes__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li><li>
+      <a class="themes__item is-current" href="../../03-aero-academy/dist/"
+         aria-current="true">
+        <span class="themes__swatch themes__swatch--aero" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Aero</strong><small>Dark · cinematic</small></span>
+        <span class="themes__now">Current</span>
+      </a>
+    </li><li>
+      <a class="themes__item " href="../../04-folio-landing/dist/"
+         >
+        <span class="themes__swatch themes__swatch--folio" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Folio</strong><small>Bright · conversion</small></span>
+        <svg class="ic themes__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li></ul>
+        <a class="themes__all" href="../../index.html">All themes <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </div>
+          <a class="btn btn--ghost btn--sm nav__login" href="signin/">Log in</a>
+          <a class="btn btn--primary btn--sm nav__cta" href="pricing/">Start learning</a>
+          <button class="nav__burger" type="button" data-drawer-toggle aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+            <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer" id="drawer" data-drawer hidden>
+      <div class="drawer__head">
+        <a class="brand brand--nav" href="" aria-label="Web Academy — home">
+    <img class="brand__mark" src="assets/brand/wa-icon-navy-small.svg" alt="" width="34" height="34" decoding="async">
+    <span class="brand__word">Web&nbsp;Academy</span>
+    <span class="brand__chip">AERO</span>
+  </a>
+        <button class="drawer__close" type="button" data-drawer-close aria-label="Close menu"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+      </div>
+      <nav class="drawer__nav" aria-label="Mobile">
+        <ul><li><a class="drawer__link" href="courses/"><span class="drawer__num">01</span>Courses</a>
+            </li><li><a class="drawer__link" href="live/"><span class="drawer__num">02</span>Live</a>
+            </li><li><a class="drawer__link" href="instructors/"><span class="drawer__num">03</span>Instructors</a>
+            </li><li><a class="drawer__link" href="teach/"><span class="drawer__num">04</span>Teach</a>
+            </li><li><a class="drawer__link" href="library/"><span class="drawer__num">05</span>Library</a>
+            </li><li><a class="drawer__link" href="blog/"><span class="drawer__num">06</span>Journal</a>
+            </li><li><a class="drawer__link" href="about/"><span class="drawer__num">07</span>About</a>
+            </li></ul>
+        <p class="drawer__label mono">Templates</p>
+        <ul class="drawer__themes"><li><a href="../../01-nova-academy/dist/" >Nova<small>Light · playful</small></a></li><li><a href="../../02-atelier-academy/dist/" >Atelier<small>Paper · editorial</small></a></li><li><a href="../../03-aero-academy/dist/" aria-current="true">Aero<small>Dark · cinematic</small></a></li><li><a href="../../04-folio-landing/dist/" >Folio<small>Bright · conversion</small></a></li></ul>
+      </nav>
+      <div class="drawer__foot">
+        <a class="btn btn--ghost btn--block" href="signin/">Log in</a>
+        <a class="btn btn--primary btn--block" href="pricing/">Start learning</a>
+      </div>
+    </div>
+  </header>
+<main id="main">
+
+  <section class="hero night">
+    <div class="glow glow--sky" aria-hidden="true"></div>
+    <div class="glow glow--lime" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <p class="kicker"><span class="kicker__dot"></span>// Live academy</p>
+          <h1 class="hero__title">
+            Learn from people who are
+            <span class="em" data-typein aria-label="still doing the work">still doing the work</span>
+          </h1>
+          <p class="lede">Live rooms every week, recordings the same day, and instructors you can ask a question to. Or teach here and keep 88% of what you charge.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="live/">Join a live session</a>
+            <a class="btn btn--ghost btn--lg" href="teach/">Teach on Web Academy <svg class="ic btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <div class="proof">
+            <div class="flex items-center gap-3">
+              <span class="proof__avatars">
+                <img src="assets/img/av-sofia.svg" alt="" width="36" height="36">
+                <img src="assets/img/av-omar.svg" alt="" width="36" height="36">
+                <img src="assets/img/av-hala.svg" alt="" width="36" height="36">
+              </span>
+              <span><span class="proof__num" data-count="25400">25,400</span><span class="proof__label">learners since 2022</span></span>
+            </div>
+            <div>
+              <span class="proof__num">4.9</span>
+              <span class="proof__label">avg. session rating</span>
+            </div>
+          </div>
+        </div>
+        <div class="stage-wrap">
+          
+<div class="stage" data-stage>
+  <div class="stage__media">
+    <img src="assets/img/aero-room.svg" alt="Live session in progress" width="1280" height="800" fetchpriority="high">
+  </div>
+  <div class="stage__scrim" aria-hidden="true"></div>
+  <div class="stage__top">
+    <div class="stage__people">
+      <img src="assets/img/av-ana.svg" alt="" width="32" height="32">
+      <img src="assets/img/av-idris.svg" alt="" width="32" height="32">
+      <img src="assets/img/av-mei.svg" alt="" width="32" height="32">
+      <span>+ 38 in the room</span>
+    </div>
+    <span class="live-pill"><span class="live-dot" aria-hidden="true"></span>LIVE <span data-timer aria-live="off">00:14</span></span>
+  </div>
+  <div class="stage__join">
+    <a class="btn btn--primary btn--lg" href="live/motion-timing-workshop/">Join room</a>
+  </div>
+  <div class="stage__controls" role="group" aria-label="Room controls">
+    <button class="stage__btn" type="button" aria-pressed="false" aria-label="Mute microphone"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="3.5" width="6" height="10.5" rx="3"/><path d="M6 11.5a6 6 0 0 0 12 0M12 17.5V21"/></svg></button>
+    <button class="stage__btn" type="button" aria-pressed="true" aria-label="Turn camera off"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="7" width="12.5" height="10" rx="2.4"/><path d="m16 11 4.5-3v8L16 13"/></svg></button>
+    <button class="stage__btn stage__btn--leave" type="button" aria-label="Leave the room"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3.8 9.5 8 7.8 9.8c.9 2 2.4 3.5 4.4 4.4L14 12.5l4.2 2.5c-.4 2.4-2 4-4.4 4C8.6 19 5 15.4 5 10.2c0-2.4 1.6-4 4.2-4.4"/></svg></button>
+    <button class="stage__btn" type="button" aria-label="Room settings"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2.2M12 18.3v2.2M4.9 7.9l1.9 1.1M17.2 15l1.9 1.1M4.9 16.1l1.9-1.1M17.2 9l1.9-1.1"/></svg></button>
+  </div>
+</div>
+          <div class="stage-quote">
+            <p>“This is the only platform where I have actually finished a course.”</p>
+            <p>Priya S. · interface craft, cohort 6</p>
+            <a class="btn btn--ghost btn--sm" href="blog/">Read the story</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+<div class="horizon" aria-hidden="true">
+  <svg viewBox="0 0 2400 120" preserveAspectRatio="none" fill="none">
+    <path d="M0 60 c 42 -34 78 -34 120 0 c 42 34 78 34 120 0 c 42 -34 78 -34 120 0 c 42 34 78 34 120 0 c 42 -34 78 -34 120 0 c 42 34 78 34 120 0 c 42 -34 78 -34 120 0 c 42 34 78 34 120 0 c 42 -34 78 -34 120 0 c 42 34 78 34 120 0 c 42 -34 78 -34 120 0 c 42 34 78 34 120 0 c 42 -34 78 -34 120 0 c 42 34 78 34 120 0 c 42 -34 78 -34 120 0 c 42 34 78 34 120 0 c 42 -34 78 -34 120 0 c 42 34 78 34 120 0 c 42 -34 78 -34 120 0 c 42 34 78 34 120 0" vector-effect="non-scaling-stroke"/>
+  </svg>
+</div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="marquee" aria-label="Institutions that send teams">
+      <div class="marquee__track">
+        <span>Northline</span><span>Kestrel Studio</span><span>Foundry Labs</span><span>Marlowe & Co</span><span>Braid Collective</span><span>Atlas Type</span>
+        <span aria-hidden="true">Northline</span><span>Kestrel Studio</span><span>Foundry Labs</span><span>Marlowe & Co</span><span>Braid Collective</span><span>Atlas Type</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="split__media"><img src="assets/img/nova-collab.svg" alt="" width="900" height="700" loading="lazy"></div>
+        <div>
+          <p class="kicker"><span class="kicker__dot"></span>// Who we are</p>
+          <h2 class="h2" style="margin-block-start:12px">Teaching is a room,<br>not a video library.</h2>
+          <p class="lede" style="margin-block-start:14px">We started in 2022 with one live room and twelve people. The format has not changed, only the number of rooms.</p>
+          <p class="small" style="margin-block-start:12px">Every instructor here still practises. Sessions are capped so questions get answered, and everything is recorded so nobody loses the material.</p>
+          <div class="stat3" style="margin-block-start:24px">
+            <div><p class="stat3__v">1</p><p class="stat3__l">top-rated academy</p></div>
+            <div><p class="stat3__v" data-count="25400">25,400</p><p class="stat3__l">learners</p></div>
+            <div><p class="stat3__v">88%</p><p class="stat3__l">paid to instructors</p></div>
+          </div>
+          <a class="btn btn--ghost" href="about/" style="margin-block-start:24px">Watch the film <svg class="ic btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      
+  <div class="head ">
+    <div class="head__text">
+      <p class="kicker"><span class="kicker__dot"></span>// Live this week</p>
+      <h2 class="h2">Sessions you can join tonight</h2>
+      <p class="lede">Free to attend when you are a member. Every session is recorded, but the questions only happen live.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="live/">Full calendar <svg class="ic btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+      <ul class="session-list">
+        
+<li class="session-row">
+  <div class="session-row__time">
+    <span class="num" data-datetime="2026-11-12T17:00:00Z" data-datetime-format="time">—</span>
+    <span class="meta" data-datetime="2026-11-12T17:00:00Z">—</span>
+  </div>
+  <div class="session-row__main">
+    <div class="flex gap-2 items-center">
+      <span class="chip chip--lime"><span class="live-dot" aria-hidden="true"></span>LIVE</span>
+      <span class="meta">Sofia Marković</span>
+    </div>
+    <h3 class="session-row__title"><a href="live/motion-timing-workshop/">Motion timing workshop</a></h3>
+  </div>
+  <div class="session-row__seats">
+    <span class="meta num">0 of 45 seats</span>
+    <div class="meter" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="45" aria-label="Seats filled"><span style="width:100%"></span></div>
+  </div>
+  <div class="session-row__cta"><a class="btn btn--ghost btn--sm" href="live/motion-timing-workshop/">Reserve</a></div>
+</li>
+<li class="session-row">
+  <div class="session-row__time">
+    <span class="num" data-datetime="2026-11-03T18:00:00Z" data-datetime-format="time">—</span>
+    <span class="meta" data-datetime="2026-11-03T18:00:00Z">—</span>
+  </div>
+  <div class="session-row__main">
+    <div class="flex gap-2 items-center">
+      <span class="chip chip--outline">90 MIN</span>
+      <span class="meta">Ana Torres</span>
+    </div>
+    <h3 class="session-row__title"><a href="live/critique-night-portfolio-reviews/">Critique night: portfolio reviews</a></h3>
+  </div>
+  <div class="session-row__seats">
+    <span class="meta num">7 of 40 seats</span>
+    <div class="meter" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="40" aria-label="Seats filled"><span style="width:83%"></span></div>
+  </div>
+  <div class="session-row__cta"><a class="btn btn--ghost btn--sm" href="live/critique-night-portfolio-reviews/">Reserve</a></div>
+</li>
+<li class="session-row">
+  <div class="session-row__time">
+    <span class="num" data-datetime="2026-11-05T16:00:00Z" data-datetime-format="time">—</span>
+    <span class="meta" data-datetime="2026-11-05T16:00:00Z">—</span>
+  </div>
+  <div class="session-row__main">
+    <div class="flex gap-2 items-center">
+      <span class="chip chip--outline">60 MIN</span>
+      <span class="meta">Mei Lin</span>
+    </div>
+    <h3 class="session-row__title"><a href="live/interface-teardown-three-banks-one-flow/">Interface teardown: three banks, one flow</a></h3>
+  </div>
+  <div class="session-row__seats">
+    <span class="meta num">9 of 60 seats</span>
+    <div class="meter" role="progressbar" aria-valuenow="51" aria-valuemin="0" aria-valuemax="60" aria-label="Seats filled"><span style="width:85%"></span></div>
+  </div>
+  <div class="session-row__cta"><a class="btn btn--ghost btn--sm" href="live/interface-teardown-three-banks-one-flow/">Reserve</a></div>
+</li>
+<li class="session-row">
+  <div class="session-row__time">
+    <span class="num" data-datetime="2026-11-10T15:00:00Z" data-datetime-format="time">—</span>
+    <span class="meta" data-datetime="2026-11-10T15:00:00Z">—</span>
+  </div>
+  <div class="session-row__main">
+    <div class="flex gap-2 items-center">
+      <span class="chip chip--outline">75 MIN</span>
+      <span class="meta">Idris Bello</span>
+    </div>
+    <h3 class="session-row__title"><a href="live/accessibility-clinic-focus-and-keyboard/">Accessibility clinic: focus and keyboard</a></h3>
+  </div>
+  <div class="session-row__seats">
+    <span class="meta num">28 of 50 seats</span>
+    <div class="meter" role="progressbar" aria-valuenow="22" aria-valuemin="0" aria-valuemax="50" aria-label="Seats filled"><span style="width:44%"></span></div>
+  </div>
+  <div class="session-row__cta"><a class="btn btn--ghost btn--sm" href="live/accessibility-clinic-focus-and-keyboard/">Reserve</a></div>
+</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+  <div class="head ">
+    <div class="head__text">
+      <p class="kicker"><span class="kicker__dot"></span>// Instructors</p>
+      <h2 class="h2">Ways to earn from what you know</h2>
+      <p class="lede">Three formats, one payout date. The calculator is honest about the assumptions.</p>
+    </div>
+    
+  </div>
+      <div class="earn">
+        
+          <div class="earn__card">
+            <div class="earn__art"><img src="assets/img/cover-c1.svg" alt="" width="480" height="360" loading="lazy"></div>
+            <p class="earn__price">$49+</p>
+            <h3 class="h4" style="color:#fff">Self-paced course</h3>
+            <p class="small">Record once, sell forever. You set the price.</p>
+            <a class="link-arrow" href="teach/" style="margin-block-start:auto;color:#fff">How it works <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <div class="earn__card">
+            <div class="earn__art"><img src="assets/img/cover-c7.svg" alt="" width="480" height="360" loading="lazy"></div>
+            <p class="earn__price">$240+</p>
+            <h3 class="h4" style="color:#fff">Live cohort</h3>
+            <p class="small">Six weeks, a fixed room, a premium price.</p>
+            <a class="link-arrow" href="teach/" style="margin-block-start:auto;color:#fff">How it works <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <div class="earn__card">
+            <div class="earn__art"><img src="assets/img/cover-c9.svg" alt="" width="480" height="360" loading="lazy"></div>
+            <p class="earn__price">$19/mo</p>
+            <h3 class="h4" style="color:#fff">Membership</h3>
+            <p class="small">Monthly access to your sessions and archive.</p>
+            <a class="link-arrow" href="teach/" style="margin-block-start:auto;color:#fff">How it works <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+      </div>
+      <p class="small mt-6">Figures are illustrative. Payouts are monthly, on the 5th, and the platform keeps 12%.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      
+  <div class="head ">
+    <div class="head__text">
+      <p class="kicker"><span class="kicker__dot"></span>// Featured</p>
+      <h2 class="h2">Courses in progress</h2>
+      
+    </div>
+    <a class="btn btn--ghost btn--sm" href="courses/">All courses <svg class="ic btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+      <div class="grid grid--3">
+  <article class="card card--link course-card" data-tags="design Intermediate" data-text="Designing interfaces that scale Mei Lin design">
+    <div class="card__media">
+      <img src="assets/img/cover-c1.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+      <span class="chip card__flag chip--solid card__badge">Intermediate</span>
+      <span class="chip chip--solid card__flag">$129</span>
+    </div>
+    <div class="card__body">
+      <div class="card__meta"><span>Design</span><span>·</span><span>8 lessons</span></div>
+      <h3 class="card__title"><a class="card__cover" href="courses/designing-interfaces-that-scale/">Designing interfaces that scale</a></h3>
+      <div class="card__foot">
+        <span class="meta flex items-center gap-2">
+          <img class="avatar" src="assets/img/av-mei.svg" alt="" width="24" height="24">
+          Mei Lin
+        </span>
+        <span class="meta num">3h · 4.5★</span>
+      </div>
+    </div>
+  </article>
+  <article class="card card--link course-card" data-tags="visual Beginner" data-text="Illustration for editorial clients Ana Torres visual">
+    <div class="card__media">
+      <img src="assets/img/cover-c2.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+      <span class="chip card__flag chip--solid card__badge">Beginner</span>
+      <span class="chip chip--solid card__flag">$84</span>
+    </div>
+    <div class="card__body">
+      <div class="card__meta"><span>Visual craft</span><span>·</span><span>6 lessons</span></div>
+      <h3 class="card__title"><a class="card__cover" href="courses/illustration-for-editorial-clients/">Illustration for editorial clients</a></h3>
+      <div class="card__foot">
+        <span class="meta flex items-center gap-2">
+          <img class="avatar" src="assets/img/av-ana.svg" alt="" width="24" height="24">
+          Ana Torres
+        </span>
+        <span class="meta num">3h 53m · 4.7★</span>
+      </div>
+    </div>
+  </article>
+  <article class="card card--link course-card" data-tags="code Beginner" data-text="Front-end foundations with JavaScript Idris Bello code">
+    <div class="card__media">
+      <img src="assets/img/cover-c3.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+      <span class="chip chip--lime card__badge">Beginner</span>
+      <span class="chip chip--lime card__flag">FREE</span>
+    </div>
+    <div class="card__body">
+      <div class="card__meta"><span>Engineering</span><span>·</span><span>10 lessons</span></div>
+      <h3 class="card__title"><a class="card__cover" href="courses/front-end-foundations-with-javascript/">Front-end foundations with JavaScript</a></h3>
+      <div class="card__foot">
+        <span class="meta flex items-center gap-2">
+          <img class="avatar" src="assets/img/av-idris.svg" alt="" width="24" height="24">
+          Idris Bello
+        </span>
+        <span class="meta num">4h 46m · 4.9★</span>
+      </div>
+    </div>
+  </article></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+  <div class="head ">
+    <div class="head__text">
+      <p class="kicker"><span class="kicker__dot"></span>// In the room</p>
+      <h2 class="h2">Meet the instructors</h2>
+      
+    </div>
+    <a class="btn btn--ghost btn--sm" href="instructors/">All instructors <svg class="ic btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+      <div class="ic-grid">
+<a class="ic-tile" href="instructors/ana-torres/">
+  <img src="assets/img/av-ana.svg" alt="Portrait of Ana Torres" width="400" height="500" loading="lazy">
+  <span class="ic-tile__body">
+    <span class="ic-tile__name">Ana Torres <svg class="ic ic-tile__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+    <span class="ic-tile__role">Illustration · 12,800 learners</span>
+  </span>
+</a>
+<a class="ic-tile" href="instructors/idris-bello/">
+  <img src="assets/img/av-idris.svg" alt="Portrait of Idris Bello" width="400" height="500" loading="lazy">
+  <span class="ic-tile__body">
+    <span class="ic-tile__name">Idris Bello <svg class="ic ic-tile__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+    <span class="ic-tile__role">JavaScript · 21,400 learners</span>
+  </span>
+</a>
+<a class="ic-tile" href="instructors/mei-lin/">
+  <img src="assets/img/av-mei.svg" alt="Portrait of Mei Lin" width="400" height="500" loading="lazy">
+  <span class="ic-tile__body">
+    <span class="ic-tile__name">Mei Lin <svg class="ic ic-tile__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+    <span class="ic-tile__role">Product design · 9,600 learners</span>
+  </span>
+</a></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      
+  <div class="head ">
+    <div class="head__text">
+      <p class="kicker"><span class="kicker__dot"></span>// Library</p>
+      <h2 class="h2">Take something with you</h2>
+      
+    </div>
+    <a class="btn btn--ghost btn--sm" href="library/">Browse the library <svg class="ic btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+      <ul class="res-list">
+  <li class="res-row" data-tags="Guide" data-text="The interface audit checklist">
+    <span class="res-row__type chip chip--outline">Guide</span>
+    <div class="res-row__main">
+      <h3 class="h4"><a href="library/the-interface-audit-checklist/">The interface audit checklist</a></h3>
+      <p class="meta">Every check we run before a design review, in the order we run it.</p>
+    </div>
+    <span class="res-row__meta meta num">24 pages · 1.2 MB</span>
+    <a class="res-row__dl" href="library/the-interface-audit-checklist/" aria-label="Download The interface audit checklist"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v10.5M8 11l4 4 4-4M5 19.5h14"/></svg></a>
+  </li>
+  <li class="res-row" data-tags="Guide" data-text="Cohort facilitation playbook">
+    <span class="res-row__type chip chip--outline">Guide</span>
+    <div class="res-row__main">
+      <h3 class="h4"><a href="library/cohort-facilitation-playbook/">Cohort facilitation playbook</a></h3>
+      <p class="meta">Session structures, timing templates and the questions that open a room up.</p>
+    </div>
+    <span class="res-row__meta meta num">46 pages · 2.4 MB</span>
+    <a class="res-row__dl" href="library/cohort-facilitation-playbook/" aria-label="Download Cohort facilitation playbook"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v10.5M8 11l4 4 4-4M5 19.5h14"/></svg></a>
+  </li>
+  <li class="res-row" data-tags="Template" data-text="Design token starter kit">
+    <span class="res-row__type chip chip--outline">Template</span>
+    <div class="res-row__main">
+      <h3 class="h4"><a href="library/design-token-starter-kit/">Design token starter kit</a></h3>
+      <p class="meta">A JSON token set plus the generator we use in production.</p>
+    </div>
+    <span class="res-row__meta meta num">12 pages · 340 KB</span>
+    <a class="res-row__dl" href="library/design-token-starter-kit/" aria-label="Download Design token starter kit"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v10.5M8 11l4 4 4-4M5 19.5h14"/></svg></a>
+  </li>
+  <li class="res-row" data-tags="Checklist" data-text="Portfolio review scorecard">
+    <span class="res-row__type chip chip--outline">Checklist</span>
+    <div class="res-row__main">
+      <h3 class="h4"><a href="library/portfolio-review-scorecard/">Portfolio review scorecard</a></h3>
+      <p class="meta">The six criteria we use in critique night, with anchors for each score.</p>
+    </div>
+    <span class="res-row__meta meta num">4 pages · 180 KB</span>
+    <a class="res-row__dl" href="library/portfolio-review-scorecard/" aria-label="Download Portfolio review scorecard"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v10.5M8 11l4 4 4-4M5 19.5h14"/></svg></a>
+  </li></ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+  <div class="head head--center">
+    <div class="head__text">
+      <p class="kicker"><span class="kicker__dot"></span>// Voices</p>
+      <h2 class="h2">What learners and instructors say</h2>
+      
+    </div>
+    
+  </div>
+      <div class="grid grid--3">
+        
+          <figure class="earn__card" style="gap:12px">
+            <span style="font-size:2rem;color:var(--accent);line-height:1">“</span>
+            <blockquote style="color:#fff;font-size:.9375rem">I came for the illustration course and stayed for the critique nights. The feedback is specific enough to act on the same week.</blockquote>
+            <figcaption class="small" style="margin-block-start:auto">Léa M. — Illustrator, Lyon</figcaption>
+          </figure>
+          <figure class="earn__card" style="gap:12px">
+            <span style="font-size:2rem;color:var(--accent);line-height:1">“</span>
+            <blockquote style="color:#fff;font-size:.9375rem">The accessibility material is the first I have seen that treats it as engineering rather than a checklist. It changed how my team ships.</blockquote>
+            <figcaption class="small" style="margin-block-start:auto">Sam O. — Front-end lead, Manchester</figcaption>
+          </figure>
+          <figure class="earn__card" style="gap:12px">
+            <span style="font-size:2rem;color:var(--accent);line-height:1">“</span>
+            <blockquote style="color:#fff;font-size:.9375rem">Six weeks, one cohort, one honest critique. I rebuilt my portfolio and signed two clients before the cohort ended.</blockquote>
+            <figcaption class="small" style="margin-block-start:auto">Ines R. — Designer, Lisbon</figcaption>
+          </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      
+  <div class="head ">
+    <div class="head__text">
+      <p class="kicker"><span class="kicker__dot"></span>// Journal</p>
+      <h2 class="h2">Notes from the room</h2>
+      
+    </div>
+    <a class="btn btn--ghost btn--sm" href="blog/">All articles <svg class="ic btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+      <div class="grid grid--3">
+  <article class="card card--link post-card ">
+    <div class="card__media">
+      <img src="assets/img/post-1.svg" alt="" width="800" height="450" loading="lazy" decoding="async">
+    </div>
+    <div class="card__body">
+      <p class="kicker"><span class="kicker__dot"></span>Teaching</p>
+      <h3 class="card__title"><a class="card__cover" href="blog/why-we-teach-in-cohorts-not-just-courses/">Why we teach in cohorts, not just courses</a></h3>
+      
+      <div class="card__foot">
+        <span class="meta"><time datetime="2026-10-20T00:00:00.000Z">24 Sep 2026</time></span>
+        <span class="meta">7 min read</span>
+      </div>
+    </div>
+  </article>
+  <article class="card card--link post-card ">
+    <div class="card__media">
+      <img src="assets/img/post-2.svg" alt="" width="800" height="450" loading="lazy" decoding="async">
+    </div>
+    <div class="card__body">
+      <p class="kicker"><span class="kicker__dot"></span>Design</p>
+      <h3 class="card__title"><a class="card__cover" href="blog/the-case-against-the-hero-carousel/">The case against the hero carousel</a></h3>
+      
+      <div class="card__foot">
+        <span class="meta"><time datetime="2026-09-19T00:00:00.000Z">18 Sep 2026</time></span>
+        <span class="meta">6 min read</span>
+      </div>
+    </div>
+  </article>
+  <article class="card card--link post-card ">
+    <div class="card__media">
+      <img src="assets/img/post-3.svg" alt="" width="800" height="450" loading="lazy" decoding="async">
+    </div>
+    <div class="card__body">
+      <p class="kicker"><span class="kicker__dot"></span>Motion</p>
+      <h3 class="card__title"><a class="card__cover" href="blog/a-practical-guide-to-motion-restraint/">A practical guide to motion restraint</a></h3>
+      
+      <div class="card__foot">
+        <span class="meta"><time datetime="2026-08-18T00:00:00.000Z">11 Sep 2026</time></span>
+        <span class="meta">9 min read</span>
+      </div>
+    </div>
+  </article></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2" style="gap:var(--gutter)">
+        <div class="earn__card" style="padding:clamp(24px,3.4vw,44px)">
+          <p class="kicker">For learners</p>
+          <h2 class="h3" style="margin-block-start:8px">Learn something live this week.</h2>
+          <p class="small">Membership opens every session, every replay and the whole library.</p>
+          <a class="btn btn--primary" href="pricing/" style="margin-block-start:16px;align-self:flex-start">Start learning</a>
+        </div>
+        <div class="earn__card" style="padding:clamp(24px,3.4vw,44px)">
+          <p class="kicker">For instructors</p>
+          <h2 class="h3" style="margin-block-start:8px">Teach what you already know.</h2>
+          <p class="small">Build a course, run a cohort, keep 88%. We handle payments and replays.</p>
+          <a class="btn btn--ghost" href="teach/" style="margin-block-start:16px;align-self:flex-start">Apply to teach</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a class="brand brand--nav" href="" aria-label="Web Academy — home">
+    <img class="brand__mark" src="assets/brand/wa-icon-white-small.svg" alt="" width="34" height="34" decoding="async">
+    <span class="brand__word">Web&nbsp;Academy</span>
+    <span class="brand__chip">AERO</span>
+  </a>
+          <p class="footer__blurb">Live teaching, real rooms, and a way for instructors to earn from what they know. A fictional academy used to demonstrate this template.</p>
+          <p class="footer__tag mono">// keep looping</p>
+        </div>
+        <div class="footer__col">
+      <p class="footer__title mono">Learn</p>
+      <ul class="footer__list"><li><a href="courses/">Courses</a></li><li><a href="live/">Live sessions</a></li><li><a href="library/">Library</a></li><li><a href="pricing/">Membership</a></li></ul>
+    </div><div class="footer__col">
+      <p class="footer__title mono">Teach</p>
+      <ul class="footer__list"><li><a href="teach/">Teach with us</a></li><li><a href="teach/earnings/">Earnings calculator</a></li><li><a href="instructors/">Instructors</a></li><li><a href="contact/">Support</a></li></ul>
+    </div><div class="footer__col">
+      <p class="footer__title mono">Academy</p>
+      <ul class="footer__list"><li><a href="about/">About</a></li><li><a href="blog/">Journal</a></li><li><a href="contact/">Contact</a></li><li><a href="legal/accessibility/">Accessibility</a></li></ul>
+    </div>
+        <div class="footer__col footer__col--news">
+          <p class="footer__title mono">Stay in the loop</p>
+          <p class="small">One email a month. New courses, live sessions, no noise.</p>
+          <form class="footer__form" data-validate novalidate>
+            <label class="sr-only" for="footer-email">Email address</label>
+            <div class="field" data-field>
+              <input class="input" id="footer-email" name="email" type="email" placeholder="you@work.com" data-rules="required email" data-msg="Enter a valid email address." required aria-describedby="footer-email-err">
+              <p class="field__error" id="footer-email-err"></p>
+            </div>
+            <button class="btn btn--primary btn--sm" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="meta">© <span data-year>2026</span> Web Academy. A fictional brand used for design demonstration.</p>
+        <ul class="footer__legal">
+          <li><a href="legal/privacy/">Privacy</a></li>
+          <li><a href="legal/terms/">Terms</a></li>
+          <li><a href="legal/accessibility/">Accessibility</a></li>
+          <li><a href="../../index.html">All themes</a></li>
+        </ul>
+        <span class="footer__mark" aria-hidden="true"><img src="assets/brand/wa-mark-white.svg" alt="" width="18" height="18"></span>
+      </div>
+    </div>
+  </footer>
+<div class="switcher" data-switcher>
+    <div class="switcher__panel" id="switcher-panel">
+      <p class="switcher__title mono">Templates</p>
+      <ul class="themes__list"><li>
+      <a class="themes__item " href="../../01-nova-academy/dist/"
+         >
+        <span class="themes__swatch themes__swatch--nova" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Nova</strong><small>Light · playful</small></span>
+        <svg class="ic themes__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li><li>
+      <a class="themes__item " href="../../02-atelier-academy/dist/"
+         >
+        <span class="themes__swatch themes__swatch--atelier" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Atelier</strong><small>Paper · editorial</small></span>
+        <svg class="ic themes__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li><li>
+      <a class="themes__item is-current" href="../../03-aero-academy/dist/"
+         aria-current="true">
+        <span class="themes__swatch themes__swatch--aero" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Aero</strong><small>Dark · cinematic</small></span>
+        <span class="themes__now">Current</span>
+      </a>
+    </li><li>
+      <a class="themes__item " href="../../04-folio-landing/dist/"
+         >
+        <span class="themes__swatch themes__swatch--folio" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Folio</strong><small>Bright · conversion</small></span>
+        <svg class="ic themes__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li></ul>
+    </div>
+    <button class="switcher__btn" type="button" data-switcher-btn aria-expanded="false" aria-controls="switcher-panel" aria-label="Switch template">
+      <img src="assets/brand/wa-icon-navy-small.svg" alt="" width="22" height="22">
+      <span class="switcher__close" aria-hidden="true"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></span>
+    </button>
+  </div>
+<script src="assets/js/aero.js" defer></script>
+</body>
+</html>

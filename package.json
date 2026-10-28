@@ -1,0 +1,18 @@
+{
+  "name": "lms-themes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Four static academy/landing-page templates built from one visual identity — no framework, no bundler, no CDN.",
+  "scripts": {
+    "build": "node build-all.mjs",
+    "build:nova": "node 01-nova-academy/build.mjs",
+    "build:atelier": "node 02-atelier-academy/build.mjs",
+    "build:aero": "node 03-aero-academy/build.mjs",
+    "build:folio": "node 04-folio-landing/build.mjs",
+    "check": "node tools/check.mjs",
+    "serve": "node tools/serve.mjs",
+    "start": "node build-all.mjs && node tools/serve.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

@@ -21,7 +21,11 @@ Supporting source files (read-only references, never modified):
 | `VisualIdentity.pdf` | **The brand law.** 27 pages: story, logo construction, palette, typography, graphic elements, applications. |
 | `website1.jpg` `website2.jpg` `website3.jpg` `landing.jpg` | Layout + composition + motion references, one per template. |
 
-Each template folder contains a `PLAN.md`. The plan is the contract: an execution agent builds from it and a reviewer accepts or rejects against it. No code exists yet — plans only.
+Each template folder contains a `PLAN.md` (the contract) **and a built `dist/`** — the four templates are complete and runnable.
+
+### Where to start
+
+Open **`index.html`** at the repository root. It is the family hub: four cards, one per template, each opening the real site. Every template also links to the other three from its own navbar (**Themes ▸**), from the floating switcher, and from the footer's *All themes* link.
 
 ---
 
@@ -152,3 +156,59 @@ Hue-neutral derivatives (tints used for surfaces) are permitted only as mixes of
 ## 6. What "done" means
 
 A template is accepted when: its `dist/` builds clean, every listed page exists and is reachable from the navbar, the logo assets match the measured geometry in §3.4, the motion system degrades correctly under `prefers-reduced-motion`, the contrast law in §3.2 holds on every text node, the performance budget is met on a real throttled run, and the template still looks like it belongs to the same family as the other three.
+
+---
+
+## 7. Building and running
+
+Everything is static: HTML, CSS, self-hosted WOFF2, one classic script per template, and an ESM build kit that only runs at build time. No framework, no bundler, no CDN, no extra npm dependencies.
+
+```bash
+node build-all.mjs          # rebuild all four dist/ folders
+node 03-aero-academy/build.mjs   # rebuild one
+node tools/check.mjs        # structural QA across every dist/
+node tools/check.mjs 02-atelier-academy
+npm run serve               # zero-dependency preview on :4173
+```
+
+`npm run build` / `npm run build:<theme>` / `npm run check` / `npm run serve` are aliases for the same commands. **No `npm install` step is required** — `package.json` exists only for the script aliases.
+
+Opening `dist/index.html` directly from disk works too: every path is relative (`./`, `../`), there are no modules to CORS-block, and fonts/images are local. This is verified by the fact that the build only ever emits relative URLs.
+
+### Repository layout
+
+| Path | What it does |
+|------|--------------|
+| `shared/css/base.css` | Tokens from the PDF, primitives, a11y, reduced-motion twins. Concatenated *before* each theme. |
+| `shared/js/core.js` | Runtime keyed on data attributes (`data-nav`, `data-reveal`, `data-rail`, `data-validate`, `data-count`, `data-acc`, `data-progress`, `data-switcher`, …). |
+| `shared/lib/site.mjs` | Page shell, navbar/drawer/footer/switcher, asset pipeline, `build()`. |
+| `shared/lib/ui.mjs` | 52-icon set, shared components, `THEMES` registry (the cross-link table). |
+| `shared/lib/data.mjs` | Content model: 16 courses, 10 sessions, 12 resources, 9 posts, 8 faculty, plus `imageSet()`. |
+| `shared/lib/art.mjs` | Deterministic seeded SVG art for covers, portraits and tracks. |
+| `shared/brand/`, `shared/fonts/` | The extracted logo vectors (`currentColor`) and the two latin variable fonts. |
+| `tools/extract-logo.py` | Reproducible PDF → SVG brand-mark extractor (pymupdf + scikit-image). |
+| `tools/check.mjs` | Structural QA: page inventory, internal links, images, single-h1, heading order, palette, budgets. |
+| `tools/serve.mjs` | Static preview server, no dependencies. |
+| `NN-*/src/` | Per-template `theme.css`, `pages.mjs` (routes) and behaviour file. |
+| `NN-*/dist/` | Build output — committed so the sites can be opened without a toolchain. |
+
+### Page inventory (built)
+
+| Template | Pages | Includes |
+|----------|-------|----------|
+| Nova | 76 | Home, About, Courses + 16 detail, Tracks + 6, Live + 10, Library + 12, Blog + 9, Mentors + 8, Pricing, Contact, legal, styleguide, 404 |
+| Atelier | 79 | Home, Courses + 16, Cohorts + 6, Live + 10, Library + 12, Journal + 9, About, Faculty + 8, For teams, Tuition, Contact, Apply (3-step), Brand, legal, styleguide, 404 |
+| Aero | 72 | Home, Courses + 16, Live + 10, Instructors + 8, Teach + earnings calculator, Library + 12, Journal + 9, About, Pricing, Contact, Sign in, legal, styleguide, 404 |
+| Folio | 60 | Landing (11 sections) + Courses + 16, Live + 10, Library + 12, Journal + 9, About, Creators, Contact, Next steps, legal, 404 |
+
+Every dynamic item type — course, session, resource, article, instructor/mentor, cohort, track — has its own detail page.
+
+### Cross-template links
+
+`shared/lib/ui.mjs` holds the single `THEMES` table used by the navbar menu, the drawer and the floating switcher. A link is written as `${R}../../${t.dir}` where `R` is the page's depth, so the same menu works from any page at any depth. The hub at `index.html` is the only page that links with `dist/` paths from the root.
+
+### Deliberate omissions
+
+- No analytics, no third-party scripts, no cookie banner (nothing is collected).
+- Forms validate in the browser and stop there; the confirmation states are the deliverable, not a backend.
+- Copy is placeholder throughout, on purpose: the brief was logos, motion and craft.
