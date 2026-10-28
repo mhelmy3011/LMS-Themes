@@ -207,7 +207,7 @@ const everything = () => `
         ['folio-students', 'Your students', 'Your list stays yours. Export it any time, in one click.', 'about/'],
       ]
         .map(
-          ([art, t, b, href], i) => `<a class="trio__item" href="${href}" style="text-decoration:none;color:inherit" data-reveal style="--i:${i}">
+          ([art, t, b, href], i) => `<a class="trio__item" href="${href}" style="text-decoration:none;color:inherit;--i:${i}" data-reveal>
         <img src="{{R}}assets/img/${art}.svg" width="800" height="600" alt="" loading="lazy" decoding="async" data-float>
         <h3>${t}</h3><p>${b}</p>
         <span class="card__meta" style="margin-block-start:auto">${icon('arrowUpRight')} Open</span>
