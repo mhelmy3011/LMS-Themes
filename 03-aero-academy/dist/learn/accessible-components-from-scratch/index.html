@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="no-js" data-theme="aero" data-site-mode="academy">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="wa-locale-peer" content="../../ar/learn/accessible-components-from-scratch/index.html"><script data-language-boot>(function(){try{var r=document.documentElement,q=new URLSearchParams(location.search),x=q.get('lang'),p=localStorage.getItem('wa-language-v1');if(x==='en'||x==='ar'){localStorage.setItem('wa-language-v1',x);p=x;}if(r.lang==='ar'){localStorage.setItem('wa-language-v1','ar');}else if(p==='ar'&&x!=='en'){var m=document.querySelector('meta[name="wa-locale-peer"]');if(m){var u=new URL(m.content,location.href);u.search=location.search;u.hash=location.hash;location.replace(u.href);}}}catch(e){}})();</script>
+<title>Sample lesson · Accessible components from scratch · Web Academy</title>
+<meta name="description" content="A 7-lesson engineering course with Idris.">
+<meta name="theme-color" content="#001A3D">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sample lesson · Accessible components from scratch · Web Academy">
+<meta property="og:description" content="A 7-lesson engineering course with Idris.">
+<meta property="og:image" content="../../assets/brand/og-aero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/brand/favicon-aero.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/brand/app-icon-aero.png">
+<link rel="preload" href="../../assets/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/aero.css">
+
+<meta name="robots" content="noindex">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Web Academy","description":"The live academy","slogan":"Teach the world","url":"https://webacademy.example","sameAs":[]}</script>
+<link rel="alternate" hreflang="en" href="index.html"><link rel="alternate" hreflang="ar" href="../../ar/learn/accessible-components-from-scratch/index.html"><link rel="alternate" hreflang="x-default" href="index.html"><meta property="og:locale" content="en_GB"><meta property="og:locale:alternate" content="ar_EG"></head>
+<body class="" data-page="aero" data-route="learn/accessible-components-from-scratch/">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav nav--split" data-nav>
+    <div class="nav__inner container" role="navigation" aria-label="Primary">
+      <a class="brand brand--nav" href="../../index.html" aria-label="Web Academy — home">
+    <img class="brand__mark" src="../../assets/brand/wa-icon-white-small.svg" alt="" width="34" height="34" decoding="async">
+    <span class="brand__word">Web Academy</span>
+    <span class="brand__chip">AERO</span>
+  </a><ul class="nav__links nav__links--start"><li class="nav__item"><a class="nav__link" href="../../courses/index.html">Courses</a></li><li class="nav__item"><a class="nav__link" href="../../live/index.html">Live</a></li><li class="nav__item"><a class="nav__link" href="../../instructors/index.html">Instructors</a></li><li class="nav__item"><a class="nav__link" href="../../library/index.html">Library</a></li><li class="nav__item"><a class="nav__link" href="../../blog/index.html">Journal</a></li><li class="nav__item"><a class="nav__link" href="../../about/index.html">About</a></li></ul>
+      <div class="nav__end">
+        <ul class="nav__links nav__links--end"></ul>
+        <div class="nav__actions">
+          <div class="nav__themes " data-menu>
+      <button class="nav__link nav__link--themes" type="button" data-menu-trigger aria-expanded="false" aria-haspopup="true" title="Switch template">
+        <svg class="ic " data-icon="grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span class="nav__themes-label">Themes</span>
+      </button>
+      <div class="menu-panel menu-panel--themes" data-menu-panel hidden>
+        <p class="menu-panel__title mono">Four templates · one brand</p>
+        <ul class="themes__list"><li>
+      <a class="themes__item " href="../../../../01-nova-academy/dist/index.html"
+         >
+        <span class="themes__swatch themes__swatch--nova" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Nova</strong><small>Light · playful</small></span>
+        <svg class="ic themes__arrow" data-icon="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li><li>
+      <a class="themes__item " href="../../../../02-atelier-academy/dist/index.html"
+         >
+        <span class="themes__swatch themes__swatch--atelier" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Atelier</strong><small>Paper · editorial</small></span>
+        <svg class="ic themes__arrow" data-icon="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li><li>
+      <a class="themes__item is-current" href="../../../../03-aero-academy/dist/index.html"
+         aria-current="true">
+        <span class="themes__swatch themes__swatch--aero" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Aero</strong><small>Dark · cinematic</small></span>
+        <span class="themes__now">Current</span>
+      </a>
+    </li><li>
+      <a class="themes__item " href="../../../../04-folio-landing/dist/index.html"
+         >
+        <span class="themes__swatch themes__swatch--folio" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Folio</strong><small>Bright · conversion</small></span>
+        <svg class="ic themes__arrow" data-icon="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li></ul>
+        <a class="themes__all" href="../../../../index.html">All themes <svg class="ic " data-icon="arrowUpRight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </div>
+          <a class="nav__locale" href="../../ar/learn/accessible-components-from-scratch/index.html" data-language-switch="ar" hreflang="ar" aria-label="Switch to Arabic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg><span lang="ar" dir="rtl">العربية</span></a>
+          <a class="btn btn--ghost btn--sm nav__login" href="../../signin/index.html">Demo sign-in</a>
+          <a class="btn btn--primary btn--sm nav__cta" href="../../courses/index.html">Start learning</a>
+          <button class="nav__burger" type="button" data-drawer-toggle aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+            <svg class="ic " data-icon="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer" id="drawer" data-drawer role="dialog" aria-modal="true" aria-label="Academy navigation" hidden>
+      <div class="drawer__head">
+        <a class="brand brand--nav" href="../../index.html" aria-label="Web Academy — home">
+    <img class="brand__mark" src="../../assets/brand/wa-icon-white-small.svg" alt="" width="34" height="34" decoding="async">
+    <span class="brand__word">Web Academy</span>
+    <span class="brand__chip">AERO</span>
+  </a>
+        <button class="drawer__close" type="button" data-drawer-close aria-label="Close menu"><svg class="ic " data-icon="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+      </div>
+      <nav class="drawer__nav" aria-label="Mobile">
+        <ul><li><a class="drawer__link" href="../../courses/index.html"><span class="drawer__num">01</span>Courses</a>
+            </li><li><a class="drawer__link" href="../../live/index.html"><span class="drawer__num">02</span>Live</a>
+            </li><li><a class="drawer__link" href="../../instructors/index.html"><span class="drawer__num">03</span>Instructors</a>
+            </li><li><a class="drawer__link" href="../../library/index.html"><span class="drawer__num">04</span>Library</a>
+            </li><li><a class="drawer__link" href="../../blog/index.html"><span class="drawer__num">05</span>Journal</a>
+            </li><li><a class="drawer__link" href="../../about/index.html"><span class="drawer__num">06</span>About</a>
+            </li></ul>
+        <p class="drawer__label mono">Your learning</p><ul class="drawer__themes"><li><a href="../../saved/index.html">Saved courses</a></li><li><a href="../../learn/designing-interfaces-that-scale/index.html">Sample classroom</a></li></ul>
+        <p class="drawer__label mono">Templates</p><ul class="drawer__themes"><li><a href="../../../../01-nova-academy/dist/index.html" >Nova<small>Light · playful</small></a></li><li><a href="../../../../02-atelier-academy/dist/index.html" >Atelier<small>Paper · editorial</small></a></li><li><a href="../../../../03-aero-academy/dist/index.html" aria-current="true">Aero<small>Dark · cinematic</small></a></li><li><a href="../../../../04-folio-landing/dist/index.html" >Folio<small>Bright · conversion</small></a></li></ul>
+      </nav>
+      <div class="drawer__foot">
+        <a class="nav__locale" href="../../ar/learn/accessible-components-from-scratch/index.html" data-language-switch="ar" hreflang="ar" aria-label="Switch to Arabic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg><span lang="ar" dir="rtl">العربية</span></a>
+        <a class="btn btn--ghost btn--block" href="../../signin/index.html">Demo sign-in</a>
+        <a class="btn btn--primary btn--block" href="../../courses/index.html">Start learning</a>
+      </div>
+    </div>
+  </header>
+<noscript><aside class="edu-noscript" aria-label="JavaScript-free browsing"><p>Reading, navigation and downloads work without JavaScript. Enable it for filters, forms, saved courses, classroom controls and progress.</p><nav aria-label="Static navigation"><a href="../../index.html">Home</a><a href="../../courses/index.html">Courses</a><a href="../../live/index.html">Sessions</a><a href="../../library/index.html">Library</a><a href="../../contact/index.html">Contact</a><a href="../../../../index.html">All themes</a></nav></aside></noscript>
+<main id="main">
+<section class="edu-classroom" data-lesson="c7"><div class="container"><div class="edu-classroom__top"><a class="edu-text-link" href="../../courses/accessible-components-from-scratch/index.html"><svg class="ic " data-icon="chevronLeft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m14.5 6-6 6 6 6"/></svg> Back to the course</a><span class="edu-fine">SAMPLE CLASSROOM · LOCAL DEMO</span></div><div class="edu-classroom__layout"><aside class="edu-lesson-sidebar" aria-label="Lesson navigation"><p class="kicker">Engineering</p><h2 class="h4">Accessible components from scratch</h2><ol><li><a href="#lesson-0" aria-current="step"><span>01</span>Explore the idea</a></li><li><a href="#lesson-1" ><span>02</span>Try it yourself</a></li><li><a href="#lesson-2" ><span>03</span>Check your understanding</a></li></ol><div class="edu-lesson-progress"><label for="lesson-progress">Sample lesson progress</label><progress id="lesson-progress" value="0" max="3">0 of 3</progress><p data-lesson-status class="small" role="status">Ready when you are.</p></div><p class="edu-fine">Only completion is saved on this browser. Never your notes or personal details.</p><button class="edu-text-link" data-lesson-reset type="button">Reset this demo <svg class="ic " data-icon="settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2.2M12 18.3v2.2M4.9 7.9l1.9 1.1M17.2 15l1.9 1.1M4.9 16.1l1.9-1.1M17.2 9l1.9-1.1"/></svg></button></aside><div class="edu-lesson-content"><p class="kicker">A small lesson. A useful new perspective.</p><h1>Make a control work for everyone</h1><p class="lede">Choose semantic HTML before adding custom interaction.</p><div class="edu-lesson-art"><figure class="edu-scene" data-edu-scene data-scene-kind="path"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" class="edu-art" role="img" aria-labelledby="c7-lesson-title c7-lesson-desc" focusable="false"><title id="c7-lesson-title">Learning, beautifully illustrated</title><desc id="c7-lesson-desc">Four connected learning milestones lead from a first lesson to a finished project.</desc>
+ <rect x="70" y="75" width="660" height="470" rx="30" fill="#EAF1FB" /><text x="108" y="123" fill="#14427F" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="600" letter-spacing="2">YOUR NEXT CHAPTER</text><text x="108" y="166" fill="#012A5D" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="600" >A clear path. Your own pace.</text>
+ <path d="M142 380C142 210 328 449 328 280S514 409 514 260 658 320 658 220" fill="none" stroke="#8DB8FF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" /><path d="M142 380C142 210 328 449 328 280S514 409 514 260 658 320 658 220" fill="none" stroke="#012A5D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="edu-draw" pathLength="1"/>
+ <circle cx="142" cy="380" r="23" fill="#FFFFFF" stroke="#012A5D" stroke-width="2"/><text x="137" y="386" fill="#012A5D" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="600" >1</text><text x="112" y="430" fill="#012A5D" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="500" >Start here</text><circle cx="328" cy="280" r="23" fill="#FFFFFF" stroke="#012A5D" stroke-width="2"/><text x="323" y="286" fill="#012A5D" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="600" >2</text><text x="298" y="330" fill="#012A5D" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="500" >Build a skill</text><circle cx="514" cy="260" r="23" fill="#FFFFFF" stroke="#012A5D" stroke-width="2"/><text x="509" y="266" fill="#012A5D" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="600" >3</text><text x="484" y="310" fill="#012A5D" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="500" >Make a project</text><circle cx="658" cy="220" r="23" fill="#C8F560" stroke="#012A5D" stroke-width="2"/><g transform="translate(650 215) scale(1)"><path d="M0 7l5 5L16 0" fill="none" stroke="#012A5D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></g><text x="628" y="270" fill="#012A5D" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="500" >Own it</text>
+ <g class="edu-part edu-part--float" transform="translate(87 437) rotate(-8) scale(0.56)"><path d="M0 10Q42-2 84 14Q126-2 168 10v104q-42-12-84 4-42-16-84-4Z" fill="#FFFFFF" stroke="#012A5D" stroke-width="3"/><path d="M84 14v104" fill="none" stroke="#012A5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><rect x="14" y="34" width="53" height="5" rx="2" fill="#8DB8FF" /><rect x="14" y="52" width="53" height="5" rx="2" fill="#8DB8FF" /><rect x="14" y="70" width="34.45" height="5" rx="2" fill="#8DB8FF" /><rect x="100" y="34" width="52" height="5" rx="2" fill="#8DB8FF" /><rect x="100" y="52" width="52" height="5" rx="2" fill="#8DB8FF" /><rect x="100" y="70" width="33.800000000000004" height="5" rx="2" fill="#8DB8FF" /><path d="M15 99q26-5 52 2M100 101q26-7 52-2" fill="none" stroke="#14427F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g><text x="297" y="483" fill="#14427F" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="500" >Learn → practice → feedback → progress</text><g transform="translate(696 440) scale(0.8)"><path d="M0-12V12M-12 0H12M-8-8 8 8M8-8-8 8" fill="none" stroke="#012A5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g>
+ </svg><button class="edu-motion no-js-hide" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause illustration motion"><svg class="ic " data-icon="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg><span>Motion on</span></button></figure></div><section id="lesson-0" class="edu-lesson-section"><p class="kicker">01 / Explore</p><h2 class="h3">The idea, in practice.</h2><p>A button already supports focus, Enter and Space. A clickable div does not. Start with a button, give it a clear name, and keep its visible state aligned with its accessible state.</p><button class="btn btn--ghost" type="button" data-lesson-step="0"><svg class="ic " data-icon="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Mark this step complete</button></section><section id="lesson-1" class="edu-lesson-section"><p class="kicker">02 / Make</p><h2 class="h3">A ten-minute experiment.</h2><p>Find one interactive control in a project. Check its HTML element, keyboard behaviour and focus indicator. Write down one improvement.</p><label class="label" for="lesson-notes">Your working notes <span class="edu-fine">— optional, not stored</span></label><textarea class="textarea" id="lesson-notes" rows="4" placeholder="What did you try? What would you change?"></textarea><button class="btn btn--ghost" type="button" data-lesson-step="1"><svg class="ic " data-icon="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7"/></svg> I’ve tried the exercise</button></section><section id="lesson-2" class="edu-lesson-section"><p class="kicker">03 / Reflect</p><h2 class="h3">A quick check-in.</h2><form data-quiz data-answer="2" novalidate><fieldset aria-describedby="c7-quiz-feedback"><legend>What is the best starting element for an action that changes the current page?</legend><label class="edu-choice"><input type="radio" name="answer" value="0" required><span>A div with a click handler</span></label><label class="edu-choice"><input type="radio" name="answer" value="1" required><span>An image with an arrow</span></label><label class="edu-choice"><input type="radio" name="answer" value="2" required><span>A labelled button</span></label></fieldset><button class="btn btn--primary" type="submit">Check my answer <svg class="ic " data-icon="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p id="c7-quiz-feedback" class="edu-quiz-feedback" data-quiz-feedback role="status" data-explanation="A native button brings keyboard and accessibility behaviour with it. Enhance that foundation instead of rebuilding it."></p></form></section><div class="edu-lesson-done" data-lesson-done hidden><img src="../../assets/img/edu-state-complete.svg" alt="" width="160" height="120"><h2 class="h3">A small step. A real start.</h2><p>You completed the sample lesson. Keep the question, try another draft, or explore the full curriculum.</p><a class="btn btn--primary" href="../../courses/accessible-components-from-scratch/index.html">Back to the full course <svg class="ic " data-icon="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></div></div></section>
+</main>
+<footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a class="brand brand--nav" href="../../index.html" aria-label="Web Academy — home">
+    <img class="brand__mark" src="../../assets/brand/wa-icon-white-small.svg" alt="" width="34" height="34" decoding="async">
+    <span class="brand__word">Web Academy</span>
+    <span class="brand__chip">AERO</span>
+  </a>
+          <p class="footer__blurb">Live teaching, real rooms, and a way for instructors to earn from what they know. A fictional academy used to demonstrate this template.</p>
+          <p class="footer__tag mono">// keep looping</p>
+        </div>
+        <div class="footer__col">
+      <p class="footer__title mono">Learn</p>
+      <ul class="footer__list"><li><a href="../../courses/index.html">Courses</a></li><li><a href="../../live/index.html">Live sessions</a></li><li><a href="../../library/index.html">Library</a></li><li><a href="../../pricing/index.html">Membership</a></li></ul>
+    </div><div class="footer__col">
+      <p class="footer__title mono">Teach</p>
+      <ul class="footer__list"><li><a href="../../teach/index.html">Teach with us</a></li><li><a href="../../teach/earnings/index.html">Earnings calculator</a></li><li><a href="../../instructors/index.html">Instructors</a></li><li><a href="../../contact/index.html">Support</a></li></ul>
+    </div><div class="footer__col">
+      <p class="footer__title mono">Academy</p>
+      <ul class="footer__list"><li><a href="../../about/index.html">About</a></li><li><a href="../../blog/index.html">Journal</a></li><li><a href="../../contact/index.html">Contact</a></li><li><a href="../../legal/accessibility/index.html">Accessibility</a></li></ul>
+    </div>
+        <div class="footer__col footer__col--news">
+          <p class="footer__title mono">Stay in the loop</p>
+          <p class="small">Try the newsletter form. Demo only—no email is sent.</p>
+          <form class="footer__form" data-validate novalidate>
+            <label class="sr-only" for="footer-email">Email address</label>
+            <div class="field" data-field>
+              <input class="input" id="footer-email" name="email" type="email" placeholder="you@work.com" data-rules="required email" data-msg="Enter a valid email address." required aria-describedby="footer-email-err">
+              <p class="field__error" id="footer-email-err"></p>
+            </div>
+            <button class="btn btn--primary btn--sm" type="submit">Subscribe · demo</button>
+          </form>
+        </div>
+      </div>
+      <div class="edu-footer-learning"><a href="../../saved/index.html"><svg class="ic " data-icon="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19.5s-7-4.3-7-9A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7 2.9c0 4.7-7 9-7 9Z"/></svg> Saved courses</a><a href="../../learn/designing-interfaces-that-scale/index.html"><svg class="ic " data-icon="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg> Visit the classroom</a><a href="../../artwork/index.html"><svg class="ic " data-icon="sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4.5l1.7 4.3 4.3 1.7-4.3 1.7L12 16.5l-1.7-4.3L6 10.5l4.3-1.7L12 4.5Z"/></svg> Explore the illustration collection</a></div>
+      <div class="footer__bottom">
+        <p class="meta">© <span data-year>2026</span> Web Academy. A fictional brand used for design demonstration.</p>
+        <ul class="footer__legal">
+          <li><a href="../../legal/privacy/index.html">Privacy</a></li>
+          <li><a href="../../legal/terms/index.html">Terms</a></li>
+          <li><a href="../../legal/accessibility/index.html">Accessibility</a></li>
+          <li><a href="../../../../index.html">All themes</a></li>
+        </ul>
+        <span class="footer__mark" aria-hidden="true"><img src="../../assets/brand/wa-mark-white.svg" alt="" width="18" height="18"></span>
+      </div>
+    </div>
+  </footer>
+<div class="switcher" data-switcher>
+    <div class="switcher__panel" id="switcher-panel" hidden>
+      <p class="switcher__title mono">Templates</p>
+      <ul class="themes__list"><li>
+      <a class="themes__item " href="../../../../01-nova-academy/dist/index.html"
+         >
+        <span class="themes__swatch themes__swatch--nova" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Nova</strong><small>Light · playful</small></span>
+        <svg class="ic themes__arrow" data-icon="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li><li>
+      <a class="themes__item " href="../../../../02-atelier-academy/dist/index.html"
+         >
+        <span class="themes__swatch themes__swatch--atelier" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Atelier</strong><small>Paper · editorial</small></span>
+        <svg class="ic themes__arrow" data-icon="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li><li>
+      <a class="themes__item is-current" href="../../../../03-aero-academy/dist/index.html"
+         aria-current="true">
+        <span class="themes__swatch themes__swatch--aero" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Aero</strong><small>Dark · cinematic</small></span>
+        <span class="themes__now">Current</span>
+      </a>
+    </li><li>
+      <a class="themes__item " href="../../../../04-folio-landing/dist/index.html"
+         >
+        <span class="themes__swatch themes__swatch--folio" aria-hidden="true"></span>
+        <span class="themes__text"><strong>Folio</strong><small>Bright · conversion</small></span>
+        <svg class="ic themes__arrow" data-icon="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </li></ul>
+    </div>
+    <button class="switcher__btn" type="button" data-switcher-btn aria-expanded="false" aria-controls="switcher-panel" aria-label="Switch template">
+      <img src="../../assets/brand/wa-icon-navy-small.svg" alt="" width="22" height="22">
+      <span class="switcher__close" aria-hidden="true"><svg class="ic " data-icon="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></span>
+    </button>
+  </div>
+<div class="edu-toast" data-toast role="status" aria-live="polite"></div>
+<script src="../../assets/js/aero.js" defer></script>
+</body>
+</html>

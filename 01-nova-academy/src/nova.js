@@ -56,7 +56,7 @@
   }
 
   /* hero/property-shape entrance: settle the rotated card without a transform fight */
-  WA.$$('.hero__float--badge').forEach(function (el) {
+  if(!reduce.matches) WA.$$('.hero__float--badge').forEach(function (el) {
     el.animate(
       [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }],
       { duration: 520, delay: 900, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' }

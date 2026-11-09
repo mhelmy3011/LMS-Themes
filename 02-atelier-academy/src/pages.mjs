@@ -2,6 +2,9 @@
 import { page } from '../../shared/lib/site.mjs';
 import { icon, head, stars, postCard, resourceRow, faqList, field, esc, fmtDuration, fmtPrice } from '../../shared/lib/ui.mjs';
 import data from '../../shared/lib/data.mjs';
+import { sceneFrame, learningExperience, projectShowcase } from '../../shared/lib/education-ui.mjs';
+import { profile } from '../../shared/lib/config.mjs';
+const presentation = profile('atelier');
 
 const { courses, tracks, mentors, sessions, resources, posts, testimonials, faqs, partners } = data;
 
@@ -15,8 +18,8 @@ const cohorts = courses.slice(0, 6).map((c, i) => ({
   seats: [16, 14, 12, 18, 12, 16][i],
   seatsFilled: [11, 14, 9, 15, 12, 10][i],
   location: i % 3 === 0 ? 'Studio, London' : 'Remote, live',
-  fee: Math.round(c.price * 1.6),
-  deposit: Math.round(c.price * 0.4),
+  fee: c.cohortPrice,
+  deposit: c.cohortDeposit,
 }));
 
 export const site = {
@@ -26,9 +29,9 @@ export const site = {
   chip: 'ATELIER',
   tagline: 'A cohort academy for working professionals',
   navLayout: 'center',
-  ctaLabel: 'Book a call',
-  ctaHref: 'contact/',
-  loginLabel: 'Log in',
+  ctaLabel: 'Explore cohorts',
+  ctaHref: 'cohorts/',
+  loginLabel: 'Say hello',
   loginHref: 'contact/',
   themeColor: '#012A5D',
   footerBlurb: 'Small cohorts, named faculty and work you can show. A fictional academy used to demonstrate this template.',
@@ -57,7 +60,7 @@ const shell = (p, opts) => page(site, R(p), { ...opts, path: p });
 const rule = '<hr class="rule" data-rule>';
 
 const courseRow = (c, Rr = '') => `
-<article class="course-row" data-item data-tags="${c.track}" data-text="${esc(c.title)} ${c.trackLabel} ${c.level}">
+<article class="course-row" data-item data-course-id="${c.id}" data-price="${c.price}" data-level="${c.level.toLowerCase()}" data-duration="${c.duration}" data-tags="${c.track}" data-text="${esc(c.title)} ${c.trackLabel} ${c.level}">
   <a class="course-row__media" href="${Rr}courses/${c.slug}/" tabindex="-1" aria-hidden="true">
     <img src="${Rr}assets/img/${c.art}.svg" alt="" width="600" height="400" loading="lazy" decoding="async">
   </a>
@@ -65,9 +68,9 @@ const courseRow = (c, Rr = '') => `
     <p class="course-row__kicker">${c.trackLabel} · ${c.level}</p>
     <h3 class="course-row__title"><a href="${Rr}courses/${c.slug}/">${esc(c.title)}</a></h3>
     <p class="course-row__desc">${esc(c.subtitle)}</p>
-    <p class="course-row__meta"><span>${c.weeks || 6} weeks</span><span>${c.lessonCount} sessions</span><span>${fmtDuration(c.duration)} of material</span><span>${c.students.toLocaleString()} alumni</span></p>
+    <p class="course-row__meta"><span>${c.weeks || 6} weeks</span><span>${c.lessonCount} lessons</span><span>${fmtDuration(c.duration)} of material</span><span>${c.students.toLocaleString()} alumni</span></p>
   </div>
-  <a class="course-row__go" href="${Rr}courses/${c.slug}/">Read the syllabus ${icon('arrow')}</a>
+  <div class="edu-row-actions"><button class="edu-row-save" type="button" data-fav="${c.id}" aria-pressed="false" aria-label="Save ${esc(c.title)}">${icon('heart')}<span>Save course</span></button><a class="course-row__go" href="${Rr}courses/${c.slug}/">Read the syllabus ${icon('arrow')}</a></div>
 </article>`;
 
 const figureStrip = (items) => `
@@ -85,27 +88,16 @@ const home = () => shell('', {
   body: `
   <section class="hero">
     <div class="container">
-      <div class="hero__inner">
-        <p class="kicker">February cohort · 14 seats</p>
-        <h1 class="hero__title">
-          <span class="line"><span>Learn the craft</span></span>
-          <span class="line"><strong>properly.</strong></span>
-        </h1>
-        <p class="lede hero__lede">Six-week cohorts for people who already work. One live session a week, one piece of work every fortnight, and a critique you can act on.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary btn--lg" href="cohorts/">See the cohorts</a>
-          <a class="btn btn--quiet" href="courses/">Browse the syllabus</a>
+      <div class="edu-editorial-hero">
+        <div class="hero__inner">
+          <p class="kicker">${presentation.mode === 'creator' ? 'An independent teaching studio' : 'A considered place to learn'} / Cohort programmes</p>
+          <h1 class="hero__title"><span class="line"><span>Learn the craft.</span></span><span class="line"><strong>Make it yours.</strong></span></h1>
+          <p class="lede hero__lede">A small room. A generous critique. A piece of work that is unmistakably yours. Six-week programmes for people who care about their craft.</p>
+          <div class="hero__actions"><a class="btn btn--primary btn--lg" href="cohorts/">Explore the programmes ${icon('arrow')}</a><a class="edu-text-link" href="learn/${courses[0].slug}/">Read a sample lesson</a></div>
+          <p class="hero__note">${icon('book')} A clear syllabus. A finished project. A fresh perspective.</p>
+          <a class="edu-faculty-note" href="faculty/"><span class="avatar-stack">${mentors.slice(0,3).map(m=>`<img class="avatar" src="assets/img/av-${m.id}.svg" width="32" height="32" alt="">`).join('')}</span><span>Meet your ${mentors.length} practising educators ${icon('arrowUpRight')}</span></a>
         </div>
-        <p class="hero__note">${icon('play')} Watch the studio film · 2:10</p>
-      </div>
-      <div class="arc" data-arc aria-label="Faculty at Web Academy">
-        ${mentors.slice(0, 7).map((m, i) => {
-          const rot = -24 + i * 8;
-          return `<a class="arc__item" href="faculty/${m.slug}/" style="--rot:${rot}deg; --i:${i}; transform: translateX(-50%) rotate(${rot}deg); animation-delay:${Math.abs(i - 3) * 70}ms">
-            <img src="assets/img/av-${m.id}.svg" alt="Portrait of ${esc(m.name)}" width="400" height="533" loading="${i === 3 ? 'eager' : 'lazy'}">
-            <span class="arc__cap">${esc(m.specialty[0])}</span>
-          </a>`;
-        }).join('')}
+        <div class="edu-editorial-hero__art">${sceneFrame('atelier','atelier-home',{caption:'A programme with intention. Room for your own point of view.'})}</div>
       </div>
       <div class="trio">
         ${[['Cohort, not course', 'A fixed start, a fixed room and a deadline that other people also have.'],
@@ -116,6 +108,8 @@ const home = () => shell('', {
     </div>
   </section>
 
+  ${learningExperience('atelier')}
+  ${projectShowcase('atelier')}
   <section class="section">
     <div class="container">
       ${head({ kicker: 'The programme', title: 'Everything a working professional needs to learn properly', lede: 'Six tracks. Each one is a sequence of cohorts rather than a catalogue of videos.' })}
@@ -144,7 +138,7 @@ const home = () => shell('', {
           <p class="bento__body">Every cohort has a rubric from day one. You always know what “good” means before you are asked to hit it.</p>
         </div>
         <div class="bento__item bento__item--lime bento__item--e" data-reveal style="--i:4">
-          <h3 class="bento__title" style="font-size:var(--fs-h3)">94% of alumni say the critique was the reason they finished.</h3>
+          <h3 class="bento__title" style="font-size:var(--fs-h3)">A shared rubric. Specific feedback. A stronger second draft.</h3>
         </div>
         <div class="bento__item bento__item--deep bento__item--f" data-reveal style="--i:5">
           <h3 class="bento__title">“I could finally explain my decisions.”</h3>
@@ -152,7 +146,7 @@ const home = () => shell('', {
         </div>
         <div class="bento__item bento__item--ice bento__item--g" data-reveal style="--i:6">
           <h3 class="bento__title">Taught by people who still ship</h3>
-          <p class="bento__body">Forty-eight faculty. All of them working. Most of them hiring.</p>
+          <p class="bento__body">${mentors.length} practising educators. All of them working. Most of them hiring.</p>
           <a class="link-arrow" href="faculty/" style="margin-block-start:10px">Meet the faculty ${icon('arrow')}</a>
         </div>
       </div>
@@ -161,7 +155,7 @@ const home = () => shell('', {
 
   <section class="section section--tight">
     <div class="container">
-      ${figureStrip([['94%', 'cohort completion'], ['14', 'average cohort size'], ['72', 'NPS, spring 2026'], ['38', 'hiring partners']])}
+      ${figureStrip([[courses.length, 'focused courses'], [mentors.length, 'practising educators'], [6, 'learning tracks'], [resources.length, 'practical resources']])}
     </div>
   </section>
 
@@ -298,7 +292,7 @@ const coursesIndex = () => shell('courses/', {
   </section>`,
 });
 
-const courseDetail = (c) => shell(`courses/${c.slug}/`, {
+const courseDetail = (c) => { const nextCohort=cohorts.find(co=>co.course.id===c.id); return shell(`courses/${c.slug}/`, {
   title: c.title,
   desc: c.subtitle,
   progress: true,
@@ -314,11 +308,11 @@ const courseDetail = (c) => shell(`courses/${c.slug}/`, {
   <div class="container"><div style="aspect-ratio:21/9;border-radius:20px;overflow:hidden;background:var(--surface-alt)">
     <img src="../../assets/img/${c.art}.svg" alt="" width="1200" height="514" style="width:100%;height:100%;object-fit:cover">
   </div>
-  <p class="mono mt-2" style="color:var(--ink-3)">Cohort 07 · studio session, February 2027</p></div>
+  <p class="mono mt-2" style="color:var(--ink-3)">${nextCohort ? 'A six-week programme / a considered studio practice' : 'A self-paced course / a project you can keep'}</p></div>
 
   <section class="section section--flush">
     <div class="container">
-      ${figureStrip([[`${c.weeks || 6} weeks`, 'duration'], ['3–4 hrs', 'weekly effort'], [`${classes(c)}`, 'cohort size'], [fmtPrice(Math.round(c.price * 1.6)), 'tuition']])}
+      ${figureStrip([[`${c.lessonCount} lessons`, 'curriculum'], [fmtDuration(c.duration), 'learning material'], [nextCohort ? `${nextCohort.seats} learners` : c.level, nextCohort ? 'cohort size' : 'starting level'], [fmtPrice(nextCohort ? nextCohort.fee : c.price), 'illustrative tuition']])}
     </div>
   </section>
 
@@ -343,9 +337,9 @@ const courseDetail = (c) => shell(`courses/${c.slug}/`, {
                   <span class="acc__sign" aria-hidden="true"></span>
                 </button></h3>
                 <div class="acc__panel" id="w${i}"><div>
-                  <div class="deflist" style="margin-block-end:20px">
+                  <dl class="deflist" style="margin-block-end:20px">
                     ${s.lessons.map((l, j) => `<div><dt>Session ${j + 1}</dt><dd>${esc(l)}</dd></div>`).join('')}
-                  </div>
+                  </dl>
                 </div></div>
               </div>`).join('')}
           </div>
@@ -367,25 +361,25 @@ const courseDetail = (c) => shell(`courses/${c.slug}/`, {
           <h2 class="h3">Who this is for</h2>
           <div class="grid grid--2 mt-4" style="gap:var(--sp-6)">
             <div><p class="mono" style="color:var(--ink-3)">For you if</p>
-              <ul class="prose" style="margin-block-start:10px;font-size:.9375rem"><li>You already make this kind of work</li><li>You want a standard, not a gallery</li><li>You can commit three hours a week</li></ul></div>
+              <ul class="prose" style="margin-block-start:10px;font-size:.9375rem"><li>${c.level==='Beginner'?'You are ready to make a first project':'You have some experience in this subject'}</li><li>You want a standard, not a gallery</li><li>You can commit three hours a week</li></ul></div>
             <div><p class="mono" style="color:var(--ink-3)">Not for you if</p>
               <ul class="prose" style="margin-block-start:10px;font-size:.9375rem"><li>You want a certificate without the critique</li><li>You cannot attend any live session</li><li>You are looking for a software tutorial</li></ul></div>
           </div>
         </div>
         <div>
           <h2 class="h3">Assessment and certificate</h2>
-          <p class="prose mt-3">There is no exam. You are assessed on the artefact, presented in week six against the rubric you receive in week one. Certificates carry the cohort number, the hours and the faculty names, and can be verified from an ID.</p>
+          <p class="prose mt-3">There is no exam. You are assessed on the artefact, presented in week six against the rubric you receive in week one. The sample certificate illustrates how a provider might recognise completion; this static demo does not issue a verified credential.</p>
         </div>
       </div>
       <aside class="margin">
         <div><p class="margin__label">Next start</p>
-          <p class="num" style="font-size:1.0625rem;color:var(--ink)">${new Date(cohorts[0].startsAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-          <p style="margin-block-start:6px">${classes(c)} seats · ${cohorts[0].location}</p></div>
+          <p class="num" style="font-size:1.0625rem;color:var(--ink)">${nextCohort ? new Date(nextCohort.startsAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : 'At your own pace'}</p>
+          <p style="margin-block-start:6px">${nextCohort ? `${nextCohort.seats} seats · ${nextCohort.location}` : `${c.lessonCount} lessons · ${fmtDuration(c.duration)}`}</p></div>
         <div><p class="margin__label">Tuition</p>
-          <p class="num" style="font-size:1.0625rem;color:var(--ink)">${fmtPrice(Math.round(c.price * 1.6))}</p>
-          <p style="margin-block-start:6px">Deposit ${fmtPrice(cohorts[0].deposit)} · employer invoicing available</p></div>
+          <p class="num" style="font-size:1.0625rem;color:var(--ink)">${fmtPrice(nextCohort ? nextCohort.fee : c.price)}</p>
+          <p style="margin-block-start:6px">${nextCohort ? `Illustrative deposit ${fmtPrice(nextCohort.deposit)}` : 'A self-paced learning example'}</p></div>
         <div><p class="margin__label">Apply</p>
-          <a class="btn btn--primary btn--sm" href="{{R}}apply/">Start an application</a></div>
+          <a class="btn btn--primary btn--sm" href="{{R}}apply/?course=${c.slug}">Try the application · demo</a></div>
         <div><p class="margin__label">Questions</p><a class="link-arrow" href="../../contact/">Talk to admissions ${icon('arrow')}</a></div>
       </aside>
     </div>
@@ -393,12 +387,12 @@ const courseDetail = (c) => shell(`courses/${c.slug}/`, {
 
   <section class="section section--tight">
     <div class="container">
-      ${head({ kicker: 'Dates and fees', title: 'Upcoming cohorts', align: 'left' })}
+      ${head({ kicker: 'Dates and fees', title: nextCohort ? 'Your upcoming programme' : 'Other programmes in the studio', align: 'left' })}
       <div class="table-wrap">
         <table class="table">
           <thead><tr><th scope="col">Starts</th><th scope="col">Format</th><th scope="col">Seats</th><th scope="col">Fee</th><th scope="col"><span class="sr-only">Apply</span></th></tr></thead>
           <tbody>
-            ${cohorts.slice(0, 4).map((co) => `<tr>
+            ${(nextCohort ? [nextCohort] : cohorts.slice(0, 3)).map((co) => `<tr>
               <td class="num">${new Date(co.startsAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</td>
               <td>${co.location}</td>
               <td class="num">${co.seats - co.seatsFilled} of ${co.seats} left</td>
@@ -417,7 +411,7 @@ const courseDetail = (c) => shell(`courses/${c.slug}/`, {
       ${faqList(faqs.slice(0, 4))}
     </div>
   </section>`,
-});
+}); };
 
 const classes = (c) => (c.id.charCodeAt(1) % 6) + 12;
 
@@ -431,7 +425,7 @@ const cohortsIndex = () => shell('cohorts/', {
   <div class="page-head"><div class="container page-head__inner">
     <ol class="breadcrumb"><li><a href="../">Home</a></li><li>Cohorts</li></ol>
     <h1>Cohorts</h1>
-    <p class="lede">Times shown in <span data-tz>your timezone</span>. Seats are updated weekly; the count is live on the day.</p>
+    <p class="lede">Times shown in <span data-tz>your timezone</span>. Seats are updated weekly; the counts are illustrative demo availability.</p>
   </div></div>
   <section class="section section--flush">
     <div class="container">
@@ -462,7 +456,7 @@ const cohortDetail = (co) => shell(`cohorts/${co.slug}/`, {
   jsonld: [{ '@context': 'https://schema.org', '@type': 'Event', name: co.course.title, startDate: co.startsAt, eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode', organizer: { '@type': 'Organization', name: 'Web Academy' }, offers: { '@type': 'Offer', price: (co.fee / 100).toFixed(2), priceCurrency: 'USD' } }],
   body: `
   <div class="page-head"><div class="container page-head__inner">
-    <ol class="breadcrumb"><li><a href="../../">Home</a></li><li><a href="../">Cohorts</a></li><li>February 2027</li></ol>
+    <ol class="breadcrumb"><li><a href="../../">Home</a></li><li><a href="../">Cohorts</a></li><li>${new Date(co.startsAt).toLocaleDateString('en-GB',{month:'long',year:'numeric'})}</li></ol>
     <h1>${esc(co.course.title)}</h1>
     <p class="lede">Cohort 07 · starts <span data-datetime="${co.startsAt}">—</span> · ${esc(co.location)}</p>
   </div></div>
@@ -490,12 +484,12 @@ const cohortDetail = (co) => shell(`cohorts/${co.slug}/`, {
           </div>
           <div>
             <h2 class="h3">Fees and policy</h2>
-            <div class="deflist mt-4">
+            <dl class="deflist mt-4">
               <div><dt>Tuition</dt><dd>${fmtPrice(co.fee)}, including all materials and the critique rubric.</dd></div>
               <div><dt>Deposit</dt><dd>${fmtPrice(co.deposit)} to hold a seat, refundable for seven days.</dd></div>
               <div><dt>Transfers</dt><dd>Free up to one week before the start; after that, 50% is retained.</dd></div>
               <div><dt>Employer funding</dt><dd>Invoice with purchase order. Documentation provided for procurement.</dd></div>
-            </div>
+            </dl>
           </div>
         </div>
         <aside class="margin">
@@ -548,7 +542,7 @@ const liveIndex = () => {
 
 const sessionRowA = (s, Rr) => `
 <li class="session-row">
-  <div class="session-row__time"><span class="num" data-datetime="${s.startsAt}" data-datetime-format="time">—</span><span class="meta" data-datetime="${s.startsAt}">—</span></div>
+  <div class="session-row__time"><span class="num" data-datetime="${s.startsAt}" data-datetime-format="time">—</span><span class="meta" data-datetime="${s.startsAt}">${new Date(s.startsAt).toUTCString()}</span></div>
   <div class="session-row__main">
     <p class="course-row__kicker">${s.format}</p>
     <h3 class="session-row__title"><a href="${Rr}live/${s.slug}/">${esc(s.title)}</a></h3>
@@ -568,7 +562,7 @@ const liveDetail = (s) => shell(`live/${s.slug}/`, {
     <ol class="breadcrumb"><li><a href="../../">Home</a></li><li><a href="../">Live sessions</a></li><li>${esc(s.title)}</li></ol>
     <h1>${esc(s.title)}</h1>
     <p class="lede">${esc(s.blurb)}</p>
-    <p class="small">${icon('calendar')} <span data-datetime="${s.startsAt}">—</span> · <span data-tz></span></p>
+    <p class="small">${icon('calendar')} <span data-datetime="${s.startsAt}">${new Date(s.startsAt).toUTCString()}</span> · <span data-tz></span></p>
   </div></div>
   <section class="section section--flush">
     <div class="container reading">
@@ -649,11 +643,11 @@ const libraryDetail = (r) => shell(`library/${r.slug}/`, {
           <p>Print it, or keep it open beside the work. It is designed to be filled in, not admired: the second page is deliberately mostly white space.</p>
           <blockquote>A checklist you do not use is a document, not a tool.</blockquote>
         </div>
-        <div class="deflist">
+        <dl class="deflist">
           <div><dt>Format</dt><dd>PDF, ${r.pages} pages, ${r.size}</dd></div>
           <div><dt>Licence</dt><dd>Free for personal and commercial use. Attribution appreciated, not required.</dd></div>
           <div><dt>Updated</dt><dd>${r.updated}</dd></div>
-        </div>
+        </dl>
       </div>
       <aside class="margin">
         <div><p class="margin__label">Download</p><a class="btn btn--primary btn--sm" href="#" onclick="return false">Download PDF</a></div>
@@ -791,7 +785,7 @@ const about = () => shell('about/', {
           <div><p class="mono" style="color:var(--ink-3)">${y}</p><p class="h4" style="font-weight:400;margin-block-start:8px">${t}</p></div>`).join('')}
       </div>
       <div class="mt-8">${rule}</div>
-      ${figureStrip([['48', 'faculty, all practising'], ['6', 'tracks'], ['1,840', 'alumni'], ['94%', 'completion']])}
+      ${figureStrip([[mentors.length, 'practising educators'], [tracks.length, 'tracks'], [courses.length, 'courses'], [resources.length, 'practical resources']])}
     </div>
   </section>
 
@@ -819,15 +813,15 @@ const facultyIndex = () => shell('faculty/', {
     <h1>Faculty</h1>
     <p class="lede">Everyone here teaches what they still do for a living. That is the whole hiring policy.</p>
   </div></div>
-  <section class="section section--flush">
+  <section class="section section--flush" data-filter="specialty">
     <div class="container">
       <div class="filter-bar">
-        <div class="facets"><button class="facet" aria-pressed="true">All</button>${[...new Set(mentors.flatMap((m) => m.specialty))].slice(0, 5).map((s) => `<button class="facet" aria-pressed="false">${s}</button>`).join('')}</div>
-        <span class="filter-count">${mentors.length} faculty</span>
+        <div class="facets" data-filter-groups role="group" aria-label="Educator specialty"><button class="facet" data-facet="all" aria-pressed="true">All</button>${[...new Set(mentors.flatMap((m) => m.specialty))].slice(0, 5).map((s) => `<button class="facet" data-facet="${s.toLowerCase().replaceAll(' ', '-')}" aria-pressed="false">${s}</button>`).join('')}</div>
+        <span class="filter-count"><span data-filter-count>${mentors.length}</span> educators</span>
       </div>
       <div class="faculty-grid">
         ${mentors.map((m, i) => `
-          <a class="faculty" href="${m.slug}/" data-reveal style="--i:${i % 3}">
+          <a class="faculty" data-item data-tags="${m.specialty.map(s=>s.toLowerCase().replaceAll(' ', '-')).join(' ')}" href="${m.slug}/" data-reveal style="--i:${i % 3}">
             <div class="faculty__img"><img src="../assets/img/av-${m.id}.svg" alt="Portrait of ${esc(m.name)}" width="400" height="533" loading="lazy"></div>
             <p class="faculty__name">${esc(m.name)} ${icon('arrowUpRight')}</p>
             <p class="faculty__role">${esc(m.specialty.join(' · '))} · ${esc(m.city)}</p>
@@ -857,12 +851,12 @@ const facultyDetail = (m) => {
       <div>
         <p class="kicker">${esc(m.role)}</p>
         <h1 style="margin-block-start:10px">${esc(m.name)}</h1>
-        <div class="deflist mt-6">
+        <dl class="deflist mt-6">
           <div><dt>Teaches</dt><dd>${esc(m.specialty.join(', '))}</dd></div>
           <div><dt>Based</dt><dd>${esc(m.city)}</dd></div>
           <div><dt>Students</dt><dd class="num">${m.students.toLocaleString()}</dd></div>
           <div><dt>Rating</dt><dd>${m.rating} ${stars(5)}</dd></div>
-        </div>
+        </dl>
         <div class="prose mt-6"><p>${esc(m.bio)}</p><blockquote>“${esc(m.quote)}”</blockquote></div>
         <a class="btn btn--primary mt-6" href="../../contact/">Book a conversation</a>
       </div>
@@ -924,11 +918,11 @@ const forTeams = () => shell('for-teams/', {
             <tr><td>Critique and creative direction</td><td>8–10 leads</td><td>3 weeks</td><td>On request</td></tr>
           </tbody></table></div>
         <h2>Procurement and security</h2>
-        <div class="deflist">
+        <dl class="deflist">
           <div><dt>Invoicing</dt><dd>Single invoice per cohort, purchase order accepted, 30-day terms.</dd></div>
           <div><dt>Data</dt><dd>EU-hosted, DPA available, no third-party advertising trackers.</dd></div>
           <div><dt>Accessibility</dt><dd>WCAG 2.2 AA. Captions on every recording. Written accessibility statement.</dd></div>
-        </div>
+        </dl>
       </div>
       <aside class="margin">
         <div><p class="margin__label">Outcomes</p><p>Two case studies, one bank and one broadcaster. Available on request under NDA.</p></div>
@@ -976,7 +970,7 @@ const tuition = () => shell('tuition/', {
         <table class="table">
           <caption class="sr-only">Fees by course</caption>
           <thead><tr><th scope="col">Course</th><th scope="col">Fee</th><th scope="col">Deposit</th><th scope="col">Duration</th></tr></thead>
-          <tbody>${courses.map((c) => `<tr><td><a href="../courses/${c.slug}/">${esc(c.title)}</a></td><td class="num">${fmtPrice(Math.round(c.price * 1.6))}</td><td class="num">${fmtPrice(Math.round(c.price * 0.64))}</td><td class="num">6 weeks</td></tr>`).join('')}</tbody>
+          <tbody>${courses.map((c) => `<tr><td><a href="../courses/${c.slug}/">${esc(c.title)}</a></td><td class="num">${fmtPrice(c.cohortPrice)}</td><td class="num">${fmtPrice(Math.round(c.price * 0.64))}</td><td class="num">6 weeks</td></tr>`).join('')}</tbody>
         </table>
       </div>
     </div>
@@ -989,11 +983,11 @@ const tuition = () => shell('tuition/', {
         <p><strong>Instalments.</strong> Three payments, at no additional cost, arranged before the cohort starts.</p>
         <p><strong>Scholarships.</strong> Three per cohort, covering the full fee, for people from groups under-represented in the field. Application is a short form and one piece of work.</p>
         <h2>Cancellations and transfers</h2>
-        <div class="deflist">
+        <dl class="deflist">
           <div><dt>Before day 7</dt><dd>Full refund of the deposit and any tuition paid.</dd></div>
           <div><dt>Day 7 to start</dt><dd>Free transfer to a later cohort, or refund less the deposit.</dd></div>
           <div><dt>After start</dt><dd>No refund; you may transfer once to a later cohort at 50% of the fee.</dd></div>
-        </div>
+        </dl>
       </div>
       <aside class="margin">
         <div><p class="margin__label">Questions</p><a class="link-arrow" href="../contact/">Admissions ${icon('arrow')}</a></div>
@@ -1032,7 +1026,7 @@ const contact = () => shell('contact/', {
         <p class="small">Demo form — nothing was sent. In production we would reply within two working days.</p>
       </div>
       <div>
-        <div class="deflist">
+        <dl class="deflist">
           <div><dt>General</dt><dd>hello@webacademy.example</dd></div>
           <div><dt>Admissions</dt><dd>admissions@webacademy.example</dd></div>
           <div><dt>Partnerships</dt><dd>teams@webacademy.example</dd></div>
@@ -1040,7 +1034,7 @@ const contact = () => shell('contact/', {
           <div><dt>Accessibility</dt><dd>accessibility@webacademy.example</dd></div>
           <div><dt>Studio</dt><dd>14 Marlborough Yard, London SE1</dd></div>
           <div><dt>Hours</dt><dd>Mon–Fri, 09:00–18:00 GMT</dd></div>
-        </div>
+        </dl>
         <div class="mt-6" style="border:1px solid var(--line);border-radius:16px;overflow:hidden">
           <img src="../assets/img/nova-collab.svg" alt="Illustration of the studio" width="800" height="450" style="width:100%">
         </div>
@@ -1052,12 +1046,12 @@ const contact = () => shell('contact/', {
 
 const apply = () => shell('apply/', {
   title: 'Apply',
-  desc: 'A three-step application for the February cohorts. No interview.',
+  desc: 'A three-step preview for illustrative cohorts. Nothing is sent.',
   body: `
   <div class="page-head"><div class="container page-head__inner">
     <ol class="breadcrumb"><li><a href="../">Home</a></li><li>Apply</li></ol>
     <h1>Apply for a cohort</h1>
-    <p class="lede">Three short steps. No interview, no portfolio review up front — we ask for one piece of work after you are offered a seat.</p>
+    <p class="lede">Three short steps to explore the application experience. Demo only—your details are not sent, saved or reviewed by an admissions team.</p>
   </div></div>
   <section class="section section--flush">
     <div class="container" style="max-width:760px">
@@ -1085,9 +1079,9 @@ const apply = () => shell('apply/', {
           <legend class="sr-only">Step 2 — your cohort</legend>
           <h2 class="h3" data-step-focus tabindex="-1">Your cohort</h2>
           <div class="form-stack mt-6">
-            ${field({ id: 'a-course', label: 'Course', tag: 'select', options: courses.slice(0, 6).map((c) => c.title), rules: 'required' })}
+            ${field({ id: 'a-course', label: 'Course', tag: 'select', options: courses.map((c) => {const cohort=cohorts.find(co=>co.course.id===c.id);return {value:c.slug,label:c.title+' — '+(cohort?(cohort.seatsFilled>=cohort.seats?'waitlist · ':'')+new Date(cohort.startsAt).toLocaleDateString('en-GB',{month:'short',year:'numeric'}):'future cohort interest')};}), rules: 'required' })}
             ${field({ id: 'a-funding', label: 'How will this be funded?', tag: 'select', options: ['Myself', 'My employer', 'Scholarship application'], rules: 'required' })}
-            ${field({ id: 'a-motivation', label: 'Why this cohort, and why now?', tag: 'textarea', rules: 'required', msg: 'Between 200 and 1200 characters.', hint: '200–1200 characters. Plain text.' })}
+            ${field({ id: 'a-motivation', label: 'Why this cohort, and why now?', tag: 'textarea', rules: 'required', msg: 'Please write between 200 and 1200 characters.', minLength: 200, maxLength: 1200, hint: '200–1200 characters. Plain text.' })}
           </div>
           <div class="flex gap-3 mt-8"><button class="btn btn--ghost" type="button" data-back>Back</button><button class="btn btn--primary" type="button" data-next>Continue</button></div>
         </fieldset>
@@ -1095,14 +1089,14 @@ const apply = () => shell('apply/', {
         <fieldset data-step="3" hidden style="border:0;padding:0;margin:0">
           <legend class="sr-only">Step 3 — review</legend>
           <h2 class="h3" data-step-focus tabindex="-1">Review and submit</h2>
-          <div class="deflist mt-6" data-review></div>
+          <dl class="deflist mt-6" data-review></dl>
           <label class="check mt-6"><input type="checkbox" id="a-consent" data-rules="checked" data-msg="Please confirm."><span>Everything above is accurate, and I agree to the <a href="../legal/terms/" style="text-decoration:underline">terms</a>.</span></label>
           <div class="flex gap-3 mt-8"><button class="btn btn--ghost" type="button" data-back>Back</button><button class="btn btn--primary" type="submit">Submit application</button></div>
         </fieldset>
       </form>
       <div data-success hidden class="form-success mt-6">
         <span class="form-success__tick">${icon('check')}</span>
-        <h2 class="h3" data-success-focus tabindex="-1">Application received</h2>
+        <h2 class="h3" data-success-focus tabindex="-1">Application preview complete</h2>
         <p class="small">Demo form — nothing was sent. In production you would receive confirmation and the next cohort date within one working day.</p>
         <a class="btn btn--ghost btn--sm" href="../courses/">Read a syllabus while you wait</a>
       </div>
@@ -1130,11 +1124,11 @@ const brand = () => shell('brand/', {
             <div style="padding:28px;border:1px solid var(--line);border-radius:16px;display:grid;place-items:center;background:var(--wa-navy)"><img src="../assets/brand/wa-icon-lime.svg" alt="Icon, lime on navy" width="120" height="120"></div>
             <div style="padding:28px;border:1px solid var(--line);border-radius:16px;display:grid;place-items:center;background:var(--wa-lime)"><img src="../assets/brand/wa-icon-navy.svg" alt="Icon, navy on lime" width="120" height="120"></div>
           </div>
-          <div class="deflist mt-6">
+          <dl class="deflist mt-6">
             <div><dt>Construction</dt><dd>Square icon. One stroke weight governs the whole mark: 6.84% of the icon width, on both the ring and the W.</dd></div>
             <div><dt>Clear space</dt><dd>A quarter of the icon diameter on every side.</dd></div>
             <div><dt>Minimum size</dt><dd>24px for the icon, 96px wide for the horizontal lockup.</dd></div>
-          </div>
+          </dl>
         </div>
         <div>
           <h2 class="h3">Colour</h2>
@@ -1150,7 +1144,7 @@ const brand = () => shell('brand/', {
           <p class="display mt-4">Teach the world</p>
           <p class="h2" style="font-weight:300;margin-block-start:8px">Teach the world</p>
           <p class="mono mt-4" style="color:var(--ink-3)">JetBrains Mono · labels, code and metadata only</p>
-          <p class="prose mt-4">Lexend sets every Latin word: weight 200 for display, 600 for emphasis, 400 for body. The Arabic pair (Milan Display / Tajarib) is specified in the brand book and ships with the RTL variant.</p>
+          <p class="prose mt-4">Lexend sets every Latin word: weight 200 for display, 600 for emphasis, 400 for body. Arabic uses licensed local Noto Sans Arabic at regular 400 and bold 700, with complete translated RTL editions. Milan Display and Tajarib, named in the brand book, are not bundled.</p>
         </div>
         <div>
           <h2 class="h3">Misuse</h2>

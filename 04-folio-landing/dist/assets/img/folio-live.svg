@@ -1,58 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-hidden="true"><ellipse cx="400" cy="540" rx="320" ry="30" fill="#001A3D" opacity="0.06"/>
-  <g transform="rotate(0 400 410)">
-    <rect x="210" y="300" width="380" height="220" rx="18" fill="#FFFFFF"/>
-    <path d="M210 502a18 18 0 0 0 18 18h344a18 18 0 0 0 18-18v-184l-380 0z" fill="#001A3D" opacity="0.07"/>
-    <rect x="216" y="306" width="368" height="74.80000000000001" rx="14.4" fill="#fff" opacity="0.12"/>
-  </g><rect x="230" y="320" width="340" height="180" rx="10" fill="#EAF1FB"/><rect x="242" y="332" width="158" height="74" rx="8" fill="#012A5D"/>
-  <g transform="translate(321 372) scale(0.5)">
-    <path d="M-50 62c0-26 22-42 50-42s50 16 50 42z" fill="#14427F"/>
-    <path d="M-50 62c0-26 22-42 50-42v42z" fill="#001A3D" opacity="0.10"/>
-    <rect x="-9" y="8" width="18" height="20" rx="9" fill="#C88F63"/>
-    <ellipse cx="0" cy="-8" rx="27" ry="31" fill="#C88F63"/>
-    <ellipse cx="-9.5" cy="-10" rx="2.6" ry="3.1" fill="#001A3D" opacity="0.62"/>
-    <ellipse cx="9.5" cy="-10" rx="2.6" ry="3.1" fill="#001A3D" opacity="0.62"/>
-    <path d="M-6 3c3 3 9 3 12 0" fill="none" stroke="#001A3D" stroke-width="2.2" stroke-linecap="round" opacity="0.34"/>
-    <path d="M-27 -10c-2-22 12-36 27-36s29 14 27 36c-6-12-14-18-27-18s-21 6-27 18z" fill="#012A5D"/>
-    <path d="M-10 34h20l-10 14z" fill="#C8F560" opacity="0.95"/>
-    
-  </g><rect x="408" y="332" width="150" height="74" rx="8" fill="#14427F"/>
-  <g transform="translate(483 372) scale(0.5)">
-    <path d="M-50 62c0-26 22-42 50-42s50 16 50 42z" fill="#012A5D"/>
-    <path d="M-50 62c0-26 22-42 50-42v42z" fill="#001A3D" opacity="0.10"/>
-    <rect x="-9" y="8" width="18" height="20" rx="9" fill="#F0D2B4"/>
-    <ellipse cx="0" cy="-8" rx="27" ry="31" fill="#F0D2B4"/>
-    <ellipse cx="-9.5" cy="-10" rx="2.6" ry="3.1" fill="#001A3D" opacity="0.62"/>
-    <ellipse cx="9.5" cy="-10" rx="2.6" ry="3.1" fill="#001A3D" opacity="0.62"/>
-    <path d="M-6 3c3 3 9 3 12 0" fill="none" stroke="#001A3D" stroke-width="2.2" stroke-linecap="round" opacity="0.34"/>
-    <path d="M-27 -10c-2-22 12-36 27-36s29 14 27 36c-6-12-14-18-27-18s-21 6-27 18z" fill="#3B2A20"/>
-    <path d="M-10 34h20l-10 14z" fill="#C8F560" opacity="0.95"/>
-    
-  </g><rect x="242" y="414" width="158" height="74" rx="8" fill="#8DB8FF" opacity="0.55"/>
-  <g transform="translate(321 454) scale(0.5)">
-    <path d="M-50 62c0-26 22-42 50-42s50 16 50 42z" fill="#012A5D"/>
-    <path d="M-50 62c0-26 22-42 50-42v42z" fill="#001A3D" opacity="0.10"/>
-    <rect x="-9" y="8" width="18" height="20" rx="9" fill="#7A4A2C"/>
-    <ellipse cx="0" cy="-8" rx="27" ry="31" fill="#7A4A2C"/>
-    <ellipse cx="-9.5" cy="-10" rx="2.6" ry="3.1" fill="#001A3D" opacity="0.62"/>
-    <ellipse cx="9.5" cy="-10" rx="2.6" ry="3.1" fill="#001A3D" opacity="0.62"/>
-    <path d="M-6 3c3 3 9 3 12 0" fill="none" stroke="#001A3D" stroke-width="2.2" stroke-linecap="round" opacity="0.34"/>
-    <path d="M-27 -10c-2-22 12-36 27-36s29 14 27 36c-6-12-14-18-27-18s-21 6-27 18z" fill="#001A3D"/>
-    <path d="M-10 34h20l-10 14z" fill="#C8F560" opacity="0.95"/>
-    
-  </g><rect x="408" y="414" width="150" height="74" rx="8" fill="#012A5D"/><circle cx="483" cy="446" r="13" fill="#C8F560"/><rect x="456" y="466" width="54" height="7" rx="3.5" fill="#FFFFFF" opacity="0.5"/><circle cx="256" cy="344" r="5" fill="#C8F560"/>
-  <g transform="rotate(0 400 530)">
-    <rect x="180" y="520" width="440" height="20" rx="10" fill="#012A5D"/>
-    <path d="M180 530a10 10 0 0 0 10 10h420a10 10 0 0 0 10-10v-0l-440 0z" fill="#001A3D" opacity="0.07"/>
-    <rect x="186" y="526" width="428" height="6.800000000000001" rx="8" fill="#fff" opacity="0.12"/>
-  </g><path d="M640 300l-46 200M640 300l46 200M640 300v200" stroke="#14427F" stroke-width="10" stroke-linecap="round"/>
-  <g transform="rotate(0 644 276)">
-    <rect x="596" y="246" width="96" height="60" rx="14" fill="#012A5D"/>
-    <path d="M596 292a14 14 0 0 0 14 14h68a14 14 0 0 0 14-14v-32l-96 0z" fill="#001A3D" opacity="0.07"/>
-    <rect x="602" y="252" width="84" height="20.400000000000002" rx="11.200000000000001" fill="#fff" opacity="0.12"/>
-  </g><circle cx="644" cy="276" r="18" fill="#001A3D"/><circle cx="644" cy="276" r="10" fill="#8DB8FF"/><rect x="596" y="240" width="30" height="10" rx="5" fill="#C8F560"/><circle cx="130" cy="330" r="58" fill="none" stroke="#FFFFFF" stroke-width="16"/><circle cx="130" cy="330" r="58" fill="none" stroke="#C8F560" stroke-width="16" stroke-linecap="round" stroke-dasharray="96 260" transform="rotate(-30 130 330)"/><rect x="124" y="388" width="12" height="130" rx="6" fill="#14427F"/><ellipse cx="130" cy="520" rx="40" ry="9" fill="#14427F"/>
-  <circle cx="716" cy="150" r="20" fill="#C8F560"/>
-  <path d="M696 150a20 20 0 0 1 40 0z" fill="#001A3D" opacity="0.08"/>
-  <ellipse cx="710" cy="142.4" rx="6.800000000000001" ry="5.2" fill="#fff" opacity="0.24"/>
-  <circle cx="80" cy="170" r="14" fill="#8DB8FF"/>
-  <path d="M66 170a14 14 0 0 1 28 0z" fill="#001A3D" opacity="0.08"/>
-  <ellipse cx="75.8" cy="164.68" rx="4.760000000000001" ry="3.64" fill="#fff" opacity="0.24"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" class="edu-art" role="img" aria-labelledby="edu-workshop-title edu-workshop-desc" focusable="false"><title id="edu-workshop-title">Learning, beautifully illustrated</title><desc id="edu-workshop-desc">A live workshop pairs a three-shape experiment with an instructor, an agenda and a learning goal.</desc>
+ <rect x="48" y="45" width="704" height="510" rx="24" fill="#001A3D" /><text x="80" y="86" fill="#FFFFFF" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="600" letter-spacing="1">THE LIVE WORKSHOP / LET’S TRY IT TOGETHER</text>
+ <rect x="80" y="111" width="435" height="320" rx="13" fill="#FFFFFF" /><text x="106" y="148" fill="#14427F" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="600" >A QUESTION WORTH EXPLORING</text>
+ <circle cx="175" cy="248" r="48" fill="#EAF1FB" /><rect x="267" y="203" width="91" height="91" rx="9" fill="#8DB8FF" /><path d="m403 293 38-89 41 89Z" fill="#C8F560"/><path d="M222 248h36M360 248h35" fill="none" stroke="#012A5D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="edu-draw" pathLength="1"/>
+ <text x="108" y="350" fill="#012A5D" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="600" >Observe a pattern.</text><text x="108" y="378" fill="#14427F" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="500" >Change one thing. See what happens.</text>
+ <rect x="539" y="111" width="181" height="320" rx="13" fill="#14427F" /><g transform="translate(628 213) scale(0.88)">
+ <path d="M-68 120v-22c0-39 29-60 68-60s68 21 68 60v22Z" fill="#14427F"/>
+ <path d="M-43 99q43 17 86 0" fill="none" stroke="#8DB8FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".3"/>
+ <path d="M-18 36v20q18 20 36 0V36" fill="#7A4A2C"/>
+ <path d="m-20 46 20 19 20-19 12 13-32 28-32-28Z" fill="#EAF1FB"/>
+ <ellipse cx="-40" cy="-2" rx="8" ry="12" fill="#7A4A2C"/><ellipse cx="40" cy="-2" rx="8" ry="12" fill="#7A4A2C"/>
+ <path d="M-40-20q0-49 40-49t40 49v25Q37 43 0 47-37 43-40 5Z" fill="#7A4A2C"/>
+ <path d="M-42-5q-10-69 42-69 54 0 43 66L31-31Q6-16-29-28Z" fill="#012A5D"/>
+ <path d="M-26-5q7-5 14 0M12-5q7-5 14 0" fill="none" stroke="#001A3D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+ <ellipse cx="-19" cy="3" rx="2.5" ry="3.6" fill="#001A3D"/><ellipse cx="19" cy="3" rx="2.5" ry="3.6" fill="#001A3D"/>
+ <path d="M0 5l-3 12h6" fill="none" stroke="#001A3D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".45"/><path d="M-11 25q11 9 22 0" fill="none" stroke="#001A3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+ <path d="M43 76q34 10 52-26l16 9q-16 65-65 45Z" fill="#14427F"/><path d="m95 50 9-19q2-7 7-4l-2 14 13-6q9 1 3 9l-15 15Z" fill="#7A4A2C"/>
+
+ </g><text x="557" y="353" fill="#FFFFFF" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="600" >YOUR AGENDA</text><text x="557" y="378" fill="#EAF1FB" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="500" >01 / Look closely</text><text x="557" y="401" fill="#EAF1FB" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="500" >02 / Make a test</text>
+ <rect x="80" y="460" width="640" height="53" rx="12" fill="#012A5D" /><circle cx="109" cy="487" r="15" fill="#C8F560" /><g transform="translate(103 483) scale(0.8)"><path d="M0 7l5 5L16 0" fill="none" stroke="#012A5D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></g><text x="139" y="493" fill="#FFFFFF" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="500" >Bring one idea. Leave with a next step.</text>
+ </svg>

@@ -1,0 +1,10 @@
+# PDFs contain byte offsets and release hashes: never normalize their contents.
+*.pdf binary
+
+# Calendar folding preserves significant spaces before CRLF line endings.
+*.ics -text whitespace=-blank-at-eol,cr-at-eol
+# Spreadsheet downloads also intentionally use CRLF line endings.
+*.csv -text whitespace=cr-at-eol
+
+# Keep upstream font licences verbatim, including their original whitespace.
+**/OFL-*.txt -text whitespace=-blank-at-eol

@@ -1,0 +1,7 @@
+Item,Value,Notes
+Hourly rate USD,35,Change this to your target rate
+Project hours,12,Hands-on project work
+Admin hours,2,Calls emails and planning
+Revision hours,2,Agreed revision allowance
+Total hours,=SUM(B3:B5),Before expenses and tax
+Project estimate USD,=B2*B6,Illustrative estimate not financial advice

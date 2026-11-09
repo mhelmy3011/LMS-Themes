@@ -1,0 +1,201 @@
+{
+  "generator": "Chromium / HarfBuzz, tagged PDFs with embedded subset Arabic fonts",
+  "documents": [
+    {
+      "file": "syllabus-designing-interfaces-that-scale.pdf",
+      "sourceHash": "71d71dbf6d44d5854beb4219ec31e73de40725c6518aff941f603f3b33f030ca",
+      "pages": 3,
+      "sha256": "d32cd4ebfacf21c0be1300f3e87575cb9158c11258315b1cd1135b3d5f7344cb",
+      "bytes": 41074
+    },
+    {
+      "file": "syllabus-illustration-for-editorial-clients.pdf",
+      "sourceHash": "4285f8a384af965eab1c86d3fe63d7b9eca55c6a0a5b632d386e14f93e89e65f",
+      "pages": 3,
+      "sha256": "d33888cadda72ae40cc6ae043ea80005567fe2a228807ba4142c9c17be884688",
+      "bytes": 40604
+    },
+    {
+      "file": "syllabus-front-end-foundations-with-javascript.pdf",
+      "sourceHash": "527c2e0393145508f8e62a04083a3d5bca1c9521b8070d82a9d0a99f512cc89c",
+      "pages": 3,
+      "sha256": "5beae87d54563e4b0296d6008de14d7811e3dab0d6bad552c6b5b42cfc1e0018",
+      "bytes": 44410
+    },
+    {
+      "file": "syllabus-type-at-scale-setting-long-documents.pdf",
+      "sourceHash": "5316908116336cc0a08eac54952bcef677628625bf9272cdab569874c513d376",
+      "pages": 3,
+      "sha256": "b1e4fe5006b972a1d66bada9251fbba6ddd9baef0fe0fe2162f4f33802a6c5c3",
+      "bytes": 40237
+    },
+    {
+      "file": "syllabus-product-research-in-two-weeks.pdf",
+      "sourceHash": "c14b36090717f0346e8fce10b0fcf7b1f960c020c903fdbb3463dc5971d508f6",
+      "pages": 3,
+      "sha256": "b65f27abe743bb880b6b77742e965786faed704656d3e59219c1f26ec0406f6b",
+      "bytes": 39932
+    },
+    {
+      "file": "syllabus-motion-timing-for-brand-systems.pdf",
+      "sourceHash": "a4a89229bd189df325c9591324107a3c8dcb42a7cf6ceb004d71fe52e16a7fc9",
+      "pages": 3,
+      "sha256": "55773c666ae4ee1c07eab880f67910556f839660f7777e2537e1ca6a08d245f9",
+      "bytes": 39699
+    },
+    {
+      "file": "syllabus-accessible-components-from-scratch.pdf",
+      "sourceHash": "c36bc8ea8cf39d9ec4984fd18a9ea8e04c9cb9547aecf34afa1ff0171504bf8e",
+      "pages": 3,
+      "sha256": "211ab1021f5324c0a07fa1bc9fbd0d34fe3c97ca5b232b7495b48505d7949f54",
+      "bytes": 41659
+    },
+    {
+      "file": "syllabus-data-storytelling-for-teams.pdf",
+      "sourceHash": "51a58b93bc84f030b759e43fd230c78534c437cf67f086c9680015317fdc8ae9",
+      "pages": 3,
+      "sha256": "b3dd04095628f2940820518f1265cacb9b8cfe9177cd9697f5479ea45f5abb9f",
+      "bytes": 39517
+    },
+    {
+      "file": "syllabus-python-for-non-programmers.pdf",
+      "sourceHash": "36f17f34c28d381850e0d02baa1d671c9dda77803b52db3154dcc197a5088dce",
+      "pages": 3,
+      "sha256": "f55fb8f4b38d591989a1ddee177ef1af69ffb9fb1098b40e916ee4c4cceefde8",
+      "bytes": 41852
+    },
+    {
+      "file": "syllabus-pricing-and-positioning-your-studio.pdf",
+      "sourceHash": "e00ceea092411c166c150ef0c5aea862db6ebdbcf0d2ff756ddaa2ceacc914fe",
+      "pages": 3,
+      "sha256": "0b12d4ad28c159a2f190a4ff43444306d2399ebfc3a1acc6ade224ab2fd3b8d6",
+      "bytes": 39042
+    },
+    {
+      "file": "syllabus-designing-live-cohorts-that-work.pdf",
+      "sourceHash": "92ba4ea7e03b1ef68b02a4f9eadb8562a3dfa17d8d5cce1411800257f72cf648",
+      "pages": 3,
+      "sha256": "55028e9153e64bd3cd3c02fe65e92c54518132ad7b7a85118a6843b556cc8f65",
+      "bytes": 40166
+    },
+    {
+      "file": "syllabus-from-portfolio-to-client-pipeline.pdf",
+      "sourceHash": "110226b75ecff020755a8cad499f71edb984c7d8ab5eb758bb0ba6efdbb8c58b",
+      "pages": 3,
+      "sha256": "b938545db4ea34c343179134470ccb7a8738a703b078ff68e24227a5225c6ce4",
+      "bytes": 39956
+    },
+    {
+      "file": "syllabus-3d-for-motion-designers.pdf",
+      "sourceHash": "873832f3939a0441856bf9b14623c16b269b9056e41ed8c26dae7e7992aa2cf6",
+      "pages": 3,
+      "sha256": "9d37f5aa49f71cb9c716a1c7a349eeeb7712526a8cc8316f43720fa1251a7d2c",
+      "bytes": 40999
+    },
+    {
+      "file": "syllabus-creative-direction-for-small-teams.pdf",
+      "sourceHash": "ea8277c57e8be6a58f5b9e2161c88082267c409932a7bd330faaf9fa8a7f21d8",
+      "pages": 3,
+      "sha256": "a60549ef2481e28e64ab776a8f227383ff88691a27025c9a71661cdbf94cd846",
+      "bytes": 40696
+    },
+    {
+      "file": "syllabus-teaching-your-craft-online.pdf",
+      "sourceHash": "b432530f8bc943007a50d7f093aeb5d3f252ab3a6b6deac5e0cdc1f693dbe7ea",
+      "pages": 3,
+      "sha256": "a2f2b14fccd08d949de0aeb6ffe332288c5625f17b482bcd24059525c41dab70",
+      "bytes": 39973
+    },
+    {
+      "file": "syllabus-interface-animation-with-restraint.pdf",
+      "sourceHash": "d0847195492e522f1b6aae7e4514c941de67b15db52668fd1bf4c2571e8e05e4",
+      "pages": 3,
+      "sha256": "7098da4c8feacf2c9f814ed30592e22d387510d37429d5b1d105ed5963dd1230",
+      "bytes": 39438
+    },
+    {
+      "file": "resource-the-interface-audit-checklist.pdf",
+      "sourceHash": "69709da763234f9ab3a31edc9647f526150d7f7c3e90eca0446bcdc4634903a4",
+      "pages": 4,
+      "sha256": "fd206717a5d8649dae248bb5b6bf8bd0dc7fe6f2f67e164006fc55678edcca98",
+      "bytes": 47478
+    },
+    {
+      "file": "resource-cohort-facilitation-playbook.pdf",
+      "sourceHash": "94dcf49926d346a456f986ed90cf05385d69ba0cb170f0320dda6a814470f5d9",
+      "pages": 4,
+      "sha256": "537f2e5b9e668ca9975acaed3414df8ec48b67381e77404f7070c7c03bf022e0",
+      "bytes": 46280
+    },
+    {
+      "file": "resource-design-token-starter-kit.pdf",
+      "sourceHash": "d373a0b29adf7a67fa09c0ba15570bf22c10267f9fcbf76b5b842ecee33b5f72",
+      "pages": 4,
+      "sha256": "03a61478363a49585b0275f15aa1c35c7c98c8f42976abbc9856c7ee8952ac2e",
+      "bytes": 49207
+    },
+    {
+      "file": "resource-portfolio-review-scorecard.pdf",
+      "sourceHash": "9d61f609c182e4b0ef36b85afbd5e4d53ac26bdd31757106808e1dae5679da64",
+      "pages": 4,
+      "sha256": "531d0374b17b18104d90a8ef4fdbfe54059e79f9b6e56157bf6e04c207981df3",
+      "bytes": 46487
+    },
+    {
+      "file": "resource-motion-timing-reference.pdf",
+      "sourceHash": "480bce7a7c8b52ffbd5661a7e8abac41ad8af918fb497d94fab49d44efc8fba6",
+      "pages": 4,
+      "sha256": "704a05b18877b7bbdfb7859a0815f5334a86f3e87d9d3a984a0ad6fcf5adefb0",
+      "bytes": 47933
+    },
+    {
+      "file": "resource-accessibility-testing-script.pdf",
+      "sourceHash": "e59b695ceacd1afaf10d111302c38386aa8e89be6efbf93fb9a0a0a798477900",
+      "pages": 4,
+      "sha256": "f5a9e3115f2e0c290bf867cd3015e5cdc254d9d4b255bf0c15532b1385445ac0",
+      "bytes": 49880
+    },
+    {
+      "file": "resource-data-storytelling-workbook.pdf",
+      "sourceHash": "2bd4d7c73e872e65750657a3c54da01dc684630f33581b2e892bf058743bd1a8",
+      "pages": 4,
+      "sha256": "ca94d6541d1f657d9026481f2863b4a8fefafe145f417ee08b41b34e216c34d3",
+      "bytes": 46854
+    },
+    {
+      "file": "resource-pricing-calculator-sheet.pdf",
+      "sourceHash": "e21bfe8310ffabb0d8df911f265fadbb6f4a4801df5fbf50432528957bcdc48e",
+      "pages": 4,
+      "sha256": "f46da857d34a833b100e076cf38d58cfd9c68fe4c0362fde09641451256d37da",
+      "bytes": 46369
+    },
+    {
+      "file": "resource-type-specimen-generator.pdf",
+      "sourceHash": "706dd897f661bcad63d1e45f8b41a4067f31ecf5f8b717c5cd61bffc2d76aba9",
+      "pages": 4,
+      "sha256": "f159b4e79ddd3a4916e44002d0bcbbbf27af642ab899d1073cc11b78d2a17cde",
+      "bytes": 47174
+    },
+    {
+      "file": "resource-illustration-brief-template.pdf",
+      "sourceHash": "1da398fda3aef5b713cdd4fa648d2765cb3ed040bf79c8960d15fad4f8d1a1ea",
+      "pages": 4,
+      "sha256": "b093a85d846c3e4df707951e900b8c9ace2503a65ecdb213ac673805add15f08",
+      "bytes": 46636
+    },
+    {
+      "file": "resource-recording-setup-for-instructors.pdf",
+      "sourceHash": "9e414c39d3bab8e5b6aa0993e43a0e6fbb6ec6d57ff6f971e37b75189a0b888d",
+      "pages": 4,
+      "sha256": "820ed2c4650408e064e503a71a920f698acfef6c57551c6e2eb5b284d6178115",
+      "bytes": 47146
+    },
+    {
+      "file": "resource-critique-language-glossary.pdf",
+      "sourceHash": "386f9fd764ca608f5f3556913366d86287431fc8508909190f3f32fe90e0e003",
+      "pages": 4,
+      "sha256": "f0597f1ca902112672ab66417a66b726c8edfc15f77d9b6a5fd87d5a577c4005",
+      "bytes": 47004
+    }
+  ]
+}

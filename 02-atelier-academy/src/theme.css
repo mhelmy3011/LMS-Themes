@@ -4,19 +4,6 @@
    serif contrast; hairlines replace shadows; rules carry the rhythm.
    ========================================================================== */
 
-@font-face {
-  font-family: "Lexend";
-  src: url("../fonts/lexend-latin.woff2") format("woff2-variations");
-  font-weight: 200 700; font-display: swap; font-style: normal;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+20AC, U+2122;
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  src: url("../fonts/jetbrains-mono-latin.woff2") format("woff2-variations");
-  font-weight: 400 700; font-display: swap; font-style: normal;
-  unicode-range: U+0000-00FF, U+0131, U+2000-206F, U+20AC, U+2122;
-}
-
 :root {
   --bg: #ffffff;
   --surface: #ffffff;

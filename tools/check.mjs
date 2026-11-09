@@ -50,13 +50,16 @@ async function checkTemplate(dir) {
   const problems = [];
   const warnings = [];
 
+  const htmlCache=new Map();
+  async function htmlAt(file){if(!htmlCache.has(file))htmlCache.set(file,await fs.readFile(file,'utf8'));return htmlCache.get(file);}
   let internalLinks = 0;
   const crossLinks = {};
   for (const file of htmlFiles) {
-    const html = await fs.readFile(file, 'utf8');
+    const html = await htmlAt(file);
     const rel = path.relative(dist, file);
     const { links, imgs, ids, h1, heads } = parsePage(html);
 
+    if(html.includes('${')||html.includes('{{R}}'))problems.push(`${rel}: unexpanded source token`);
     if (h1 === 0) warnings.push(`${rel}: no <h1>`);
     if (h1 > 1) problems.push(`${rel}: ${h1} <h1> elements`);
     let prev = 0;
@@ -72,9 +75,10 @@ async function checkTemplate(dir) {
     }
 
     for (const href of links) {
-      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('http') || href.startsWith('tel:')) continue;
+      if(!href||href==='#'){problems.push(`${rel}: empty or placeholder action`);continue;}
+      if (href.startsWith('mailto:') || href.startsWith('http') || href.startsWith('tel:')) continue;
       internalLinks++;
-      const target = path.resolve(path.dirname(file), href.split('#')[0].split('?')[0]);
+      let target = href.startsWith('#') ? file : path.resolve(path.dirname(file), href.split('#')[0].split('?')[0]);
       /* Links leaving dist are intentional cross-template links (themes hub,
          switcher). They must still resolve inside the repository. */
       const inDist = target.startsWith(dist);
@@ -82,8 +86,11 @@ async function checkTemplate(dir) {
       try {
         const st = await fs.stat(target);
         if (st.isDirectory()) {
-          await fs.stat(path.join(target, 'index.html')).catch(() => problems.push(`${rel}: link to folder without index → ${href}`));
+          target=path.join(target,'index.html');
+          await fs.stat(target).catch(() => problems.push(`${rel}: link to folder without index → ${href}`));
         }
+        const fragment=href.split('#')[1];
+        if(fragment&&target.endsWith('.html')){const targetHtml=await htmlAt(target);const id=decodeURIComponent(fragment);if(!targetHtml.includes(`id="${id}"`))problems.push(`${rel}: missing fragment → ${href}`);}
         if (!inDist && crossLinks[href] !== false) crossLinks[href] = true;
       } catch {
         problems.push(`${rel}: broken link → ${href}`);
@@ -118,13 +125,19 @@ async function checkTemplate(dir) {
   let jsGz = 0;
   if (jsFile) jsGz = gz(await fs.readFile(jsFile));
 
+  const family=path.basename(dir).split('-')[1];
+  const cssBudget=family==='folio'?24:30,jsBudget=({nova:45,atelier:30,aero:42,folio:30})[family]||30;
+  if(cssGz/1024>cssBudget)problems.push(`CSS exceeds ${cssBudget}KB gzip budget`);
+  if(jsGz/1024>jsBudget)problems.push(`JS exceeds ${jsBudget}KB gzip budget`);
+  for(const f of files.filter(f=>f.includes(path.sep+'img'+path.sep)&&f.endsWith('.svg'))){const svg=await fs.readFile(f,'utf8');if(/<(?:image|script)\b|data:image|https?:\/\/(?!www\.w3\.org)/.test(svg))problems.push(`${path.relative(dist,f)}: raster, script or remote SVG dependency`);if(!/<title[ >]/.test(svg)||!/<desc[ >]/.test(svg))problems.push(`${path.relative(dist,f)}: missing SVG title or description`);}
+
   const fonts = files.filter((f) => f.endsWith('.woff2'));
   const fontBytes = (await Promise.all(fonts.map(async (f) => (await fs.stat(f)).size))).reduce((a, b) => a + b, 0);
 
   /* heaviest page incl. its referenced assets (rough) */
   let heaviest = { page: '—', kb: 0 };
   for (const file of htmlFiles) {
-    const html = await fs.readFile(file, 'utf8');
+    const html = await htmlAt(file);
     let total = Buffer.byteLength(html);
     for (const m of html.matchAll(/(?:src|href)="([^"]*\.(?:svg|png|jpg|woff2|css|js))"/g)) {
       const p = path.resolve(path.dirname(file), m[1]);

@@ -1,0 +1,491 @@
+{
+  "theme": "aero",
+  "license": "Original Web Academy artwork; supplied with these themes.",
+  "assets": [
+    {
+      "id": "edu-aero",
+      "file": "img/edu-aero.svg",
+      "bytes": 5073
+    },
+    {
+      "id": "edu-aero-workshop",
+      "file": "img/edu-aero-workshop.svg",
+      "bytes": 3733
+    },
+    {
+      "id": "edu-aero-community",
+      "file": "img/edu-aero-community.svg",
+      "bytes": 5495
+    },
+    {
+      "id": "edu-aero-replay",
+      "file": "img/edu-aero-replay.svg",
+      "bytes": 3129
+    },
+    {
+      "id": "edu-path",
+      "file": "img/edu-path.svg",
+      "bytes": 3733
+    },
+    {
+      "id": "edu-curriculum",
+      "file": "img/edu-curriculum.svg",
+      "bytes": 3799
+    },
+    {
+      "id": "edu-critique",
+      "file": "img/edu-critique.svg",
+      "bytes": 4020
+    },
+    {
+      "id": "edu-certificate",
+      "file": "img/edu-certificate.svg",
+      "bytes": 2776
+    },
+    {
+      "id": "edu-library",
+      "file": "img/edu-library.svg",
+      "bytes": 3675
+    },
+    {
+      "id": "edu-community",
+      "file": "img/edu-community.svg",
+      "bytes": 5452
+    },
+    {
+      "id": "edu-project",
+      "file": "img/edu-project.svg",
+      "bytes": 1984
+    },
+    {
+      "id": "edu-creator",
+      "file": "img/edu-creator.svg",
+      "bytes": 3972
+    },
+    {
+      "id": "edu-workshop",
+      "file": "img/edu-workshop.svg",
+      "bytes": 3728
+    },
+    {
+      "id": "edu-spot-book",
+      "file": "img/edu-spot-book.svg",
+      "bytes": 1262
+    },
+    {
+      "id": "edu-spot-lesson",
+      "file": "img/edu-spot-lesson.svg",
+      "bytes": 1083
+    },
+    {
+      "id": "edu-spot-calendar",
+      "file": "img/edu-spot-calendar.svg",
+      "bytes": 1163
+    },
+    {
+      "id": "edu-spot-mentor",
+      "file": "img/edu-spot-mentor.svg",
+      "bytes": 1972
+    },
+    {
+      "id": "edu-spot-certificate",
+      "file": "img/edu-spot-certificate.svg",
+      "bytes": 1129
+    },
+    {
+      "id": "edu-spot-community",
+      "file": "img/edu-spot-community.svg",
+      "bytes": 4434
+    },
+    {
+      "id": "edu-spot-project",
+      "file": "img/edu-spot-project.svg",
+      "bytes": 861
+    },
+    {
+      "id": "edu-spot-resources",
+      "file": "img/edu-spot-resources.svg",
+      "bytes": 1019
+    },
+    {
+      "id": "edu-spot-practice",
+      "file": "img/edu-spot-practice.svg",
+      "bytes": 1437
+    },
+    {
+      "id": "edu-spot-feedback",
+      "file": "img/edu-spot-feedback.svg",
+      "bytes": 1008
+    },
+    {
+      "id": "edu-spot-progress",
+      "file": "img/edu-spot-progress.svg",
+      "bytes": 812
+    },
+    {
+      "id": "edu-spot-creator",
+      "file": "img/edu-spot-creator.svg",
+      "bytes": 1961
+    },
+    {
+      "id": "edu-state-empty",
+      "file": "img/edu-state-empty.svg",
+      "bytes": 925
+    },
+    {
+      "id": "edu-state-saved",
+      "file": "img/edu-state-saved.svg",
+      "bytes": 1486
+    },
+    {
+      "id": "edu-state-upcoming",
+      "file": "img/edu-state-upcoming.svg",
+      "bytes": 1093
+    },
+    {
+      "id": "edu-state-complete",
+      "file": "img/edu-state-complete.svg",
+      "bytes": 1169
+    },
+    {
+      "id": "edu-state-download",
+      "file": "img/edu-state-download.svg",
+      "bytes": 974
+    },
+    {
+      "id": "edu-state-welcome",
+      "file": "img/edu-state-welcome.svg",
+      "bytes": 2234
+    },
+    {
+      "id": "edu-state-offline",
+      "file": "img/edu-state-offline.svg",
+      "bytes": 1014
+    },
+    {
+      "id": "edu-state-question",
+      "file": "img/edu-state-question.svg",
+      "bytes": 789
+    },
+    {
+      "id": "cover-c1",
+      "file": "img/cover-c1.svg",
+      "bytes": 2537
+    },
+    {
+      "id": "cover-c2",
+      "file": "img/cover-c2.svg",
+      "bytes": 1957
+    },
+    {
+      "id": "cover-c3",
+      "file": "img/cover-c3.svg",
+      "bytes": 2328
+    },
+    {
+      "id": "cover-c4",
+      "file": "img/cover-c4.svg",
+      "bytes": 1794
+    },
+    {
+      "id": "cover-c5",
+      "file": "img/cover-c5.svg",
+      "bytes": 3551
+    },
+    {
+      "id": "cover-c6",
+      "file": "img/cover-c6.svg",
+      "bytes": 1849
+    },
+    {
+      "id": "cover-c7",
+      "file": "img/cover-c7.svg",
+      "bytes": 2927
+    },
+    {
+      "id": "cover-c8",
+      "file": "img/cover-c8.svg",
+      "bytes": 1779
+    },
+    {
+      "id": "cover-c9",
+      "file": "img/cover-c9.svg",
+      "bytes": 2321
+    },
+    {
+      "id": "cover-c10",
+      "file": "img/cover-c10.svg",
+      "bytes": 2539
+    },
+    {
+      "id": "cover-c11",
+      "file": "img/cover-c11.svg",
+      "bytes": 3777
+    },
+    {
+      "id": "cover-c12",
+      "file": "img/cover-c12.svg",
+      "bytes": 2363
+    },
+    {
+      "id": "cover-c13",
+      "file": "img/cover-c13.svg",
+      "bytes": 1669
+    },
+    {
+      "id": "cover-c14",
+      "file": "img/cover-c14.svg",
+      "bytes": 1921
+    },
+    {
+      "id": "cover-c15",
+      "file": "img/cover-c15.svg",
+      "bytes": 3787
+    },
+    {
+      "id": "cover-c16",
+      "file": "img/cover-c16.svg",
+      "bytes": 1879
+    },
+    {
+      "id": "post-1",
+      "file": "img/post-1.svg",
+      "bytes": 3820
+    },
+    {
+      "id": "post-2",
+      "file": "img/post-2.svg",
+      "bytes": 2510
+    },
+    {
+      "id": "post-3",
+      "file": "img/post-3.svg",
+      "bytes": 1925
+    },
+    {
+      "id": "post-4",
+      "file": "img/post-4.svg",
+      "bytes": 2305
+    },
+    {
+      "id": "post-5",
+      "file": "img/post-5.svg",
+      "bytes": 2512
+    },
+    {
+      "id": "post-6",
+      "file": "img/post-6.svg",
+      "bytes": 3890
+    },
+    {
+      "id": "post-7",
+      "file": "img/post-7.svg",
+      "bytes": 2511
+    },
+    {
+      "id": "post-8",
+      "file": "img/post-8.svg",
+      "bytes": 2512
+    },
+    {
+      "id": "post-9",
+      "file": "img/post-9.svg",
+      "bytes": 1937
+    },
+    {
+      "id": "av-ana",
+      "file": "img/av-ana.svg",
+      "bytes": 1973
+    },
+    {
+      "id": "av-idris",
+      "file": "img/av-idris.svg",
+      "bytes": 2052
+    },
+    {
+      "id": "av-mei",
+      "file": "img/av-mei.svg",
+      "bytes": 1901
+    },
+    {
+      "id": "av-omar",
+      "file": "img/av-omar.svg",
+      "bytes": 1977
+    },
+    {
+      "id": "av-sofia",
+      "file": "img/av-sofia.svg",
+      "bytes": 1909
+    },
+    {
+      "id": "av-tomas",
+      "file": "img/av-tomas.svg",
+      "bytes": 2052
+    },
+    {
+      "id": "av-hala",
+      "file": "img/av-hala.svg",
+      "bytes": 1977
+    },
+    {
+      "id": "av-jonas",
+      "file": "img/av-jonas.svg",
+      "bytes": 1909
+    },
+    {
+      "id": "track-design",
+      "file": "img/track-design.svg",
+      "bytes": 2507
+    },
+    {
+      "id": "track-code",
+      "file": "img/track-code.svg",
+      "bytes": 2292
+    },
+    {
+      "id": "track-visual",
+      "file": "img/track-visual.svg",
+      "bytes": 1933
+    },
+    {
+      "id": "track-data",
+      "file": "img/track-data.svg",
+      "bytes": 1760
+    },
+    {
+      "id": "track-business",
+      "file": "img/track-business.svg",
+      "bytes": 2550
+    },
+    {
+      "id": "track-teaching",
+      "file": "img/track-teaching.svg",
+      "bytes": 3894
+    },
+    {
+      "id": "res-1",
+      "file": "img/res-1.svg",
+      "bytes": 2525
+    },
+    {
+      "id": "res-2",
+      "file": "img/res-2.svg",
+      "bytes": 3900
+    },
+    {
+      "id": "res-3",
+      "file": "img/res-3.svg",
+      "bytes": 2314
+    },
+    {
+      "id": "res-4",
+      "file": "img/res-4.svg",
+      "bytes": 1948
+    },
+    {
+      "id": "res-5",
+      "file": "img/res-5.svg",
+      "bytes": 1939
+    },
+    {
+      "id": "res-6",
+      "file": "img/res-6.svg",
+      "bytes": 2316
+    },
+    {
+      "id": "res-7",
+      "file": "img/res-7.svg",
+      "bytes": 1796
+    },
+    {
+      "id": "res-8",
+      "file": "img/res-8.svg",
+      "bytes": 2528
+    },
+    {
+      "id": "res-9",
+      "file": "img/res-9.svg",
+      "bytes": 1945
+    },
+    {
+      "id": "res-10",
+      "file": "img/res-10.svg",
+      "bytes": 1950
+    },
+    {
+      "id": "res-11",
+      "file": "img/res-11.svg",
+      "bytes": 3761
+    },
+    {
+      "id": "res-12",
+      "file": "img/res-12.svg",
+      "bytes": 3904
+    },
+    {
+      "id": "folio-hero",
+      "file": "img/folio-hero.svg",
+      "bytes": 6219
+    },
+    {
+      "id": "folio-pricing",
+      "file": "img/folio-pricing.svg",
+      "bytes": 1984
+    },
+    {
+      "id": "folio-live",
+      "file": "img/folio-live.svg",
+      "bytes": 3728
+    },
+    {
+      "id": "folio-students",
+      "file": "img/folio-students.svg",
+      "bytes": 5452
+    },
+    {
+      "id": "folio-library",
+      "file": "img/folio-library.svg",
+      "bytes": 3675
+    },
+    {
+      "id": "folio-paid",
+      "file": "img/folio-paid.svg",
+      "bytes": 2776
+    },
+    {
+      "id": "folio-frame",
+      "file": "img/folio-frame.svg",
+      "bytes": 1984
+    },
+    {
+      "id": "atelier-studio",
+      "file": "img/atelier-studio.svg",
+      "bytes": 5470
+    },
+    {
+      "id": "nova-collab",
+      "file": "img/nova-collab.svg",
+      "bytes": 4020
+    },
+    {
+      "id": "aero-room",
+      "file": "img/aero-room.svg",
+      "bytes": 5073
+    },
+    {
+      "id": "work-1",
+      "file": "img/work-1.svg",
+      "bytes": 1950
+    },
+    {
+      "id": "work-2",
+      "file": "img/work-2.svg",
+      "bytes": 2528
+    },
+    {
+      "id": "work-3",
+      "file": "img/work-3.svg",
+      "bytes": 1771
+    }
+  ]
+}

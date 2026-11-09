@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Web Academy//Learning Demo//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:s2@webacademy.example
+DTSTAMP:20261109T080659Z
+DTSTART:20261111T120000Z
+DTEND:20261111T130000Z
+SUMMARY:Interface teardown: three banks\, one flow (demo)
+DESCRIPTION:We take apart three account-opening flows and rebuild the dec
+ ision points live. Demonstration event\; no live room or registration is
+  connected.
+END:VEVENT
+END:VCALENDAR

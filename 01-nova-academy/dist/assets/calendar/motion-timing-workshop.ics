@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Web Academy//Learning Demo//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:s4@webacademy.example
+DTSTAMP:20261109T080659Z
+DTSTART:20261109T115000Z
+DTEND:20261109T132000Z
+SUMMARY:Motion timing workshop (demo)
+DESCRIPTION:A hands-on session on easing\, choreography and the disciplin
+ e of restraint. Demonstration event\; no live room or registration is co
+ nnected.
+END:VEVENT
+END:VCALENDAR

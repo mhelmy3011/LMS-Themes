@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Web Academy//Learning Demo//AR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:s4@webacademy.example
+DTSTAMP:20261109T080659Z
+DTSTART:20261109T115000Z
+DTEND:20261109T132000Z
+SUMMARY:ورشة توقيت الحركة (تجريبي)
+DESCRIPTION:جلسة عملية عن منحنيات التسارع وتس
+ لسل الحركة واستخدامها باعتدال. حدث تجري
+ بي؛ لا يوجد صف مباشر أو تسجيل مرتبط.
+END:VEVENT
+END:VCALENDAR
