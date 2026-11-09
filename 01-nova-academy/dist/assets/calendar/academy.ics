@@ -4,7 +4,7 @@ PRODID:-//Web Academy//Learning Demo//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:s1@webacademy.example
-DTSTAMP:20261109T080659Z
+DTSTAMP:20261109T095401Z
 DTSTART:20261110T120000Z
 DTEND:20261110T133000Z
 SUMMARY:Critique night: portfolio reviews (demo)
@@ -14,7 +14,7 @@ DESCRIPTION:Live feedback on six student portfolios\, with a repeatable r
 END:VEVENT
 BEGIN:VEVENT
 UID:s2@webacademy.example
-DTSTAMP:20261109T080659Z
+DTSTAMP:20261109T095401Z
 DTSTART:20261111T120000Z
 DTEND:20261111T130000Z
 SUMMARY:Interface teardown: three banks\, one flow (demo)
@@ -24,7 +24,7 @@ DESCRIPTION:We take apart three account-opening flows and rebuild the dec
 END:VEVENT
 BEGIN:VEVENT
 UID:s3@webacademy.example
-DTSTAMP:20261109T080659Z
+DTSTAMP:20261109T095401Z
 DTSTART:20261112T120000Z
 DTEND:20261112T131500Z
 SUMMARY:Accessibility clinic: focus and keyboard (demo)
@@ -34,7 +34,7 @@ DESCRIPTION:Bring a component. We will make it keyboard-complete together
 END:VEVENT
 BEGIN:VEVENT
 UID:s4@webacademy.example
-DTSTAMP:20261109T080659Z
+DTSTAMP:20261109T095401Z
 DTSTART:20261109T115000Z
 DTEND:20261109T132000Z
 SUMMARY:Motion timing workshop (demo)
@@ -44,7 +44,7 @@ DESCRIPTION:A hands-on session on easing\, choreography and the disciplin
 END:VEVENT
 BEGIN:VEVENT
 UID:s5@webacademy.example
-DTSTAMP:20261109T080659Z
+DTSTAMP:20261109T095401Z
 DTSTART:20261114T120000Z
 DTEND:20261114T130000Z
 SUMMARY:Data storytelling: from chart to argument (demo)
@@ -54,7 +54,7 @@ DESCRIPTION:How to move an audience from numbers to a decision without mi
 END:VEVENT
 BEGIN:VEVENT
 UID:s6@webacademy.example
-DTSTAMP:20261109T080659Z
+DTSTAMP:20261109T095401Z
 DTSTART:20261115T120000Z
 DTEND:20261115T131500Z
 SUMMARY:How to price a project without guessing (demo)
@@ -64,7 +64,7 @@ DESCRIPTION:A live walkthrough of three real proposals\, including the on
 END:VEVENT
 BEGIN:VEVENT
 UID:s7@webacademy.example
-DTSTAMP:20261109T080659Z
+DTSTAMP:20261109T095401Z
 DTSTART:20261116T120000Z
 DTEND:20261116T130000Z
 SUMMARY:Cohort design office hours (demo)
@@ -73,7 +73,7 @@ DESCRIPTION:Open office hours for anyone designing or running a cohort. D
 END:VEVENT
 BEGIN:VEVENT
 UID:s8@webacademy.example
-DTSTAMP:20261109T080659Z
+DTSTAMP:20261109T095401Z
 DTSTART:20261107T120000Z
 DTEND:20261107T131500Z
 SUMMARY:Type critique: spacing and rhythm (demo)
@@ -83,7 +83,7 @@ DESCRIPTION:A recorded critique session on real student work\, with a spa
 END:VEVENT
 BEGIN:VEVENT
 UID:s9@webacademy.example
-DTSTAMP:20261109T080659Z
+DTSTAMP:20261109T095401Z
 DTSTART:20261106T120000Z
 DTEND:20261106T130000Z
 SUMMARY:Illustration briefs that hold up (demo)
@@ -92,7 +92,7 @@ DESCRIPTION:How to turn a vague brief into a visual argument\, recorded l
 END:VEVENT
 BEGIN:VEVENT
 UID:s10@webacademy.example
-DTSTAMP:20261109T080659Z
+DTSTAMP:20261109T095401Z
 DTSTART:20261105T120000Z
 DTEND:20261105T133000Z
 SUMMARY:Building a design system in public (demo)

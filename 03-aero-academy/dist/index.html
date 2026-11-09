@@ -17,8 +17,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/brand/favicon-aero.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/brand/app-icon-aero.png">
-<link rel="preload" href="assets/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/aero.css">
+<link rel="preload" href="assets/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <meta name="robots" content="noindex">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Web Academy","description":"The live academy","slogan":"Teach the world","url":"https://webacademy.example","sameAs":[]}</script>
@@ -132,21 +132,29 @@
           <div class="proof">
             <div class="flex items-center gap-3">
               <span class="proof__avatars">
-                <img src="assets/img/av-sofia.svg" alt="" width="36" height="36">
-                <img src="assets/img/av-omar.svg" alt="" width="36" height="36">
-                <img src="assets/img/av-hala.svg" alt="" width="36" height="36">
+                <img src="assets/img/av-sofia.svg" alt="" width="36" height="36" loading="lazy" decoding="async">
+                <img src="assets/img/av-omar.svg" alt="" width="36" height="36" loading="lazy" decoding="async">
+                <img src="assets/img/av-hala.svg" alt="" width="36" height="36" loading="lazy" decoding="async">
               </span>
-              <span><span class="proof__num" data-count="8">8</span><span class="proof__label">practising educators</span></span>
+              <span><span class="proof__num" data-count="8">8</span> <span class="proof__label">practising educators</span></span>
             </div>
             <div>
-              <span class="proof__num">16</span>
-              <span class="proof__label">courses to explore</span>
+              <span class="proof__num">16</span> <span class="proof__label">courses to explore</span>
             </div>
           </div>
         </div>
         <div class="stage-wrap">
 
 <div class="stage" data-stage>
+  <div class="stage__top">
+    <div class="stage__people">
+      <img src="assets/img/av-ana.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
+      <img src="assets/img/av-idris.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
+      <img src="assets/img/av-mei.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
+      <span>Illustrated demo classroom</span>
+    </div>
+    <span class="live-pill"><span class="live-dot" aria-hidden="true"></span>DEMO <span data-timer aria-live="off">00:14</span></span>
+  </div>
   <div class="stage__media">
     <figure class="edu-scene" data-edu-scene data-scene-kind="aero"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" class="edu-art" role="img" aria-labelledby="stage-s4-title stage-s4-desc" focusable="false"><title id="stage-s4-title">Learning, beautifully illustrated</title><desc id="stage-s4-desc">An instructor explains a three-step process on a digital whiteboard while welcoming a learner question.</desc>
  <rect x="0" y="0" width="960" height="600" rx="0" fill="#001A3D" /><path d="M0 600V148Q295-90 508 185T960 71v529Z" fill="#012A5D"/>
@@ -173,25 +181,17 @@
  <circle cx="871" cy="486" r="24" fill="#C8F560" /><g transform="translate(861 480) scale(1.2)"><path d="M0 7l5 5L16 0" fill="none" stroke="#012A5D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></g><text x="63" y="527" fill="#FFFFFF" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="500" >A real room. A shared learning moment.</text>
  </svg></figure>
   </div>
-  <div class="stage__scrim" aria-hidden="true"></div>
-  <div class="stage__top">
-    <div class="stage__people">
-      <img src="assets/img/av-ana.svg" alt="" width="32" height="32">
-      <img src="assets/img/av-idris.svg" alt="" width="32" height="32">
-      <img src="assets/img/av-mei.svg" alt="" width="32" height="32">
-      <span>Illustrated demo classroom</span>
+  <div class="stage__dock">
+    <div class="stage__controls" role="group" aria-label="Room controls">
+      <button class="stage__btn" type="button" aria-pressed="false" aria-label="Mute microphone"><svg class="ic " data-icon="mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="3.5" width="6" height="10.5" rx="3"/><path d="M6 11.5a6 6 0 0 0 12 0M12 17.5V21"/></svg></button>
+      <button class="stage__btn" type="button" aria-pressed="true" aria-label="Turn camera off"><svg class="ic " data-icon="camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="7" width="12.5" height="10" rx="2.4"/><path d="m16 11 4.5-3v8L16 13"/></svg></button>
+      <button class="stage__btn stage__btn--hand" type="button" aria-pressed="false" aria-label="Raise hand in demo classroom"><svg class="ic " data-icon="hand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10m0-5a1.5 1.5 0 0 1 3 0v5m0-3.5a1.5 1.5 0 0 1 3 0V14a6 6 0 0 1-6 6h-1a6 6 0 0 1-5.2-3l-1.9-3.3a1.5 1.5 0 0 1 2.6-1.5L9 14v-3Z"/></svg></button>
+      <button class="stage__btn" type="button" aria-label="Room settings"><svg class="ic " data-icon="settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2.2M12 18.3v2.2M4.9 7.9l1.9 1.1M17.2 15l1.9 1.1M4.9 16.1l1.9-1.1M17.2 9l1.9-1.1"/></svg></button>
+      <button class="stage__btn edu-motion-btn no-js-hide" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause illustration motion"><span class="edu-motion__pause" aria-hidden="true"><svg class="ic " data-icon="pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="7" y="5.5" width="3.4" height="13" rx="1" fill="currentColor" stroke="none"/><rect x="13.6" y="5.5" width="3.4" height="13" rx="1" fill="currentColor" stroke="none"/></svg></span><span class="edu-motion__play" aria-hidden="true"><svg class="ic " data-icon="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg></span></button>
     </div>
-    <span class="live-pill"><span class="live-dot" aria-hidden="true"></span>DEMO <span data-timer aria-live="off">00:14</span></span>
-  </div>
-  <div class="stage__join">
-    <a class="btn btn--primary btn--lg" href="live/motion-timing-workshop/index.html">Explore the classroom</a>
-  </div>
-  <div class="stage__controls" role="group" aria-label="Room controls">
-    <button class="stage__btn" type="button" aria-pressed="false" aria-label="Mute microphone"><svg class="ic " data-icon="mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="3.5" width="6" height="10.5" rx="3"/><path d="M6 11.5a6 6 0 0 0 12 0M12 17.5V21"/></svg></button>
-    <button class="stage__btn" type="button" aria-pressed="true" aria-label="Turn camera off"><svg class="ic " data-icon="camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="7" width="12.5" height="10" rx="2.4"/><path d="m16 11 4.5-3v8L16 13"/></svg></button>
-    <button class="stage__btn stage__btn--leave" type="button" aria-label="Leave the room"><svg class="ic " data-icon="phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3.8 9.5 8 7.8 9.8c.9 2 2.4 3.5 4.4 4.4L14 12.5l4.2 2.5c-.4 2.4-2 4-4.4 4C8.6 19 5 15.4 5 10.2c0-2.4 1.6-4 4.2-4.4"/></svg></button>
-    <button class="stage__btn" type="button" aria-label="Room settings"><svg class="ic " data-icon="settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2.2M12 18.3v2.2M4.9 7.9l1.9 1.1M17.2 15l1.9 1.1M4.9 16.1l1.9-1.1M17.2 9l1.9-1.1"/></svg></button>
-    <button class="stage__btn no-js-hide" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause illustration motion"><svg class="ic " data-icon="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg></button>
+    <div class="stage__join">
+      <a class="btn btn--primary btn--lg" href="live/motion-timing-workshop/index.html">Explore the classroom</a>
+    </div>
   </div>
 </div>
           <div class="stage-quote">
@@ -230,13 +230,13 @@
 
  </g><text x="557" y="353" fill="#FFFFFF" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="600" >YOUR AGENDA</text><text x="557" y="378" fill="#EAF1FB" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="500" >01 / Look closely</text><text x="557" y="401" fill="#EAF1FB" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="500" >02 / Make a test</text>
  <rect x="80" y="460" width="640" height="53" rx="12" fill="#012A5D" /><circle cx="109" cy="487" r="15" fill="#C8F560" /><g transform="translate(103 483) scale(0.8)"><path d="M0 7l5 5L16 0" fill="none" stroke="#012A5D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></g><text x="139" y="493" fill="#FFFFFF" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="500" >Bring one idea. Leave with a next step.</text>
- </svg><button class="edu-motion no-js-hide" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause illustration motion"><svg class="ic " data-icon="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg><span>Motion on</span></button></figure><p class="edu-lab__caption">Explore a focused lesson, with visual examples and a specific learning goal.</p></div><div id="aero-practice-p1" role="tabpanel" aria-labelledby="aero-practice-t1" tabindex="0" data-edu-panel hidden><figure class="edu-scene" data-edu-scene data-scene-kind="project"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" class="edu-art" role="img" aria-labelledby="aero-practice-art1-title aero-practice-art1-desc" focusable="false"><title id="aero-practice-art1-title">Learning, beautifully illustrated</title><desc id="aero-practice-art1-desc">A first sketch develops into a considered finished creative project.</desc>
+ </svg><button class="edu-motion no-js-hide" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause illustration motion"><span class="edu-motion__pause" aria-hidden="true"><svg class="ic " data-icon="pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="7" y="5.5" width="3.4" height="13" rx="1" fill="currentColor" stroke="none"/><rect x="13.6" y="5.5" width="3.4" height="13" rx="1" fill="currentColor" stroke="none"/></svg></span><span class="edu-motion__play" aria-hidden="true"><svg class="ic " data-icon="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg></span><span data-motion-label>Motion on</span></button></figure><p class="edu-lab__caption">Explore a focused lesson, with visual examples and a specific learning goal.</p></div><div id="aero-practice-p1" role="tabpanel" aria-labelledby="aero-practice-t1" tabindex="0" data-edu-panel hidden><figure class="edu-scene" data-edu-scene data-scene-kind="project"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" class="edu-art" role="img" aria-labelledby="aero-practice-art1-title aero-practice-art1-desc" focusable="false"><title id="aero-practice-art1-title">Learning, beautifully illustrated</title><desc id="aero-practice-art1-desc">A first sketch develops into a considered finished creative project.</desc>
  <rect x="58" y="60" width="684" height="480" rx="30" fill="#EAF1FB" /><text x="97" y="104" fill="#14427F" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">FROM FIRST ATTEMPT TO FINISHED WORK</text>
  <g transform="rotate(-5 218 287)"><rect x="108" y="151" width="225" height="290" rx="12" fill="#FFFFFF" /><rect x="128" y="174" width="185" height="200" rx="5" fill="#EAF1FB" /><path d="M155 330q20-122 65-121t67 124M162 297l49 38 60-70" fill="none" stroke="#012A5D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /><text x="131" y="405" fill="#14427F" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="600" >01 / THE FIRST IDEA</text></g>
  <path d="M358 285h53m-16-16 16 16-16 16" fill="none" stroke="#012A5D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
  <g class="edu-part--float-slow" transform="rotate(5 566 286)"><rect x="458" y="150" width="225" height="290" rx="12" fill="#FFFFFF" /><rect x="478" y="173" width="185" height="200" rx="5" fill="#012A5D" /><path d="M502 345c0-80 33-133 66-134 38 0 71 63 71 134Z" fill="#8DB8FF"/><circle cx="568" cy="268" r="31" fill="#C8F560" /><path d="M496 346q73-80 149 0" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /><text x="480" y="405" fill="#012A5D" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="600" >02 / MADE YOUR OWN</text></g>
  <text x="193" y="496" fill="#012A5D" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="500" >Practice makes a difference you can see.</text>
- </svg><button class="edu-motion no-js-hide" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause illustration motion"><svg class="ic " data-icon="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg><span>Motion on</span></button></figure><p class="edu-lab__caption">Apply the method to a small project. Keep your working files, not just your notes.</p></div><div id="aero-practice-p2" role="tabpanel" aria-labelledby="aero-practice-t2" tabindex="0" data-edu-panel hidden><figure class="edu-scene" data-edu-scene data-scene-kind="aero-community"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" class="edu-art" role="img" aria-labelledby="aero-practice-art2-title aero-practice-art2-desc" focusable="false"><title id="aero-practice-art2-title">Learning, beautifully illustrated</title><desc id="aero-practice-art2-desc">A small learning room brings people, questions and different perspectives together.</desc>
+ </svg><button class="edu-motion no-js-hide" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause illustration motion"><span class="edu-motion__pause" aria-hidden="true"><svg class="ic " data-icon="pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="7" y="5.5" width="3.4" height="13" rx="1" fill="currentColor" stroke="none"/><rect x="13.6" y="5.5" width="3.4" height="13" rx="1" fill="currentColor" stroke="none"/></svg></span><span class="edu-motion__play" aria-hidden="true"><svg class="ic " data-icon="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg></span><span data-motion-label>Motion on</span></button></figure><p class="edu-lab__caption">Apply the method to a small project. Keep your working files, not just your notes.</p></div><div id="aero-practice-p2" role="tabpanel" aria-labelledby="aero-practice-t2" tabindex="0" data-edu-panel hidden><figure class="edu-scene" data-edu-scene data-scene-kind="aero-community"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" class="edu-art" role="img" aria-labelledby="aero-practice-art2-title aero-practice-art2-desc" focusable="false"><title id="aero-practice-art2-title">Learning, beautifully illustrated</title><desc id="aero-practice-art2-desc">A small learning room brings people, questions and different perspectives together.</desc>
  <circle cx="400" cy="295" r="244" fill="#EAF1FB" /><path d="M164 249Q396 31 635 249M167 380q235 139 471 0" fill="none" stroke="#8DB8FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 9"/>
  <circle cx="218" cy="290" r="82" fill="#FFFFFF" /><g transform="translate(218 290) scale(0.95)">
  <path d="M-68 120v-22c0-39 29-60 68-60s68 21 68 60v22Z" fill="#14427F"/>
@@ -283,7 +283,7 @@
  </g>
  <rect x="288" y="437" width="257" height="65" rx="16" fill="#012A5D" /><text x="321" y="465" fill="#FFFFFF" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="600" >Better, together.</text><text x="321" y="485" fill="#FFFFFF" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="500" >A community that gets your craft.</text>
  <g class="edu-part--float"><rect x="82" y="119" width="144" height="65" rx="12" fill="#FFFFFF" stroke="#8DB8FF"/><text x="103" y="147" fill="#012A5D" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="500" >“How did you do that?”</text><text x="103" y="167" fill="#14427F" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="500" >Let’s figure it out.</text></g><g transform="translate(664 145) scale(0.7)"><path d="M0-12V12M-12 0H12M-8-8 8 8M8-8-8 8" fill="none" stroke="#012A5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g>
- </svg><button class="edu-motion no-js-hide" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause illustration motion"><svg class="ic " data-icon="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg><span>Motion on</span></button></figure><p class="edu-lab__caption">Use a considered rubric to review your work, then make a stronger second draft.</p></div></div></div></div></section>
+ </svg><button class="edu-motion no-js-hide" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause illustration motion"><span class="edu-motion__pause" aria-hidden="true"><svg class="ic " data-icon="pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="7" y="5.5" width="3.4" height="13" rx="1" fill="currentColor" stroke="none"/><rect x="13.6" y="5.5" width="3.4" height="13" rx="1" fill="currentColor" stroke="none"/></svg></span><span class="edu-motion__play" aria-hidden="true"><svg class="ic " data-icon="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none"/></svg></span><span data-motion-label>Motion on</span></button></figure><p class="edu-lab__caption">Use a considered rubric to review your work, then make a stronger second draft.</p></div></div></div></div></section>
   <section class="section edu-projects" aria-labelledby="aero-projects-title"><div class="container"><div class="head"><div class="head__text"><p class="kicker">The proof is in the practice</p><h2 class="h2" id="aero-projects-title">Not just a new skill.<br>Something to show for it.</h2><p class="lede">A few examples of the work our lessons are designed to help you make. Illustrative student projects, not stock promises.</p></div><a class="btn btn--ghost" href="courses/index.html">Find your next project <svg class="ic " data-icon="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="edu-project-grid"><a class="edu-project" href="courses/illustration-for-editorial-clients/index.html"><div class="edu-project__art"><img src="assets/img/work-1.svg" width="800" height="500" alt="Example an editorial illustration series" loading="lazy" decoding="async"><span><svg class="ic " data-icon="arrowUpRight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div><p class="kicker">Visual craft / sample project</p><h3>An editorial illustration series</h3><p class="small">A little practice with Ana.</p></a><a class="edu-project" href="courses/designing-interfaces-that-scale/index.html"><div class="edu-project__art"><img src="assets/img/work-2.svg" width="800" height="500" alt="Example a documented interface system" loading="lazy" decoding="async"><span><svg class="ic " data-icon="arrowUpRight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div><p class="kicker">Design / sample project</p><h3>A documented interface system</h3><p class="small">A little practice with Mei.</p></a><a class="edu-project" href="courses/data-storytelling-for-teams/index.html"><div class="edu-project__art"><img src="assets/img/work-3.svg" width="800" height="500" alt="Example a clear data story" loading="lazy" decoding="async"><span><svg class="ic " data-icon="arrowUpRight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div><p class="kicker">Data / sample project</p><h3>A clear data story</h3><p class="small">A little practice with Omar.</p></a></div></div></section>
 
   <section class="section section--tight">
@@ -418,21 +418,21 @@
       <div class="earn">
 
           <div class="earn__card">
-            <div class="earn__art"><img src="assets/img/cover-c1.svg" alt="" width="480" height="360" loading="lazy"></div>
+            <div class="earn__art"><img src="assets/img/format-course.svg" alt="" width="800" height="600" loading="lazy"></div>
             <p class="earn__price">$49+</p>
             <h3 class="h4" style="color:#fff">Self-paced course</h3>
             <p class="small">Record once, sell forever. You set the price.</p>
             <a class="link-arrow" href="teach/index.html" style="margin-block-start:auto;color:#fff">How it works <svg class="ic " data-icon="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
           <div class="earn__card">
-            <div class="earn__art"><img src="assets/img/cover-c7.svg" alt="" width="480" height="360" loading="lazy"></div>
+            <div class="earn__art"><img src="assets/img/format-cohort.svg" alt="" width="800" height="600" loading="lazy"></div>
             <p class="earn__price">$240+</p>
             <h3 class="h4" style="color:#fff">Live cohort</h3>
             <p class="small">Six weeks, a fixed room, a premium price.</p>
             <a class="link-arrow" href="teach/index.html" style="margin-block-start:auto;color:#fff">How it works <svg class="ic " data-icon="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
           <div class="earn__card">
-            <div class="earn__art"><img src="assets/img/cover-c9.svg" alt="" width="480" height="360" loading="lazy"></div>
+            <div class="earn__art"><img src="assets/img/format-membership.svg" alt="" width="800" height="600" loading="lazy"></div>
             <p class="earn__price">$19/mo</p>
             <h3 class="h4" style="color:#fff">Membership</h3>
             <p class="small">Monthly access to your sessions and archive.</p>
@@ -651,7 +651,7 @@
       <div class="grid grid--3">
   <article class="card card--link post-card ">
     <div class="card__media">
-      <img src="assets/img/post-1.svg" alt="" width="800" height="450" loading="lazy" decoding="async">
+      <img src="assets/img/post-1.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
     </div>
     <div class="card__body">
       <p class="kicker"><span class="kicker__dot"></span>Teaching</p>
@@ -665,7 +665,7 @@
   </article>
   <article class="card card--link post-card ">
     <div class="card__media">
-      <img src="assets/img/post-2.svg" alt="" width="800" height="450" loading="lazy" decoding="async">
+      <img src="assets/img/post-2.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
     </div>
     <div class="card__body">
       <p class="kicker"><span class="kicker__dot"></span>Design</p>
@@ -679,7 +679,7 @@
   </article>
   <article class="card card--link post-card ">
     <div class="card__media">
-      <img src="assets/img/post-3.svg" alt="" width="800" height="450" loading="lazy" decoding="async">
+      <img src="assets/img/post-3.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
     </div>
     <div class="card__body">
       <p class="kicker"><span class="kicker__dot"></span>Motion</p>

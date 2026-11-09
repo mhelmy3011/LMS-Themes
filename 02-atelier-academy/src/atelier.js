@@ -88,21 +88,25 @@
   /* T4 — clip-path reveal on editorial media                            */
   /* ------------------------------------------------------------------ */
   if (!reduce.matches) {
-    var media = WA.$$('.faculty__img, .course-row__media, .bento__item--photo');
+    var media = WA.$$('.faculty__img, .course-row__media, .bento__item--photo img');
+    var anims = [];
     var reveal = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        en.target.animate(
+        if (!en.isIntersecting || reduce.matches) return;
+        anims.push(en.target.animate(
           [
             { clipPath: 'inset(0 0 100% 0)' },
             { clipPath: 'inset(0 0 0 0)' },
           ],
-          { duration: 900, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'both' }
-        );
+          { duration: 420, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'both' }
+        ));
         reveal.unobserve(en.target);
       });
     }, { threshold: 0.15 });
     media.forEach(function (m) { reveal.observe(m); });
+    if (reduce.addEventListener) reduce.addEventListener('change', function () {
+      if (reduce.matches) anims.forEach(function (a) { try { a.finish(); } catch (e) {} });
+    });
   }
 
 })();

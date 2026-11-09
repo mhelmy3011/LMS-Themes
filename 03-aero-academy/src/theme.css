@@ -241,25 +241,27 @@ main { padding-block-start: 96px; }
 /* stage */
 .stage-wrap { position: relative; display: grid; gap: var(--sp-5); }
 .stage {
-  position: relative; width: 100%; aspect-ratio: 16 / 10;
-  border-radius: 28px; overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  position: relative; width: 100%; display: flex; flex-direction: column;
+  border-radius: 26px; overflow: hidden;
+  border: 1px solid rgba(141, 184, 255, 0.24);
   box-shadow: var(--glow-stage), inset 0 1px 0 rgba(255, 255, 255, 0.14);
   background: var(--wa-navy-deep);
 }
-.stage__media { position: absolute; inset: 0; }
-.stage__media img { width: 100%; height: 100%; object-fit: cover; }
-.stage__scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 26, 61, 0.75), rgba(0, 26, 61, 0.05) 55%, rgba(0, 26, 61, 0.3)); transition: background var(--dur-base); }
-.stage__top { position: absolute; inset-block-start: 14px; inset-inline: 14px; display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
-.stage__people { display: flex; align-items: center; }
-.stage__people img { width: 32px; height: 32px; border-radius: 50%; box-shadow: 0 0 0 2px #001a3d; }
-.stage__people img + img { margin-inline-start: -9px; }
-.stage__people span { margin-inline-start: 8px; font-size: 0.6875rem; color: rgba(255, 255, 255, 0.9); }
+.stage__top {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  padding: 12px 16px; background: rgba(1, 42, 93, 0.72);
+  border-block-end: 1px solid rgba(141, 184, 255, 0.16);
+}
+.stage__media { position: relative; width: 100%; aspect-ratio: 16 / 10; background: var(--wa-navy-deep); }
+.stage__media img, .stage__media .edu-art { width: 100%; height: 100%; object-fit: contain; }
+.stage__people { display: flex; align-items: center; min-width: 0; }
+.stage__people img { width: 28px; height: 28px; border-radius: 50%; box-shadow: 0 0 0 2px #001a3d; flex: none; }
+.stage__people img + img { margin-inline-start: -8px; }
+.stage__people span { margin-inline-start: 8px; font-size: 0.75rem; color: #eaf1fb; overflow-wrap: break-word; }
 .live-pill {
-  display: inline-flex; align-items: center; gap: 7px;
+  display: inline-flex; align-items: center; gap: 7px; flex: none;
   padding: 5px 10px; border-radius: var(--r-pill);
-  background: rgba(0, 26, 61, 0.62); border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  background: rgba(0, 26, 61, 0.75); border: 1px solid rgba(255, 255, 255, 0.18);
   font-family: var(--font-mono); font-size: 0.625rem; letter-spacing: 0.1em; color: #fff;
 }
 .live-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; }
@@ -269,32 +271,26 @@ main { padding-block-start: 96px; }
   animation: pulse 2.4s var(--ease-out) infinite;
 }
 @keyframes pulse { 0% { transform: scale(0.6); opacity: 0.9; } 70%, 100% { transform: scale(2.2); opacity: 0; } }
-.stage__controls {
-  position: absolute; inset-block-end: 14px; inset-inline: 0;
-  display: flex; justify-content: center; gap: 8px;
-  transition: transform var(--dur-base) var(--ease-out);
+.stage__dock {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px 16px; background: rgba(1, 42, 93, 0.78);
+  border-block-start: 1px solid rgba(141, 184, 255, 0.16);
 }
+.stage__controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .stage__btn {
-  width: 40px; height: 40px; border-radius: 50%;
+  width: 44px; height: 44px; border-radius: 50%;
   display: grid; place-items: center;
-  background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  transition: background var(--dur-fast), transform var(--dur-fast);
+  background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff; transition: background var(--dur-fast), transform var(--dur-fast);
 }
 .stage__btn .ic { width: 17px; height: 17px; }
 .stage__btn:hover { background: rgba(255, 255, 255, 0.2); }
-.stage__btn--leave { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-.stage__join {
-  position: absolute; inset: 0; display: grid; place-items: center;
-  opacity: 0; transition: opacity var(--dur-base);
-}
-.stage:hover .stage__scrim, .stage:focus-within .stage__scrim { background: rgba(0, 26, 61, 0.55); }
-.stage:hover .stage__join, .stage:focus-within .stage__join { opacity: 1; }
-.stage:hover .stage__controls, .stage:focus-within .stage__controls { transform: translateY(-6px); }
-@media (hover: none) {
-  .stage__join { opacity: 1; }
-  .stage__scrim { background: linear-gradient(to top, rgba(0, 26, 61, 0.85), rgba(0, 26, 61, 0.15) 60%, rgba(0, 26, 61, 0.35)); }
-}
+.stage__btn[aria-pressed="true"] { background: rgba(200, 245, 96, 0.18); border-color: var(--accent); color: var(--accent); }
+.stage__btn--hand[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.edu-motion-btn[aria-pressed="true"] .edu-motion__pause { display: none; }
+.edu-motion-btn:not([aria-pressed="true"]) .edu-motion__play { display: none; }
+.stage__join { display: flex; align-items: center; }
+.stage__join .btn { min-height: 44px; padding: 10px 18px; font-size: 0.8125rem; }
 
 /* floating quote + proof beside the stage */
 .stage-quote {
@@ -389,8 +385,8 @@ main { padding-block-start: 96px; }
 @media (hover: hover) { .earn__card:hover::before { opacity: 1; animation: trace 900ms linear 1; } }
 @keyframes trace { from { --a: 0deg; } to { --a: 360deg; } }
 @property --a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
-.earn__art { width: 100%; aspect-ratio: 4/3; border-radius: 16px; overflow: hidden; background: rgba(0, 26, 61, 0.4); }
-.earn__art img { width: 100%; height: 100%; object-fit: cover; }
+.earn__art { width: 100%; aspect-ratio: 4/3; border-radius: 16px; overflow: hidden; background: #eaf1fb; padding: 8px; }
+.earn__art img { width: 100%; height: 100%; object-fit: contain; }
 .earn__price { font-family: var(--font-mono); font-size: 0.625rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
 
 /* filters */

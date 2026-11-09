@@ -6,7 +6,7 @@ import { sceneFrame, learningExperience, projectShowcase } from '../../shared/li
 import { profile } from '../../shared/lib/config.mjs';
 const presentation = profile('aero');
 
-const { courses, tracks, mentors, sessions, resources, posts, testimonials, faqs, partners, disciplines } = data;
+const { courses, tracks, mentors, sessions, resources, posts, testimonials, faqs, instructorFaqs, partners, disciplines } = data;
 
 export const site = {
   id: 'aero',
@@ -50,28 +50,29 @@ const ended = sessions.filter((s) => s.status === 'ended');
 /* the stage component — one definition, used on home, live and room */
 const stage = ({ session = sessions[3], join = 'Explore the classroom', compact = false } = {}) => `
 <div class="stage" data-stage>
-  <div class="stage__media">
-    ${sceneFrame('aero',`stage-${session.id}`,{controls:false})}
-  </div>
-  <div class="stage__scrim" aria-hidden="true"></div>
   <div class="stage__top">
     <div class="stage__people">
-      <img src="assets/img/av-ana.svg" alt="" width="32" height="32">
-      <img src="assets/img/av-idris.svg" alt="" width="32" height="32">
-      <img src="assets/img/av-mei.svg" alt="" width="32" height="32">
+      <img src="assets/img/av-ana.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
+      <img src="assets/img/av-idris.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
+      <img src="assets/img/av-mei.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
       <span>Illustrated demo classroom</span>
     </div>
     <span class="live-pill"><span class="live-dot" aria-hidden="true"></span>DEMO <span data-timer aria-live="off">00:14</span></span>
   </div>
-  <div class="stage__join">
-    <a class="btn btn--primary btn--lg" href="live/${session.slug}/">${join}</a>
+  <div class="stage__media">
+    ${sceneFrame('aero',`stage-${session.id}`,{controls:false})}
   </div>
-  <div class="stage__controls" role="group" aria-label="Room controls">
-    <button class="stage__btn" type="button" aria-pressed="false" aria-label="Mute microphone">${icon('mic')}</button>
-    <button class="stage__btn" type="button" aria-pressed="true" aria-label="Turn camera off">${icon('camera')}</button>
-    <button class="stage__btn stage__btn--leave" type="button" aria-label="Leave the room">${icon('phone')}</button>
-    <button class="stage__btn" type="button" aria-label="Room settings">${icon('settings')}</button>
-    <button class="stage__btn no-js-hide" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause illustration motion">${icon('play')}</button>
+  <div class="stage__dock">
+    <div class="stage__controls" role="group" aria-label="Room controls">
+      <button class="stage__btn" type="button" aria-pressed="false" aria-label="Mute microphone">${icon('mic')}</button>
+      <button class="stage__btn" type="button" aria-pressed="true" aria-label="Turn camera off">${icon('camera')}</button>
+      <button class="stage__btn stage__btn--hand" type="button" aria-pressed="false" aria-label="Raise hand in demo classroom">${icon('hand')}</button>
+      <button class="stage__btn" type="button" aria-label="Room settings">${icon('settings')}</button>
+      <button class="stage__btn edu-motion-btn no-js-hide" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause illustration motion"><span class="edu-motion__pause" aria-hidden="true">${icon('pause')}</span><span class="edu-motion__play" aria-hidden="true">${icon('play')}</span></button>
+    </div>
+    <div class="stage__join">
+      <a class="btn btn--primary btn--lg" href="live/${session.slug}/">${join}</a>
+    </div>
   </div>
 </div>`;
 
@@ -138,15 +139,14 @@ const home = () => shell('', {
           <div class="proof">
             <div class="flex items-center gap-3">
               <span class="proof__avatars">
-                <img src="assets/img/av-sofia.svg" alt="" width="36" height="36">
-                <img src="assets/img/av-omar.svg" alt="" width="36" height="36">
-                <img src="assets/img/av-hala.svg" alt="" width="36" height="36">
+                <img src="assets/img/av-sofia.svg" alt="" width="36" height="36" loading="lazy" decoding="async">
+                <img src="assets/img/av-omar.svg" alt="" width="36" height="36" loading="lazy" decoding="async">
+                <img src="assets/img/av-hala.svg" alt="" width="36" height="36" loading="lazy" decoding="async">
               </span>
-              <span><span class="proof__num" data-count="${mentors.length}">${mentors.length}</span><span class="proof__label">practising educators</span></span>
+              <span><span class="proof__num" data-count="${mentors.length}">${mentors.length}</span> <span class="proof__label">practising educators</span></span>
             </div>
             <div>
-              <span class="proof__num">${courses.length}</span>
-              <span class="proof__label">courses to explore</span>
+              <span class="proof__num">${courses.length}</span> <span class="proof__label">courses to explore</span>
             </div>
           </div>
         </div>
@@ -212,12 +212,12 @@ const home = () => shell('', {
     <div class="container">
       ${head({ kicker: '// Instructors', title: 'Ways to earn from what you know', lede: 'Three formats, one payout date. The calculator is honest about the assumptions.' })}
       <div class="earn">
-        ${[['Self-paced course', 'Record once, sell forever. You set the price.', '$49+', 'cover-c1'],
-          ['Live cohort', 'Six weeks, a fixed room, a premium price.', '$240+', 'cover-c7'],
-          ['Membership', 'Monthly access to your sessions and archive.', '$19/mo', 'cover-c9']]
+        ${[['Self-paced course', 'Record once, sell forever. You set the price.', '$49+', 'format-course'],
+          ['Live cohort', 'Six weeks, a fixed room, a premium price.', '$240+', 'format-cohort'],
+          ['Membership', 'Monthly access to your sessions and archive.', '$19/mo', 'format-membership']]
           .map(([t, b, p, art]) => `
           <div class="earn__card">
-            <div class="earn__art"><img src="assets/img/${art}.svg" alt="" width="480" height="360" loading="lazy"></div>
+            <div class="earn__art"><img src="assets/img/${art}.svg" alt="" width="800" height="600" loading="lazy"></div>
             <p class="earn__price">${p}</p>
             <h3 class="h4" style="color:#fff">${t}</h3>
             <p class="small">${b}</p>
@@ -659,10 +659,10 @@ const teach = () => shell('teach/', {
     <div class="container">
       ${head({ kicker: '// Formats', title: 'Sell it the way you like to teach', align: 'center' })}
       <div class="earn">
-        ${[['Courses', 'Self-paced, recorded, sold individually.', 'cover-c1'],
-          ['Live cohorts', 'A fixed room for six weeks, premium priced.', 'cover-c7'],
-          ['Memberships', 'Recurring access to your sessions and archive.', 'cover-c9']]
-          .map(([t, b, art]) => `<div class="earn__card"><div class="earn__art"><img src="assets/img/${art}.svg" alt="" width="480" height="360" loading="lazy"></div><h3 class="h4" style="color:#fff">${t}</h3><p class="small">${b}</p></div>`).join('')}
+        ${[['Courses', 'Self-paced, recorded, sold individually.', 'format-course'],
+          ['Live cohorts', 'A fixed room for six weeks, premium priced.', 'format-cohort'],
+          ['Memberships', 'Recurring access to your sessions and archive.', 'format-membership']]
+          .map(([t, b, art]) => `<div class="earn__card"><div class="earn__art"><img src="assets/img/${art}.svg" alt="" width="800" height="600" loading="lazy"></div><h3 class="h4" style="color:#fff">${t}</h3><p class="small">${b}</p></div>`).join('')}
       </div>
     </div>
   </section>
@@ -719,7 +719,7 @@ const teach = () => shell('teach/', {
       </div>
       <div>
         ${head({ kicker: '// Questions', title: 'Instructors ask us', align: 'left' })}
-        ${faqList(faqs.slice(0, 4), { id: 'teach-faq' })}
+        ${faqList(instructorFaqs, { id: 'teach-faq' })}
       </div>
     </div>
   </section>`,
