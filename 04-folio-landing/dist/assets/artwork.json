@@ -5,7 +5,7 @@
     {
       "id": "edu-folio",
       "file": "img/edu-folio.svg",
-      "bytes": 6219
+      "bytes": 6221
     },
     {
       "id": "edu-folio-project",
@@ -425,12 +425,12 @@
     {
       "id": "folio-hero",
       "file": "img/folio-hero.svg",
-      "bytes": 6219
+      "bytes": 6221
     },
     {
       "id": "folio-pricing",
       "file": "img/folio-pricing.svg",
-      "bytes": 1984
+      "bytes": 2027
     },
     {
       "id": "folio-live",
@@ -455,7 +455,7 @@
     {
       "id": "folio-frame",
       "file": "img/folio-frame.svg",
-      "bytes": 1984
+      "bytes": 2470
     },
     {
       "id": "atelier-studio",
@@ -471,6 +471,21 @@
       "id": "aero-room",
       "file": "img/aero-room.svg",
       "bytes": 5073
+    },
+    {
+      "id": "format-course",
+      "file": "img/format-course.svg",
+      "bytes": 3129
+    },
+    {
+      "id": "format-cohort",
+      "file": "img/format-cohort.svg",
+      "bytes": 5201
+    },
+    {
+      "id": "format-membership",
+      "file": "img/format-membership.svg",
+      "bytes": 3453
     },
     {
       "id": "work-1",

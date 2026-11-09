@@ -15,8 +15,17 @@ export async function browserKit(){
  else{
   const {default:chromium}=await load('@sparticuz/chromium/build/index.js');
   // Debian sandboxes need the bundled Amazon Linux compatibility libraries.
-  const {inflate}=await load('@sparticuz/chromium/build/lambdafs.js');
-  await inflate(path.join(modules,'@sparticuz/chromium/bin/al2023.tar.br'));
+  const lfs=await load('@sparticuz/chromium/build/lambdafs.js');
+  const inflate=lfs.inflate||lfs.default?.inflate;
+  const brPath=path.join(modules,'@sparticuz/chromium/bin/al2023.tar.br');
+  if(typeof inflate==='function')await inflate(brPath);
+  else{
+   const {brotliDecompressSync}=await import('node:zlib');
+   const {execFileSync}=await import('node:child_process');
+   await fs.mkdir('/tmp/al2023',{recursive:true});
+   await fs.writeFile('/tmp/al2023.tar',brotliDecompressSync(await fs.readFile(brPath)));
+   execFileSync('tar',['-xf','/tmp/al2023.tar','-C','/tmp/al2023']);
+  }
   options={...options,executablePath:await chromium.executablePath(),args:chromium.args,env:{...process.env,LD_LIBRARY_PATH:['/tmp/al2023/lib',process.env.LD_LIBRARY_PATH].filter(Boolean).join(':')}};
  }
  return {browser:await playwright.launch(options),AxeBuilder};

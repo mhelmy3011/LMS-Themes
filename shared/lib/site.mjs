@@ -241,8 +241,8 @@ export function page(site, R, { title, desc, body, bodyClass = '', path: pagePat
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="${R}assets/brand/favicon-${site.id}.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${R}assets/brand/app-icon-${site.id}.png">
-<link rel="preload" href="${R}assets/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${R}assets/css/${site.id}.css">
+<link rel="preload" href="${R}assets/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
 ${p.baseUrl ? `<link rel="canonical" href="${esc(p.baseUrl)}/${pagePath}">` : ''}
 ${!p.baseUrl || pagePath==='404.html' || /^(styleguide|artwork|saved|learn)\//.test(pagePath) ? '<meta name="robots" content="noindex">' : ''}
 ${blocks}

@@ -22,7 +22,7 @@ const number=n=>new Intl.NumberFormat('ar-EG',{maximumFractionDigits:2,useGroupi
 function formatParts(s){
  if(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), \d{1,2} [A-Z][a-z]{2} \d{4} [\d:]+ GMT$/.test(s))return new Intl.DateTimeFormat('ar-EG',{dateStyle:'long',timeStyle:'short',timeZone:'UTC'}).format(new Date(s))+' UTC';
  const patterns=[
-  [/^\$(\d+) in this illustrative catalogue\. Preview the lesson now, or practise the enrolment flow below\. No payment or email is sent\.$/,m=>`${number(m[1])} دولارًا أمريكيًا في هذا الفهرس التوضيحي. عاين الدرس الآن أو جرّب خطوات التسجيل أدناه. لا يحدث دفع أو إرسال بريد.`],
+  [/^\$(\d+) in this illustrative (?:catalogue|programme)\. Preview the lesson now, or practise the (?:enrolment|application) flow below\. No payment or email is sent\.$/,m=>`${number(m[1])} دولارًا أمريكيًا في هذا العرض التوضيحي. عاين الدرس الآن أو جرّب خطوات التسجيل أدناه. لا يحدث دفع أو إرسال بريد.`],
   [/^([\d,]+) alumni$/i,m=>`${number(m[1])} خريجًا ضمن المحتوى التوضيحي`],
   [/^(\d+) left$/i,m=>`${number(m[1])} مقاعد متبقية`],
   [/^(\d+(?:\.\d+)?) out of 5$/i,m=>`${number(m[1])} من ٥`],
@@ -39,7 +39,7 @@ function formatParts(s){
   [/^\$(.*?), including all materials and the critique rubric\.$/i,m=>`${number(m[1])} دولارًا أمريكيًا، تشمل المواد ومعايير المراجعة ضمن الأسعار التوضيحية.`],
   [/^\$(\d+)\/mo$/i,m=>`${number(m[1])} دولارًا أمريكيًا / شهريًا`],
   [/^(.*?)\. (It is written to be used,.*|The document is laid out to be printed,.*)$/i,m=>t(m[1]+'.')+' '+t(m[2])],
-  [/^A (\d+)-lesson (.+) course with ([^.]+)\. (Every lesson ends.*)$/i,m=>`دورة في ${t(m[2])} من ${number(m[1])} دروس مع ${t(m[3])}. ${t(m[4])}`],
+  [/^An? (\d+)-lesson (.+) course with ([^.]+)\. (Every lesson ends.*)$/i,m=>`دورة في ${t(m[2])} من ${number(m[1])} دروس مع ${t(m[3])}. ${t(m[4])}`],
   [/^Anyone working in or around (.+)'s field, from first-year to principal\. No cohort membership required\.$/i,m=>`لمن يعمل في مجال ${t(m[1])} أو قريبًا منه، من المبتدئ إلى الخبير. لا يلزم الاشتراك في دفعة.`],
   [/^Example project artwork for (.*)$/i,m=>`رسم توضيحي لمشروع دورة ${t(m[1])}`],
   [/^An original educational illustration representing (.+)\.$/i,m=>`رسم تعليمي أصلي يوضّح ${t(m[1])}.`],
@@ -58,7 +58,7 @@ function formatParts(s){
   [/^Save (.+)$/i,m=>`حفظ ${t(m[1])}`],[/^Remove (.+) from saved courses$/i,m=>`إزالة ${t(m[1])} من الدورات المحفوظة`],
   [/^Download (.+)$/i,m=>`تنزيل ${t(m[1])}`],[/^Level: (.+)$/i,m=>`المستوى: ${t(m[1])}`],
   [/^Sample lesson [·:] (.+)$/i,m=>`درس تجريبي · ${t(m[1])}`],
-  [/^A (\d+)-lesson (.+) course with (.+)\.$/i,m=>`دورة في ${t(m[2])} من ${number(m[1])} دروس مع ${t(m[3])}.`],
+  [/^An? (\d+)-lesson (.+) course with (.+)\.$/i,m=>`دورة في ${t(m[2])} من ${number(m[1])} دروس مع ${t(m[3])}.`],
   [/^(\d+) courses across six tracks$/i,m=>`${number(m[1])} دورة ضمن ستة مسارات`],
   [/^(\d+) lessons$/i,m=>`${number(m[1])} دروس`],[/^(\d+) courses$/i,m=>`${number(m[1])} دورات`],
   [/^(\d+) pages$/i,m=>`${number(m[1])} صفحات`],[/^(\d+) min(?:utes)?$/i,m=>`${number(m[1])} دقيقة`],

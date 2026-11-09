@@ -80,7 +80,7 @@ function folioHero(){return `
  ${rect(65,60,660,640,C.ice,70)}${line('M49 246Q26 95 198 53M620 716q132-32 117-143',C.sky,2)}
  <g transform="rotate(-8 192 177)">${rect(111,87,161,185,C.white,12)}${rect(125,101,133,143,C.navy,7)}<path d="M193 122c-42 0-65 54-24 70-42 23-9 62 24 33 31 29 65-10 24-33 39-16 17-70-24-70Z" fill="${C.sky}"/>${dot(193,181,14,C.lime)}${text(130,260,'LEARN TO MAKE',9,C.navy,600,'letter-spacing="1"')}</g>
  <g transform="rotate(5 573 178)">${rect(487,87,178,157,C.white,12)}${text(506,120,'YOUR NEXT',17,C.navy,600)}${text(506,145,'CHAPTER.',25,C.navy,700)}${line('M506 164q60-14 135 0',C.lime,5)}${text(506,205,'A little courage.',11,C.mid)}${text(506,223,'A lot of possibility.',11,C.mid)}</g>
- ${dot(390,197,37,C.white)}${line('M380 185l26 12-26 12Z',C.navy,2)}
+ ${dot(372,142,34,C.white)}${line('M363 130l24 12-24 12Z',C.navy,2.2)}
  ${educator(371,375,2.05,0,'draw')}
  ${rect(141,561,511,19,C.navy,9)}${rect(167,580,13,125,C.navy,6)}${rect(614,580,13,125,C.navy,6)}
  <g transform="rotate(-5 358 495)">${rect(234,432,243,133,C.white,12,'stroke="#8DB8FF" stroke-width="2"')}${rect(248,447,215,104,C.navy,6)}${text(266,470,'YOUR CREATIVE PRACTICE',10,C.white,600)}${rect(267,483,79,51,C.sky,6)}${line('M280 519q25-54 52 0',C.white,3)}${paperLines(362,489,80,3,C.ice)}${rect(220,564,272,11,C.sky,5)}</g>
@@ -171,19 +171,44 @@ function folioGallery(){return `
  ${rect(47,41,706,508,C.ice,45)}${text(85,91,'A FEW GOOD THINGS, MADE BY LEARNERS',12,C.mid,600,'letter-spacing="1"')}
  <g transform="rotate(-7 202 277)">${rect(90,128,224,278,C.white,8)}${rect(105,143,194,205,C.navy,4)}${dot(200,238,58,C.sky)}${line('M151 264q49-98 98 0',C.lime,8)}${text(110,380,'A NEW POINT OF VIEW',10,C.navy,600)}</g>
  <g transform="rotate(5 455 249)">${rect(341,120,225,279,C.white,8)}${rect(356,135,195,205,C.sky,4)}<path d="M383 318V174h143v144Z" fill="${C.navy}"/><path d="m383 318 72-136 71 136Z" fill="${C.lime}"/>${text(361,374,'AN IDEA, MADE REAL',10,C.navy,600)}</g>
- ${rect(591,170,123,163,C.navy,8)}${text(606,203,'KEEP',22,C.white,600)}${text(606,234,'MAKING.',19,C.white,600)}${line('M607 256h88',C.lime,4)}${text(606,307,'ONE SMALL STEP.',8,C.ice)}
+ ${rect(578,170,146,163,C.navy,8)}${text(596,203,'KEEP',22,C.white,600)}${text(596,234,'MAKING.',19,C.white,600)}${line('M597 256h98',C.lime,4)}${text(596,307,'ONE SMALL STEP.',8,C.ice)}
  ${text(96,477,'The work is yours. The possibilities are open.',20,C.navy,500)}${text(96,508,'Illustrative student projects / original vector artwork',11,C.mid)}
+ `;}
+function formatCourse(){return `
+ ${rect(56,52,688,496,C.ice,28)}${rect(92,90,616,356,C.white,18,'stroke="#8DB8FF" stroke-width="1.5"')}${windowHead(92,90,616,'SELF-PACED COURSE')}
+ ${rect(120,158,348,214,C.navy,12)}${dot(294,250,36,C.lime)}<path d="m284 233 26 17-26 17Z" fill="${C.navy}"/>
+ ${rect(146,326,296,8,C.mid,4)}${rect(146,326,192,8,C.lime,4,'class="edu-progress-stroke"')}
+ ${rect(490,158,190,214,C.ice,12)}${text(512,190,'MODULES',11,C.mid,700,'letter-spacing="1.2"')}
+ ${[0,1,2,3].map(i=>`${dot(520,222+i*36,9,i<2?C.lime:C.white,'stroke="#012A5D" stroke-width="1.5"')}${i<2?check(515,218+i*36,.65):''}${rect(540,217+i*36,118-(i%2)*22,9,C.navy,4,'opacity=".82"')}`).join('')}
+ ${text(122,414,'Record once. Teach at every pace.',18,C.navy,600)}${dot(666,408,16,C.lime)}${check(659,403,.9)}
+ ${text(96,502,'Structured chapters, exercises and lifetime replay access.',14,C.mid)}
+ `;}
+function formatCohort(){return `
+ ${rect(56,52,688,496,C.ice,28)}${rect(92,90,616,356,C.white,18,'stroke="#8DB8FF" stroke-width="1.5"')}${windowHead(92,90,616,'SIX-WEEK LIVE COHORT')}
+ ${rect(120,158,236,214,C.navy,12)}${educator(238,266,1.02,1,'teach')}${rect(144,332,188,24,C.deep,12)}${text(166,348,'WEEKLY CRITIQUE',10,C.lime,700,'letter-spacing="1"')}
+ ${rect(378,158,302,214,C.ice,12)}${text(404,192,'COHORT CALENDAR',11,C.mid,700,'letter-spacing="1.2"')}
+ ${[0,1,2,3,4,5].map(i=>`${rect(404+(i%3)*88,214+Math.floor(i/3)*72,74,56,i===5?C.lime:C.white,10,'stroke="#8DB8FF"')}${text(418+(i%3)*88,238+Math.floor(i/3)*72,`W0${i+1}`,11,C.navy,700)}${rect(418+(i%3)*88,249+Math.floor(i/3)*72,42,6,i===5?C.navy:C.sky,3)}`).join('')}
+ ${text(122,414,'A fixed room. Shared momentum.',18,C.navy,600)}${dot(666,408,16,C.lime)}${check(659,403,.9)}
+ ${text(96,502,'Small group critique, live feedback and one finished project.',14,C.mid)}
+ `;}
+function formatMembership(){return `
+ ${rect(56,52,688,496,C.ice,28)}${rect(92,90,616,356,C.white,18,'stroke="#8DB8FF" stroke-width="1.5"')}${windowHead(92,90,616,'STUDIO MEMBERSHIP')}
+ ${[0,1,2].map(i=>`${rect(122+i*194,160,172,208,i===1?C.navy:C.ice,14)}${dot(158+i*194,202,20,i===1?C.lime:C.white)}${check(151+i*194,197,.9,C.navy)}${text(144+i*194,254,['OFFICE HOURS','ARCHIVE','WORKBOOKS'][i],12,i===1?C.white:C.navy,700)}${paperLines(144+i*194,276,120,3,i===1?C.sky:C.mid)}`).join('')}
+ ${text(122,414,'Ongoing sessions and the full archive.',18,C.navy,600)}${dot(666,408,16,C.lime)}${check(659,403,.9)}
+ ${text(96,502,'Recurring community rooms, recordings and member resources.',14,C.mid)}
  `;}
 const scenes={nova:novaHero,atelier:atelierHero,aero:aeroStage,folio:folioHero,path:learningPath,critique,curriculum,certificate,library,community,project,creator,workshop,
  'nova-path':learningPath,'nova-mentor':novaMentoring,'nova-completion':certificate,
  'atelier-curriculum':curriculum,'atelier-critique':critique,'atelier-certificate':atelierCertificate,
  'aero-workshop':workshop,'aero-community':community,'aero-replay':aeroReplay,
- 'folio-project':project,'folio-creator':creator,'folio-gallery':folioGallery};
+ 'folio-project':project,'folio-creator':creator,'folio-gallery':folioGallery,
+ 'format-course':formatCourse,'format-cohort':formatCohort,'format-membership':formatMembership};
 const descriptions={nova:'An illustrated lesson workspace connects discovery, practice, mentor feedback and a finished project.',atelier:'An editorial studio notebook pairs an educator with a structured programme and a finished project.',aero:'An instructor explains a three-step process on a digital whiteboard while welcoming a learner question.',folio:'A creative educator teaches from a desk surrounded by original artwork, course notes and a recording light.',path:'Four connected learning milestones lead from a first lesson to a finished project.',critique:'An educator gives specific feedback on a student project.',curriculum:'A six-week programme progresses from curiosity and foundations to feedback and a finished project.',certificate:'A sample completion certificate celebrates an earned new skill.',library:'Books, a printable workbook and practical learning resources sit together on a desk.',community:'Three educators and learners share ideas and learn together.',project:'A first sketch develops into a considered finished creative project.',creator:'An educator documents a creative process beside a project, a lesson notebook and drawing tools.',workshop:'A live workshop pairs a three-shape experiment with an instructor, an agenda and a learning goal.',
  'nova-path':'A friendly, illustrated learning path connects lessons, practice and progress.', 'nova-mentor':'An educator gives specific feedback on an original learner project.', 'nova-completion':'An illustrated completion certificate celebrates the work and the learning journey.',
  'atelier-curriculum':'An editorial curriculum maps six weeks of considered practice.', 'atelier-critique':'An educator reviews a project through specific annotations and constructive critique.', 'atelier-certificate':'A formal sample certificate records a developed practice and a finished project; not accreditation.',
  'aero-workshop':'An instructor guides a live three-shape experiment beside a clear workshop agenda.', 'aero-community':'A small learning room brings people, questions and different perspectives together.', 'aero-replay':'An illustrated replay workspace includes a worked example, chapter progress and space for notes.',
- 'folio-project':'A learner develops an original project from a first sketch into a finished composition.', 'folio-creator':'An independent educator documents a creative process at a teaching desk.', 'folio-gallery':'A wall of original illustrated learner projects celebrates different points of view.'};
+ 'folio-project':'A learner develops an original project from a first sketch into a finished composition.', 'folio-creator':'An independent educator documents a creative process at a teaching desk.', 'folio-gallery':'A wall of original illustrated learner projects celebrates different points of view.',
+ 'format-course':'A self-paced course studio combines recorded chapters, progress tracking and modular exercises.', 'format-cohort':'A six-week live cohort pairs weekly instructor critique with a structured calendar.', 'format-membership':'A studio membership unlocks recurring office hours, session archives and workbooks.'};
 function wrap(body,{id='learning-art',w=800,h=640,title='A little learning changes everything',desc='',decorative=false}={}){
  const safe=id.replace(/[^a-z0-9_-]/gi,'-');
  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" class="edu-art" ${decorative?'aria-hidden="true"':`role="img" aria-labelledby="${safe}-title ${safe}-desc"`} focusable="false"><title id="${safe}-title">${esc(title)}</title><desc id="${safe}-desc">${esc(desc)}</desc>${body}</svg>`;

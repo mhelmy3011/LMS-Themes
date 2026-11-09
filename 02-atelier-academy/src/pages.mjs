@@ -184,6 +184,10 @@ const home = () => shell('', {
           <p>Live sessions are 90 minutes and recorded. Exercises take two to three hours. There is no exam — the artefact is the assessment.</p>
         </div>
         <div>
+          <p class="margin__label">The critique rubric</p>
+          <p>Every draft is reviewed against four shared criteria: problem framing, working method, iteration from feedback, and presentation rationale.</p>
+        </div>
+        <div>
           <p class="margin__label">Download</p>
           <a class="link-arrow" href="library/">The full prospectus ${icon('download')}</a>
         </div>
@@ -194,10 +198,10 @@ const home = () => shell('', {
   <section class="section section--tight">
     <div class="container">
       ${head({ kicker: 'Faculty', title: 'Who you will actually meet', action: `<a class="btn btn--ghost btn--sm" href="faculty/">All faculty</a>` })}
-      <div class="faculty-grid">
+      <div class="faculty-grid faculty-grid--4">
         ${mentors.slice(0, 4).map((m, i) => `
           <a class="faculty" href="faculty/${m.slug}/" data-reveal style="--i:${i}">
-            <div class="faculty__img"><img src="assets/img/av-${m.id}.svg" alt="Portrait of ${esc(m.name)}" width="400" height="533" loading="lazy"></div>
+            <div class="faculty__img"><img src="assets/img/av-${m.id}.svg" alt="Portrait of ${esc(m.name)}" width="320" height="360" loading="lazy"></div>
             <p class="faculty__name">${esc(m.name)} ${icon('arrowUpRight')}</p>
             <p class="faculty__role">${esc(m.specialty.join(' · '))}</p>
           </a>`).join('')}
@@ -819,10 +823,10 @@ const facultyIndex = () => shell('faculty/', {
         <div class="facets" data-filter-groups role="group" aria-label="Educator specialty"><button class="facet" data-facet="all" aria-pressed="true">All</button>${[...new Set(mentors.flatMap((m) => m.specialty))].slice(0, 5).map((s) => `<button class="facet" data-facet="${s.toLowerCase().replaceAll(' ', '-')}" aria-pressed="false">${s}</button>`).join('')}</div>
         <span class="filter-count"><span data-filter-count>${mentors.length}</span> educators</span>
       </div>
-      <div class="faculty-grid">
+      <div class="faculty-grid faculty-grid--4">
         ${mentors.map((m, i) => `
-          <a class="faculty" data-item data-tags="${m.specialty.map(s=>s.toLowerCase().replaceAll(' ', '-')).join(' ')}" href="${m.slug}/" data-reveal style="--i:${i % 3}">
-            <div class="faculty__img"><img src="../assets/img/av-${m.id}.svg" alt="Portrait of ${esc(m.name)}" width="400" height="533" loading="lazy"></div>
+          <a class="faculty" data-item data-tags="${m.specialty.map(s=>s.toLowerCase().replaceAll(' ', '-')).join(' ')}" href="${m.slug}/" data-reveal style="--i:${i % 4}">
+            <div class="faculty__img"><img src="../assets/img/av-${m.id}.svg" alt="Portrait of ${esc(m.name)}" width="320" height="360" loading="lazy"></div>
             <p class="faculty__name">${esc(m.name)} ${icon('arrowUpRight')}</p>
             <p class="faculty__role">${esc(m.specialty.join(' · '))} · ${esc(m.city)}</p>
           </a>`).join('')}

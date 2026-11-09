@@ -47,6 +47,12 @@ const P = {
   dashboard: '<rect x="3.5" y="4.5" width="17" height="15" rx="2.4"/><path d="M3.5 9.5h17M9 9.5v10"/>',
   megaphone: '<path d="M4 10v4l3 .5V9.5L4 10Z"/><path d="M7 9.5 18 5v14L7 14.5v-5Z"/><path d="M10 15v4.5"/>',
   wand: '<path d="m5 19 9.5-9.5M15 4.5l1 2.5 2.5 1-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1 1-2.5Z"/>',
+  pencil: '<path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4L16.5 3.5Z"/><path d="m14.5 5.5 3 3"/>',
+  chat: '<path d="M4 5.5h16a1.5 1.5 0 0 1 1.5 1.5v8.5a1.5 1.5 0 0 1-1.5 1.5H9l-4.5 3.5V17H4a1.5 1.5 0 0 1-1.5-1.5V7A1.5 1.5 0 0 1 4 5.5Z"/><path d="M8 9.8h8M8 13.2h5"/>',
+  hand: '<path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10m0-5a1.5 1.5 0 0 1 3 0v5m0-3.5a1.5 1.5 0 0 1 3 0V14a6 6 0 0 1-6 6h-1a6 6 0 0 1-5.2-3l-1.9-3.3a1.5 1.5 0 0 1 2.6-1.5L9 14v-3Z"/>',
+  pause: '<rect x="7" y="5.5" width="3.4" height="13" rx="1" fill="currentColor" stroke="none"/><rect x="13.6" y="5.5" width="3.4" height="13" rx="1" fill="currentColor" stroke="none"/>',
+  compass: '<circle cx="12" cy="12" r="8.5"/><path d="m15.2 8.8-2 5-4.4 1.4 2-5 4.4-1.4Z"/>',
+  target: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>',
 };
 
 export function icon(name, cls = '') {
@@ -143,7 +149,7 @@ export function postCard(p, R, { lead = false } = {}) {
   return `
   <article class="card card--link post-card ${lead ? 'post-card--lead' : ''}">
     <div class="card__media">
-      <img src="${R}assets/img/${p.art}.svg" alt="" width="800" height="450" loading="lazy" decoding="async">
+      <img src="${R}assets/img/${p.art}.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
     </div>
     <div class="card__body">
       <p class="kicker"><span class="kicker__dot"></span>${p.category}</p>

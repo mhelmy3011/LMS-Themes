@@ -244,13 +244,13 @@ h4 { font-weight: 500; }
 .bento__item--e { grid-column: span 12; min-height: 200px; align-items: center; justify-content: center; text-align: center; }
 .bento__item--f { grid-column: span 6; }
 .bento__item--g { grid-column: span 6; }
-.bento__item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow) var(--ease-out); }
-.bento__item:hover img { transform: scale(1.03); }
-.bento__item--photo { color: #fff; }
-.bento__item--photo::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0, 26, 61, 0.82), rgba(0, 26, 61, 0.1) 60%, transparent);
-}
+.bento__item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: transform var(--dur-slow) var(--ease-out); }
+.bento__item:hover img { transform: scale(1.02); }
+.bento__item--photo { color: #fff; background: var(--wa-navy-deep); padding: 0; justify-content: flex-start; }
+.bento__item--photo img { position: relative; inset: auto; width: 100%; flex: 1 1 220px; min-height: 220px; background: var(--wa-ice); padding: 14px; object-fit: contain; }
+.bento__item--photo::after { display: none; }
+.bento__item--photo .bento__title { padding: 20px 26px 4px; margin: 0; }
+.bento__item--photo .bento__body { padding: 0 26px 24px; max-width: 52ch; opacity: 1; color: #eaf1fb; }
 .bento__item > * { position: relative; z-index: 1; }
 .bento__item--ice { background: var(--surface-alt); }
 .bento__item--mid { background: var(--wa-navy-mid); color: #fff; }
@@ -282,8 +282,8 @@ h4 { font-weight: 500; }
 }
 .course-row:last-child { border-block-end: 1px solid var(--line); }
 .course-row:hover { background: rgba(234, 241, 251, 0.5); }
-.course-row__media { aspect-ratio: 3 / 2; border-radius: 16px; overflow: hidden; background: var(--surface-alt); }
-.course-row__media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow) var(--ease-out); }
+.course-row__media { aspect-ratio: 8 / 5; border-radius: 16px; overflow: hidden; background: var(--surface-alt); }
+.course-row__media img { width: 100%; height: 100%; object-fit: contain; transition: transform var(--dur-slow) var(--ease-out); }
 .course-row:hover .course-row__media img { transform: scale(1.04); }
 .course-row__main { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .course-row__kicker { font-family: var(--font-mono); font-size: 0.625rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); }
@@ -321,16 +321,17 @@ h4 { font-weight: 500; }
 
 /* faculty */
 .faculty-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); }
+.faculty-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(18px, 2.4vw, 32px); }
 .faculty { display: flex; flex-direction: column; gap: 12px; }
-.faculty__img { aspect-ratio: 3 / 4; border-radius: 16px; overflow: hidden; background: var(--surface-alt); }
-.faculty__img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow) var(--ease-out); }
+.faculty__img { aspect-ratio: 8 / 9; border-radius: 16px; overflow: hidden; background: var(--surface-alt); }
+.faculty__img img { width: 100%; height: 100%; object-fit: contain; transition: transform var(--dur-slow) var(--ease-out); }
 .faculty:hover .faculty__img img { transform: scale(1.03); }
 .faculty__name { font-size: var(--fs-h4); font-weight: 500; display: flex; align-items: center; gap: 8px; }
 .faculty__name .ic { width: 16px; height: 16px; opacity: 0; transition: opacity var(--dur-fast), transform var(--dur-base); transform: translateX(-4px); }
 .faculty:hover .faculty__name .ic { opacity: 1; transform: none; }
 .faculty__role { font-family: var(--font-mono); font-size: 0.625rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); }
-@media (max-width: 900px) { .faculty-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .faculty-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 960px) { .faculty-grid, .faculty-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .faculty-grid, .faculty-grid--4 { grid-template-columns: minmax(0, 1fr); } }
 
 /* quote */
 .pull { padding-block: clamp(32px, 4vw, 64px); }

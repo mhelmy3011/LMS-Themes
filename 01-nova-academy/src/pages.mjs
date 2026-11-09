@@ -166,14 +166,15 @@ const home = () => shell('', {
         lede: 'Six tracks, each built as a sequence instead of a pile. Start anywhere, but the path is designed.',
         action: `<a class="btn btn--ghost btn--sm" href="tracks/">All tracks ${icon('arrow', 'btn__icon')}</a>`,
       })}
-      <div class="cat-grid">
-        ${tracks.slice(0, 4).map((t, i) => `
+      <div class="cat-grid cat-grid--6">
+        ${tracks.map((t, i) => `
           <a class="cat-tile" href="tracks/${t.id}/" data-reveal style="--i:${i}">
             <span class="cat-tile__ring">
               <span class="cat-tile__arc" aria-hidden="true"></span>
               ${icon(t.icon)}
             </span>
             <span class="cat-tile__name">${t.label}</span>
+            <span class="cat-tile__desc">${esc(t.blurb)}</span>
             <span class="cat-tile__count">${courses.filter((c) => c.track === t.id).length} courses</span>
           </a>`).join('')}
       </div>
@@ -183,13 +184,25 @@ const home = () => shell('', {
   <section class="section section--dark">
     <div class="container">
       ${head({
-        kicker: "// What's new",
+        kicker: "// Find your level",
         title: 'Featured courses',
-        lede: 'Four new or updated courses this month, chosen by the people who teach them.',
-        action: `<a class="btn btn--ghost btn--sm" href="courses/">All courses ${icon('arrow', 'btn__icon')}</a>`,
+        lede: 'Choose your starting level to explore courses built around a finished project.',
+        action: `<div class="seg" role="tablist" aria-label="Course starting level" data-tabset="nova-levels">
+          <span class="seg__ind" aria-hidden="true"></span>
+          <button class="seg__btn" type="button" role="tab" data-tab="beginner" aria-selected="true" aria-controls="nova-lvl-beginner">Beginner</button>
+          <button class="seg__btn" type="button" role="tab" data-tab="intermediate" aria-selected="false" aria-controls="nova-lvl-intermediate" tabindex="-1">Intermediate</button>
+          <button class="seg__btn" type="button" role="tab" data-tab="advanced" aria-selected="false" aria-controls="nova-lvl-advanced" tabindex="-1">Advanced</button>
+        </div>`,
       })}
-      <div class="grid grid--3">
-        ${courses.filter((c) => c.featured).slice(0, 3).map((c, i) => courseCard(c, '', { dark: true }).replace('<article', `<article data-reveal style="--i:${i}"`)).join('')}
+      ${['Beginner', 'Intermediate', 'Advanced'].map((lvl, idx) => `
+      <div id="nova-lvl-${lvl.toLowerCase()}" role="tabpanel" data-panel-group="nova-levels" data-panel="${lvl.toLowerCase()}" ${idx ? 'hidden' : ''}>
+        <div class="grid grid--3">
+          ${courses.filter((c) => c.level === lvl).slice(0, 3).map((c, i) => courseCard(c, '', { dark: true }).replace('<article', `<article data-reveal style="--i:${i}"`)).join('')}
+        </div>
+      </div>`).join('')}
+      <div class="mt-8" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <p class="small" style="color:#eaf1fb">Every course includes a free sample classroom before you commit.</p>
+        <a class="btn btn--ghost btn--sm" href="courses/">All courses ${icon('arrow', 'btn__icon')}</a>
       </div>
     </div>
   </section>

@@ -65,13 +65,13 @@ export const courses = courseSeed.map(([title, track, level, price, students, le
     id: `c${i + 1}`,
     slug: slug(title),
     title,
-    subtitle: `A ${lessons}-lesson ${trackObj.label.toLowerCase()} course with ${mentor.name.split(' ')[0]}.`,
+    subtitle: `${/^(?:8|11|18)$/.test(String(lessons)) ? 'An' : 'A'} ${lessons}-lesson ${trackObj.label.toLowerCase()} course with ${mentor.name.split(' ')[0]}.`,
     track,
     trackLabel: trackObj.label,
     level,
     price,
-    cohortPrice: Math.round(price * 1.6),
-    cohortDeposit: Math.round(price * .4),
+    cohortPrice: Math.round((price * 1.6) / 100) * 100,
+    cohortDeposit: Math.round((price * .4) / 100) * 100,
     free: price === 0,
     currency: 'USD',
     rating: (4.5 + ((i * 7) % 5) / 10).toFixed(1),
@@ -219,17 +219,27 @@ export function imageSet(theme = 'nova') {
   tracks.forEach((t, i) => { set[`track-${t.id}`] = subjectCover(t.id, i, t.label.toUpperCase(), { dark: theme === 'aero', id: `track-${t.id}` }); });
   resources.forEach((r, i) => { set[r.art] = subjectCover(['design','teaching','code','visual','visual','code','data','business','visual','visual','teaching','teaching'][i], i, r.type.toUpperCase() + ' / THE PRACTICAL LIBRARY', { dark: theme === 'aero', id: r.art }); });
   set['folio-hero'] = scene('folio');
-  set['folio-pricing'] = scene('project');
+  set['folio-pricing'] = scene('folio-project');
   set['folio-live'] = scene('workshop');
   set['folio-students'] = scene('community');
   set['folio-library'] = scene('library');
   set['folio-paid'] = scene('certificate');
-  set['folio-frame'] = scene('project');
+  set['folio-frame'] = scene('folio-gallery');
   set['atelier-studio'] = scene('atelier');
   set['nova-collab'] = scene('critique');
   set['aero-room'] = scene('aero');
+  set['format-course'] = scene('format-course', { id: 'format-course' });
+  set['format-cohort'] = scene('format-cohort', { id: 'format-cohort' });
+  set['format-membership'] = scene('format-membership', { id: 'format-membership' });
   return set;
 }
 
-export const library = { mentors, tracks, courses, sessions, resources, posts: postsFull, testimonials, faqs, stats, partners, disciplines };
+export const instructorFaqs = [
+  { q: 'How does revenue sharing work in this model?', a: 'Illustrative figures model an 88% educator share on direct course, cohort and membership sales, with monthly statements calculated on the 5th. No live payments or payouts occur in this static template.' },
+  { q: 'Do educators keep ownership of their curriculum and files?', a: 'Yes. In an independent-friendly academy structure, instructors retain full intellectual property rights to their slides, workbooks, code repositories and recorded lessons.' },
+  { q: 'Can I teach both self-paced courses and live cohorts?', a: 'Yes. Many instructors publish a concise self-paced foundation course first, then run seasonal six-week live critique cohorts for deeper project work.' },
+  { q: 'What equipment is required to host a live room?', a: 'A clear USB or XLR microphone, quiet room acoustics and readable screen-share scaling. Download our Recording Setup Guide in the library for the complete pre-session checklist.' },
+];
+
+export const library = { mentors, tracks, courses, sessions, resources, posts: postsFull, testimonials, faqs, instructorFaqs, stats, partners, disciplines };
 export default library;
