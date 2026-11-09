@@ -1,214 +1,129 @@
-# Web Academy — LMS Theme Family
+# Web Academy — four education-first themes
 
-**Four production website templates, one brand system.**
-Design & UX blueprint set · prepared as an execution specification for an AI build agent.
+**Nova · Atelier · Aero · Folio** — static websites for academies and independent educators, with original educational SVGs, useful local learning demos, and full pre-rendered **English / العربية (RTL)** editions.
 
----
+## Run it
 
-## 1. What is in this repository
+Requires **Node.js 20+**. No install step, framework, bundler or CDN is needed.
 
-| # | Folder | Template | Type | Reference image | Temperature |
-|---|--------|----------|------|-----------------|-------------|
-| 01 | `01-nova-academy/` | **Nova** | Full website (multi-page) | `website1.jpg` | Light · playful · consumer |
-| 02 | `02-atelier-academy/` | **Atelier** | Full website (multi-page) | `website2.jpg` | Light · editorial · enterprise |
-| 03 | `03-aero-academy/` | **Aero** | Full website (multi-page) | `website3.jpg` | Dark · cinematic · live |
-| 04 | `04-folio-landing/` | **Folio** | Landing page (single page) | `landing.jpg` | Light · conversion · creator |
-
-Supporting source files (read-only references, never modified):
-
-| File | Role |
-|------|------|
-| `VisualIdentity.pdf` | **The brand law.** 27 pages: story, logo construction, palette, typography, graphic elements, applications. |
-| `website1.jpg` `website2.jpg` `website3.jpg` `landing.jpg` | Layout + composition + motion references, one per template. |
-
-Each template folder contains a `PLAN.md` (the contract) **and a built `dist/`** — the four templates are complete and runnable.
-
-### Where to start
-
-Open **`index.html`** at the repository root. It is the family hub: four cards, one per template, each opening the real site. Every template also links to the other three from its own navbar (**Themes ▸**), from the floating switcher, and from the footer's *All themes* link.
-
----
-
-## 2. The core design problem, and its resolution
-
-The four reference images each carry **their own palette**: pastel pink/lavender (website1), warm cream/sage (website2), powder-blue sky (website3), yellow/blue (landing).
-The brand identity carries **one locked palette**: Navy `#012A5D` + Signal Lime `#C8F560` + four support tones, with a mandated 60/25/10/5 proportion.
-
-You cannot obey both literally. The resolution — and the single most important rule in this repo:
-
-> **Inherit the reference's composition, rhythm, grid and motion language.
-> Replace its palette, typefaces and iconography with the brand's.
-> A template is a *temperature* of the brand, never a different brand.**
-
-That produces a coherent family that still reads as four distinct products:
-
-- **Nova** inherits website1's overlapping stat band, icon-ring category cards, and floating 3D confetti — recoloured to Ice/Sky/Lime mesh, with Signal Lime replacing coral as the single spark.
-- **Atelier** inherits website2's centered logo nav, the arc of portraits, and the bento mosaic — cream becomes White/Ice paper, sage blocks become Navy Mid/Sky tints. The reference's *serif-vs-sans* contrast is translated into **light-weight vs bold-weight display contrast**, because the brand permits exactly one Latin family.
-- **Aero** inherits website3's floating glass pill nav, the live video stage, and the mixed-weight headline — powder-blue sky becomes a **Navy Deep night sky** with the brand dot grid. The reference's *italic serif emphasis* is translated into **JetBrains Mono + Signal Lime emphasis**, which is a sanctioned brand code device.
-- **Folio** inherits the landing page's step cards, squiggle connector, logo strip and newsletter band — yellow becomes Signal Lime, blue becomes Navy, and the 3D character illustration style is re-rendered in brand colours because the audience is visual, so the imagery *is* the argument.
-
----
-
-## 3. Brand law (extracted verbatim from `VisualIdentity.pdf`)
-
-These constants are **identical in all four templates** and are defined once in `shared/tokens/brand.css`.
-
-### 3.1 Colour
-
-| Token | HEX | Role in deck | Proportion |
-|-------|-----|--------------|-----------|
-| `--wa-navy` | `#012A5D` | Primary, from the logo | 60% (with Navy Deep) |
-| `--wa-navy-deep` | `#001A3D` | Dark grounds | — |
-| `--wa-navy-mid` | `#14427F` | Panels on dark | — |
-| `--wa-sky` | `#8DB8FF` | Support on navy | 25% (with White/Ice) |
-| `--wa-ice` | `#EAF1FB` | Light tint | — |
-| `--wa-white` | `#FFFFFF` | Paper | — |
-| `--wa-lime` | `#C8F560` | Accent — **one spark per layout** | 10% |
-| — | — | Whitespace / rest | 5% |
-
-### 3.2 Contrast law — measured, non-negotiable
-
-| Pairing | Ratio | Verdict |
-|---------|-------|---------|
-| Navy on White | 14.09:1 | ✅ any size |
-| White on Navy | 14.09:1 | ✅ any size |
-| Navy on Lime | 11.19:1 | ✅ any size — **the primary CTA pairing** |
-| Lime on Navy Deep | 13.73:1 | ✅ any size |
-| White on Navy Mid | 9.93:1 | ✅ any size |
-| Navy on Ice | 12.39:1 | ✅ any size |
-| Sky on Navy / Navy on Sky | 7.00:1 | ✅ any size |
-| Sky on Navy Deep | 8.59:1 | ✅ any size |
-| `#14427F` on White | 9.93:1 | ✅ any size |
-| **Sky on White** | **2.01:1** | ❌ **graphics only** — never text, never a meaningful icon |
-| **Lime on White** | **1.26:1** | ❌ **forbidden** — lime is a *fill*, never ink on light |
-| **Navy Deep on Navy Mid** | **1.74:1** | ❌ surfaces only; separate them with a 1px `rgba(141,184,255,.24)` rule |
-
-The deck lists "Lime on white" and "Sky on white" as *graphic* pairings. The build must never use either for text, icons that carry meaning, or focus rings on light grounds. This is where a careless implementation of the brand breaks WCAG 1.4.3.
-
-### 3.3 Typography
-
-The deck specifies **Milan Display** (Arabic headlines), **Tajarib** (Arabic text), **Glock Grotesque** (all Latin). All three are commercial and unavailable to this build. Substitution, locked at family level:
-
-| Deck face | Substitute | Source | Weights used |
-|-----------|-----------|--------|--------------|
-| Glock Grotesque | **Lexend** (variable) | `@fontsource-variable/lexend` | 200 · 300 · 400 · 500 · 600 · 700 |
-| JetBrains Mono (deck's own code face) | **JetBrains Mono** (variable) | `@fontsource-variable/jetbrains-mono` | 400 · 500 |
-| Milan Display (AR headlines) | **Alexandria** Black, `Reem Kufi` as calligraphic alternate | `@fontsource-variable/alexandria`, `@fontsource/reem-kufi` | 700 · 900 |
-| Tajarib (AR text) | **Alexandria** | same | 300 · 400 · 500 · 700 |
-
-Rules: woff2 only, subset per script, `font-display: swap`, max **2** preloaded faces per page, total font payload ≤ 120KB. Never pull fonts from a CDN at runtime.
-
-### 3.4 Logo system — verified geometry
-
-The mark is **true vector inside the PDF** (page 7, fill exactly `#012A5D`), so it must be extracted, never traced from a screenshot.
-
-Measured from the source at 288dpi:
-
-| Property | Measured | Normalised (100-unit box) |
-|----------|----------|---------------------------|
-| Icon bounding box | 231.6 × 231.6 pt (square) | `viewBox="0 0 100 100"` |
-| Ring outer edge | equals the bounding box | outer radius **50** |
-| Ring stroke width | 15.7–16.0 pt | **6.84** |
-| Ring centreline radius | 231.6/2 − 15.85/2 | **46.56** |
-| Inner W stroke width | 15.7 pt — **same as ring** | **6.84** |
-| W (mark) box | 161 × 170 pt | 69.5 × 73.3, centred → x 15.2, y 16.6 |
-| Round caps / joins | yes, terminal ends are round | `stroke-linecap="round" stroke-linejoin="round"` |
-
-**One stroke weight governs the whole mark: 6.84% of the icon width.** Any wrapper that draws the mark with a number other than 6.84 (in a 100 box) is out of brand.
-
-Asset set required in every template (`/assets/brand/`): `wa-icon.svg`, `wa-mark.svg`, `wa-horizontal.svg`, `wa-stacked.svg`, `wa-wordmark.svg`, `wa-lockup-{template}.svg`, plus `favicon.svg`, `app-icon-512.png`, `og-1200x630.png`. Colour versions: navy on white (default), white on navy, navy on lime, lime icon on navy deep, black 1-colour.
-
-Misuse, per the deck: don't stretch, rotate, recolour, retype, place lime on light grounds, or place navy on dark grounds.
-
-### 3.5 Graphic elements (the brand's own texture kit)
-
-- **Loop line** — the W's single unrolled stroke with round ends. Lime on navy, navy on white. Used as section divider, connector, and the primary scroll-draw device.
-- **Ridges** — concentric arches at the logo's spacing, radiating from the W. Trust moments only (certificates, testimonials, security). **Never filled.**
-- **Dot grid** — small dots on a regular pitch, **dark grounds only**. Pitch 24px, radius 1px, colour `rgba(141,184,255,.28)`.
-- **Code devices** — `// LABELS`, `<Brackets />`, `Highlight` blocks, cursor `▌`, and real code blocks in JetBrains Mono.
-
-Hue-neutral derivatives (tints used for surfaces) are permitted only as mixes of a brand colour with white/navy, never as new hues. **No fifth colour may appear in any template** — including the references' pink, cream, sage and yellow.
-
----
-
-## 4. Family-wide requirements
-
-1. **One hub, four templates.** `/index.html` at repo root is the Themes Hub. Every template's navbar carries a `Themes` item whose dropdown lists Nova, Atelier, Aero, Folio; every template also carries a floating switcher (bottom-right) that expands to four logo chips. All cross-template links are relative and must work from any page depth, including opened via `file://`.
-2. **Full page set** per website template: Home, About, Courses, Course detail, Live Sessions, Session detail, Library, Library item detail, Blog, Blog post, Instructor/Faculty detail, Contact, plus Legal and 404. Aero and Atelier add their own commercial pages. Folio is a single landing page with anchored sections and optional modal routes.
-3. **Every dynamic item has a detail page.** No dead cards. If a card exists, its destination exists.
-4. **Content is placeholder, structure is not.** Copy is obviously mock (`Course title`, lorem in long-form only), but field names, lengths, taxonomies and the content model are final and shared.
-5. **Performance budget** (per page, mobile 4G, Lighthouse 12): LCP ≤ 1.8s · INP ≤ 200ms · CLS ≤ 0.05 · TBT ≤ 200ms · JS ≤ 45KB gz (Folio ≤ 30KB) · CSS ≤ 30KB gz · images AVIF/WebP with intrinsic dimensions · zero layout shift from fonts or embeds.
-6. **Accessibility**: WCAG 2.2 AA. Visible focus everywhere, 44×44 targets, full keyboard operation of carousels/tabs/accordions, `prefers-reduced-motion` honoured, landmarks + skip link, form errors announced.
-7. **Bilingual-ready**: English is the build language, but all layout uses CSS logical properties (`margin-inline`, `padding-block`, `inset-inline-start`) and every string sits in the content layer, so `dir="rtl"` works without a rebuild. The brand specifies Arabic faces — shipping an Arabic variant is a Phase 2 milestone, not a redesign.
-8. **Technology (locked)**: static output. Eleventy 3 + Nunjucks per template, Lightning CSS, esbuild, sharp. No React/Vue/Tailwind/Bootstrap. Output `dist/` is plain HTML/CSS/ESM and must run on any static host with no server.
-
----
-
-## 5. Reading order for the executing agent
-
-1. This file — brand law and family rules.
-2. The template's `PLAN.md` — read fully before writing a line.
-3. Build in the order given in the plan's **§14 Build sequence**. Do not jump to interior pages before the design system and logo assets pass their acceptance criteria.
-4. Self-verify against **§15 Acceptance criteria**; every criterion has an ID and must be reported as PASS/FAIL with evidence.
-
----
-
-## 6. What "done" means
-
-A template is accepted when: its `dist/` builds clean, every listed page exists and is reachable from the navbar, the logo assets match the measured geometry in §3.4, the motion system degrades correctly under `prefers-reduced-motion`, the contrast law in §3.2 holds on every text node, the performance budget is met on a real throttled run, and the template still looks like it belongs to the same family as the other three.
-
----
-
-## 7. Building and running
-
-Everything is static: HTML, CSS, self-hosted WOFF2, one classic script per template, and an ESM build kit that only runs at build time. No framework, no bundler, no CDN, no extra npm dependencies.
-
-```bash
-node build-all.mjs          # rebuild all four dist/ folders
-node 03-aero-academy/build.mjs   # rebuild one
-node tools/check.mjs        # structural QA across every dist/
-node tools/check.mjs 02-atelier-academy
-npm run serve               # zero-dependency preview on :4173
+```sh
+npm run build           # all themes + the family hub
+npm test                # data/art/download tests + complete structural checks
+npm run serve           # http://localhost:4173, binds 0.0.0.0
 ```
 
-`npm run build` / `npm run build:<theme>` / `npm run check` / `npm run serve` are aliases for the same commands. **No `npm install` step is required** — `package.json` exists only for the script aliases.
+Open the root **`index.html`** to choose a theme. You can also open a theme's `dist/index.html` directly from disk. Navigation emits explicit relative `index.html` links, and browser scripts are classic scripts, not ES modules. Browser storage availability for `file://` varies; reading and downloads do not depend on it.
 
-Opening `dist/index.html` directly from disk works too: every path is relative (`./`, `../`), there are no modules to CORS-block, and fonts/images are local. This is verified by the fact that the build only ever emits relative URLs.
+Single-theme builds: `npm run build:nova`, `build:atelier`, `build:aero`, `build:folio`. Deploy the **contents** of that theme's `dist/` to a static host. Keep the four sibling distributions and hub together if using the family switcher.
 
-### Repository layout
+## Four distinct learning spaces
 
-| Path | What it does |
-|------|--------------|
-| `shared/css/base.css` | Tokens from the PDF, primitives, a11y, reduced-motion twins. Concatenated *before* each theme. |
-| `shared/js/core.js` | Runtime keyed on data attributes (`data-nav`, `data-reveal`, `data-rail`, `data-validate`, `data-count`, `data-acc`, `data-progress`, `data-switcher`, …). |
-| `shared/lib/site.mjs` | Page shell, navbar/drawer/footer/switcher, asset pipeline, `build()`. |
-| `shared/lib/ui.mjs` | 52-icon set, shared components, `THEMES` registry (the cross-link table). |
-| `shared/lib/data.mjs` | Content model: 16 courses, 10 sessions, 12 resources, 9 posts, 8 faculty, plus `imageSet()`. |
-| `shared/lib/art.mjs` | Deterministic seeded SVG art for covers, portraits and tracks. |
-| `shared/brand/`, `shared/fonts/` | The extracted logo vectors (`currentColor`) and the two latin variable fonts. |
-| `tools/extract-logo.py` | Reproducible PDF → SVG brand-mark extractor (pymupdf + scikit-image). |
-| `tools/check.mjs` | Structural QA: page inventory, internal links, images, single-h1, heading order, palette, budgets. |
-| `tools/serve.mjs` | Static preview server, no dependencies. |
-| `NN-*/src/` | Per-template `theme.css`, `pages.mjs` (routes) and behaviour file. |
-| `NN-*/dist/` | Build output — committed so the sites can be opened without a toolchain. |
+| Theme | Direction | Learning-site routes | Local tool |
+|---|---|---:|---:|
+| Nova | Friendly learning campus, catalogue search and learning paths | 95 | 1 |
+| Atelier | Editorial programmes, faculty, critique and staged applications | 98 | 1 |
+| Aero | Night-mode live teaching studio, questions and replay exploration | 90 | 1 |
+| Folio | Creator-owned course storefront, projects and useful first lessons | 79 | 1 |
 
-### Page inventory (built)
+**All 287 original routes are retained.** Each theme adds 16 illustrated sample classrooms, a saved-course page and an illustration collection. Nova, Atelier and Folio also add an optional educator-proposal route. Every distribution includes a standalone type specimen tool. There are 362 English theme routes and 362 Arabic mirrors, plus four specimen tools per language and 112 Arabic document companions: **844 HTML files across the distributions, plus two family hubs**.
 
-| Template | Pages | Includes |
-|----------|-------|----------|
-| Nova | 76 | Home, About, Courses + 16 detail, Tracks + 6, Live + 10, Library + 12, Blog + 9, Mentors + 8, Pricing, Contact, legal, styleguide, 404 |
-| Atelier | 79 | Home, Courses + 16, Cohorts + 6, Live + 10, Library + 12, Journal + 9, About, Faculty + 8, For teams, Tuition, Contact, Apply (3-step), Brand, legal, styleguide, 404 |
-| Aero | 72 | Home, Courses + 16, Live + 10, Instructors + 8, Teach + earnings calculator, Library + 12, Journal + 9, About, Pricing, Contact, Sign in, legal, styleguide, 404 |
-| Folio | 60 | Landing (11 sections) + Courses + 16, Live + 10, Library + 12, Journal + 9, About, Creators, Contact, Next steps, legal, 404 |
+### Working local experiences
 
-Every dynamic item type — course, session, resource, article, instructor/mentor, cohort, track — has its own detail page.
+- Search, subject/level/free-or-paid filters, sorting, URL query state and reset controls.
+- A browser-local saved-course shortlist; following educators where offered.
+- Illustrated lessons: explanation → practical exercise → knowledge check, with completion saved locally. Notes are **not** saved.
+- Real PDF syllabi for all 16 courses, 12 four-page workbooks with equivalent readable HTML transcripts, calendar `.ics` downloads, a spreadsheet CSV and a standalone type specimen tool.
+- Accessible menus, mobile drawers, accordions, tabbed teaching explanations and manual testimonial rails.
+- Validated enrolment, contact, interest, newsletter and event-registration **demonstrations**. Atelier's application validates each step, builds a text-safe review and does not persist personal details.
+- Demo classroom settings, a user-initiated audio test, microphone/camera state previews and a questions form. **No actual devices are accessed or video meetings connected.**
 
-### Cross-template links
+**This is a complete static front end, not a connected LMS.** Prices, educators, learner stories and availability are fictional sample content. Forms do not send emails, process payments, publish courses, authenticate people or create live meetings. Connect your real services and replace the sample policies before publishing a real service. Sign-in is explicitly labelled as a demo; never enter a real password.
 
-`shared/lib/ui.mjs` holds the single `THEMES` table used by the navbar menu, the drawer and the floating switcher. A link is written as `${R}../../${t.dir}` where `R` is the page's depth, so the same menu works from any page at any depth. The hub at `index.html` is the only page that links with `dist/` paths from the root.
+## English / العربية
 
-### Deliberate omissions
+Every theme has an accessible **العربية / English** control in its header and mobile drawer. It navigates to the same page in the other language, remembers a non-sensitive language preference when storage is available, and retains query/fragment state. Arabic is a complete pre-rendered edition: navigation, course/resource content, lessons/quizzes, validation, policies, accessible labels, metadata, artwork and relevant downloads—not a client-side text replacement or a `dir` toggle alone.
 
-- No analytics, no third-party scripts, no cookie banner (nothing is collected).
-- Forms validate in the browser and stop there; the confirmation states are the deliverable, not a backend.
-- Copy is placeholder throughout, on purpose: the brief was logos, motion and craft.
+Arabic entry points: **`ar/index.html`** for the family and **`0*/dist/ar/index.html`** for a theme. English URLs and the original route contracts are unchanged. Both editions run from `file://` or a static host. Motion respects reduced-motion preferences, and native navigation works without JavaScript.
+
+Local Noto Sans Arabic provides connected Arabic type. Arabic SVG labels are pre-shaped vectors; Arabic PDF syllabi/workbooks include embedded fonts and linked HTML alternatives. Calendars, CSV labels, token descriptions and the specimen tool are also localized. No translation service, browser-wide catalogue, CDN or production dependency is added.
+
+See [localization and release maintenance](docs/I18N.md) for content editing, shaping/PDF export, language routing and verification.
+
+## Academy / creator presets
+
+The same four themes support both presentations; these are not eight separate themes.
+
+```sh
+WA_PRESET=creator WA_CREATOR_NAME="Your Name" npm run build:nova
+WA_PRESET=academy npm run build:folio
+WA_RECRUITMENT=1 npm run build:aero        # optional educator-recruitment navigation
+WA_STANDALONE=1 npm run build:atelier     # removes family/demo-switcher chrome
+WA_SITE_NAME="Your Studio" npm run build:folio
+WA_SITE_URL="https://example.com" npm run build:nova  # canonical URLs + sitemap
+WA_DEMO_DATE="2026-11-05T12:00:00Z" npm run build      # reproducible session fixtures
+```
+
+Defaults: Nova/Atelier/Aero are academies; Folio is a creator-owned learning studio. Learner discovery/enrolment stays primary. Recruitment is opt-in. Presets change presentation, not your course collection; replace the shared content fixtures for a genuinely individual educator's catalogue. `WA_STANDALONE` removes cross-theme navigation, **not** the honest demo disclosures. Configure `WA_SITE_URL` only for a single-theme deployment. Without a real URL, demo pages are `noindex`; utility and sample-classroom pages remain `noindex` even with one.
+
+## Original SVG collection
+
+`shared/lib/education-art.mjs` contains editable vector geometry, not raster images wrapped in SVG.
+
+- **16 signature compositions:** four per theme, including the learning workspace, editorial notebook, whiteboard classroom, creator desk, mentoring, critique, programme, completion, workshop, replay and student-work scenes.
+- **12 educational object illustrations** and **8 distinct interface states**.
+- Subject-specific artwork for **all 16 courses**, plus resources, articles, tracks and original illustrated educator portraits.
+- Accessible SVG titles/descriptions, instance-safe IDs, no scripts or remote resources. Standalone files are static; inline groups support contextual motion.
+
+Every theme's `artwork/` page previews/downloads its assets; `assets/artwork.json` lists generated SVGs. See [implementation notes](docs/IMPLEMENTATION.md) for animation conventions and the scene map.
+
+## Architecture
+
+| Source | Purpose |
+|---|---|
+| `shared/lib/data.mjs` | Authoritative courses, curricula, prices, educators, sessions, resources and posts |
+| `shared/lib/config.mjs` | Build-time presentation presets |
+| `shared/lib/site.mjs` | Accessible shell, relative URLs, assets, downloads and generated learning routes |
+| `shared/lib/ui.mjs` | Shared icons, form fields and cards |
+| `shared/lib/education-ui.mjs` | Educational compositions, sample classrooms and local-demo disclosures |
+| `shared/lib/education-art.mjs` | Original vector artwork |
+| `shared/lib/downloads.mjs`, `resource-tools.mjs` | Dependency-free PDF/calendar writers and local learning tools |
+| `shared/lib/hub.mjs` | Source for the generated bilingual family hub |
+| `shared/lib/i18n.mjs`, `shared/locales/` | Build-time localization and compact runtime messages |
+| `shared/lib/arabic-downloads.mjs`, `shared/downloads/ar/` | Printable Arabic source/HTML and verified PDF releases |
+| `shared/css/base.css`, `education.css`, `rtl.css` | Foundation, responsive/accessibility layer and Arabic typography/direction |
+| `shared/js/core.js`, `education.js` | Dependency-free browser interactions |
+| `0*/src/` | Theme-specific page compositions, skin and behaviour |
+| `0*/dist/` | Generated, committed standalone sites — **edit source, then build** |
+| `tools/` | Preview, structural/data/browser checks and original logo extraction utility |
+
+`VisualIdentity.pdf` and the four original reference JPGs are unchanged. The historical `PLAN.md` files describe the original design briefs; current implementation/verification lives in `docs/`.
+
+## Brand, typography and accessibility
+
+The shared palette remains navy `#012A5D`, deep navy `#001A3D`, mid `#14427F`, sky `#8DB8FF`, ice `#EAF1FB`, white and lime `#C8F560`. Skin tones and semantic error colours are intentional exceptions. Use navy text on lime, not lime text on white. The extracted logo geometry is preserved; the mark does not rotate.
+
+**Lexend and JetBrains Mono are self-hosted Latin fonts; Noto Sans Arabic 400/700 is supplied for Arabic.** Authentic SIL OFL licences accompany them. The commercial brand-book fonts (Glock Grotesque, Milan Display and Tajarib) are not supplied. Arabic text uses joining-safe typography, and mixed-direction code, email/URL/number fields and timers are isolated appropriately.
+
+Motion can be paused, respects reduced-motion changes, runs on only one visible SVG scene and stops in a hidden tab. Static content, navigation and downloads work without JavaScript; dynamic forms, saving and lesson progress require it.
+
+The target is **WCAG 2.2 AA**, not a blanket conformance certification. See [QA and measured limitations](docs/QA.md), including remaining real-device, screen-reader and field-performance validation.
+
+## Verification
+
+```sh
+npm run check
+npm test                 # Node + structural + bilingual release checks
+npm run test:i18n         # translated peers, local assets, PDF hashes and locale budgets
+WA_I18N_REPORT=1 WA_I18N_STRICT=1 npm run build
+# Optional browser-only tooling; not a production/build dependency:
+npm install --prefix .cache/qa --no-save --no-package-lock \
+  playwright-core@1.64.1 @sparticuz/chromium@153.0.0 @axe-core/playwright@4.14.0
+npm run test:browser      # English regression
+npm run test:arabic       # all Arabic routes, RTL breakpoints and interaction/fallback checks
+npm run test:release      # real Arabic downloads, forced-color focus, media and fonts
+npm run test:perf         # three throttled lab samples per theme in both languages
+```
+
+The browser runner also accepts `CHROMIUM_EXECUTABLE_PATH` for a system Chromium. Reports and screenshots go to ignored `.cache/education-qa/`. [QA](docs/QA.md) documents exact coverage and measurement conditions; gzip file budgets are enforced independently of browser performance.
+
+The latest functional, structural and accessibility gates pass. The performance runner intentionally reports target misses: English Atelier/Folio exceed the preferred 1.8s lab median in the latest sample; all Arabic medians meet it. See [the full measured report and limitations](docs/QA.md); these are not field/CWV guarantees.

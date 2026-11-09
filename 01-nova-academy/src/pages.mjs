@@ -5,6 +5,9 @@ import {
   faqList, pagination, ctaBand, field, esc, fmtDuration, fmtPrice,
 } from '../../shared/lib/ui.mjs';
 import data from '../../shared/lib/data.mjs';
+import { sceneFrame, learningExperience, projectShowcase } from '../../shared/lib/education-ui.mjs';
+import { profile } from '../../shared/lib/config.mjs';
+const presentation = profile('nova');
 
 const { courses, tracks, mentors, sessions, resources, posts, testimonials, faqs, stats, partners } = data;
 
@@ -15,10 +18,10 @@ export const site = {
   chip: 'NOVA',
   tagline: 'An academy that feels like a bright studio',
   navLayout: 'split',
-  ctaLabel: 'Register',
-  ctaHref: 'pricing/',
+  ctaLabel: 'Explore courses',
+  ctaHref: 'courses/',
   loginHref: 'contact/',
-  loginLabel: 'Log in',
+  loginLabel: 'Say hello',
   themeColor: '#012A5D',
   footerBlurb: 'Short lessons, real projects, and a mentor when you get stuck. A fictional academy used to demonstrate this template.',
   nav: [
@@ -26,7 +29,7 @@ export const site = {
     {
       label: 'Courses', href: 'courses/',
       children: [
-        { label: 'All courses', href: 'courses/', desc: '240 courses across six tracks' },
+        { label: 'All courses', href: 'courses/', desc: `${courses.length} courses across six tracks` },
         { label: 'Tracks', href: 'tracks/', desc: 'Structured multi-course paths' },
         { label: 'Level: Beginner', href: 'courses/', desc: 'Start from zero' },
         { label: 'Level: Advanced', href: 'courses/', desc: 'Go deeper' },
@@ -58,12 +61,7 @@ const statBand = () => `
 <div class="statband">
   <div class="container">
     <div class="statband__grid">
-      ${[
-        ['book', stats[0].value + '+', 'Courses & cohorts', ''],
-        ['users', stats[1].value + '', 'Named instructors', ''],
-        ['award', stats[2].value + 'K', 'Learners worldwide', ''],
-        ['star', stats[3].value + '/5', 'Average rating', 'statband__icon--lime'],
-      ]
+      ${stats.map((s,i)=>[['book','users','layers','file'][i], s.value + s.suffix, s.label, i===3?'statband__icon--lime':''])
         .map(([ic, v, l, mod], i) => `
         <div class="statband__card" data-reveal style="--i:${i}">
           <span class="statband__icon ${mod}">${icon(ic)}</span>
@@ -119,7 +117,7 @@ const stepsRow = () => `
 /* -------------------------------------------------------------------------- */
 const home = () => shell('', {
   title: 'Web Academy',
-  desc: 'Short lessons, real projects and a mentor when you get stuck. 240 courses across design, engineering, data and visual craft.',
+  desc: `Short lessons, real projects and a mentor when you get stuck. ${courses.length} courses across six creative and technical tracks.`,
   bodyClass: 'home',
   jsonld: [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.slice(0, 4).map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }],
   body: `
@@ -127,9 +125,9 @@ const home = () => shell('', {
     <div class="container">
       <div class="hero__grid">
         <div class="hero__copy">
-          <p class="kicker"><span class="kicker__dot"></span>// The leader in online learning</p>
-          <h1 class="hero__title">Engaging &amp; accessible online courses <em>for all</em>.</h1>
-          <p class="lede hero__lede">Learn design, code and visual craft in twenty-minute blocks, with a mentor in the room when it matters.</p>
+          <p class="kicker"><span class="kicker__dot"></span>${presentation.mode === 'creator' ? '// A small studio for big ideas' : '// Your next chapter starts here'}</p>
+          <h1 class="hero__title">A little curiosity.<br>A whole <em>new chapter.</em></h1>
+          <p class="lede hero__lede">Practical lessons. Projects you’ll be proud of. Learn design, code and creative skills with people who love the work as much as you will.</p>
           <form class="hero__search" role="search" action="courses/" method="get">
             <label class="sr-only" for="hero-q">Search courses</label>
             ${icon('search')}
@@ -143,30 +141,22 @@ const home = () => shell('', {
                 <img class="avatar" src="assets/img/av-idris.svg" alt="" width="28" height="28">
                 <img class="avatar" src="assets/img/av-mei.svg" alt="" width="28" height="28">
               </span>
-              Trusted by 15,400 learners since 2022
+              ${courses.length} thoughtful courses · ${mentors.length} practising educators
             </div>
-            <div class="hero__proof-rating">
-              <strong class="num" data-count="290" data-suffix="+">290+</strong> courses
-              <span aria-hidden="true">·</span>
-              <strong class="num">4.9</strong> ${stars(5)}
+            <div class="hero__proof-rating"><a class="edu-text-link" href="learn/${courses[0].slug}/">Try a sample lesson ${icon('arrow')}</a>
             </div>
           </div>
         </div>
-        <div class="hero__art" data-parallax>
-          <div class="hero__card">
-            <img src="assets/img/av-mei.svg" alt="Illustrated portrait of an instructor" width="760" height="950" fetchpriority="high" decoding="async">
-          </div>
-          <span class="hero__shape hero__shape--1" data-depth="0.06" aria-hidden="true"></span>
-          <span class="hero__shape hero__shape--2" data-depth="0.1" aria-hidden="true"></span>
-          <span class="hero__shape hero__shape--3" data-depth="0.14" aria-hidden="true"></span>
-          <span class="hero__shape hero__shape--4" data-depth="0.08" aria-hidden="true"></span>
-          <span class="hero__shape hero__shape--5" data-depth="0.18" aria-hidden="true"></span>
-          <span class="hero__float hero__float--badge">${icon('play')} 2,400 learners this week</span>
+        <div class="hero__art edu-hero-art">
+          ${sceneFrame('nova','nova-home',{caption:'A clear lesson. A small project. Your next step.'})}
+          <div class="edu-hero-label"><span class="edu-status-dot"></span> Your learning journey, one small win at a time.</div>
         </div>
       </div>
     </div>
   </section>
   ${statBand()}
+  ${learningExperience('nova')}
+  ${projectShowcase('nova')}
 
   <section class="section">
     <div class="container">
@@ -295,7 +285,7 @@ const home = () => shell('', {
 /* -------------------------------------------------------------------------- */
 const coursesIndex = () => shell('courses/', {
   title: 'Courses',
-  desc: 'Browse 240 courses across design, engineering, visual craft, data, business and teaching.',
+  desc: `Browse ${courses.length} courses across design, engineering, visual craft, data, business and teaching.`,
   body: `
   <div class="page-head"><div class="container page-head__inner">
     <ol class="breadcrumb"><li><a href="./">Home</a></li><li>Courses</li></ol>
@@ -362,7 +352,7 @@ const courseDetail = (c) => shell(`courses/${c.slug}/`, {
           <h1>${esc(c.title)}</h1>
           <p class="lede">${esc(c.subtitle)}</p>
           <div class="course-hero__meta">
-            <span class="flex items-center gap-2">${stars(5)} <strong class="num">${c.rating}</strong> (${c.ratingCount} reviews)</span>
+            <span class="flex items-center gap-2">${stars(c.rating)} <strong class="num">${c.rating}</strong> (${c.ratingCount} reviews)</span>
             <span class="flex items-center gap-2">${icon('users')} <span class="num">${c.students.toLocaleString()}</span> learners</span>
             <span class="flex items-center gap-2">${icon('clock')} ${fmtDuration(c.duration)}</span>
             <span class="flex items-center gap-2">${icon('globe')} ${c.language.join(', ')}</span>
@@ -377,7 +367,7 @@ const courseDetail = (c) => shell(`courses/${c.slug}/`, {
           <div class="buy-panel__media"><img src="../../assets/img/${c.art}.svg" alt="" width="800" height="450"></div>
           <div class="buy-panel__body">
             <div class="buy-panel__price">
-              ${c.free ? '<strong>Free</strong>' : `<strong>${fmtPrice(c.price)}</strong><s>${fmtPrice(Math.round(c.price * 1.4))}</s>`}
+              ${c.free ? '<strong>Free</strong>' : `<strong>${fmtPrice(c.price)}</strong>`}
             </div>
             <a class="btn btn--primary btn--block btn--lg" href="../../pricing/">${c.free ? 'Start for free' : 'Enrol now'}</a>
             <button class="btn btn--ghost btn--block" type="button" data-fav aria-pressed="false">${icon('heart', 'btn__icon')} Add to wishlist</button>
@@ -598,7 +588,7 @@ const liveDetail = (s) => shell(`live/${s.slug}/`, {
     </div>
     <h1>${esc(s.title)}</h1>
     <p class="lede">${esc(s.blurb)}</p>
-    <p class="small">${icon('calendar')} <span data-datetime="${s.startsAt}">—</span> · your timezone <span data-tz></span></p>
+    <p class="small">${icon('calendar')} <span data-datetime="${s.startsAt}">${new Date(s.startsAt).toUTCString()}</span> · your timezone <span data-tz></span></p>
   </div></div>
   <section class="section section--flush">
     <div class="container" style="display:grid;gap:var(--section)">
@@ -656,7 +646,7 @@ const libraryIndex = () => shell('library/', {
   <div class="page-head"><div class="container page-head__inner">
     <ol class="breadcrumb"><li><a href="../">Home</a></li><li>Library</li></ol>
     <h1>Library</h1>
-    <p class="lede">Twelve resources, pulled from the courses. Most need nothing but an email.</p>
+    <p class="lede">Practical resources from the courses. Four-page sample workbooks, free to download without an email.</p>
   </div></div>
   <section class="section section--flush" data-filter="type">
     <div class="container">
@@ -706,7 +696,7 @@ const libraryDetail = (r) => shell(`library/${r.slug}/`, {
           <p class="h4">${r.pages} pages · ${r.size} · PDF</p>
           <p class="small">${r.updated}</p>
           <a class="btn btn--primary btn--block" href="#" onclick="return false">${icon('download', 'btn__icon')} Download free</a>
-          <p class="small">Free to download. We ask for an email so we can tell you when it changes.</p>
+          <p class="small">A real sample PDF, free to download. No account, email or tracking.</p>
           <ul class="buy-panel__list">
             <li>${icon('check')} No account needed</li>
             <li>${icon('check')} Print-friendly</li>
@@ -975,7 +965,7 @@ const pricing = () => shell('pricing/', {
     <div class="container">
       <div class="plan-grid">
         ${[['Free', '0', 'Start with any free course. No card, no expiry.', ['Two free courses', 'The library, ungated', 'Community Q&A', 'Course updates'], 'Start free', false],
-          ['Live', '24', 'Everything live, every replay, the whole library.', ['All 240 courses', 'Every live session + replay', 'Certificate for each course', 'Office hours with mentors'], 'Go Live', true],
+          ['Live', '24', 'Everything live, every replay, the whole library.', [`All ${courses.length} courses`, 'Every live session + replay', 'Certificate for each course', 'Office hours with mentors'], 'Go Live', true],
           ['Studio', '89', 'Five seats, invoicing, and a named contact.', ['Everything in Live × 5 seats', 'Consolidated invoicing', 'Private critique session per quarter', 'Usage reporting'], 'Talk to us', false]]
           .map(([n, p, d, feats, cta, featured]) => `
           <div class="plan ${featured ? 'plan--featured' : ''}">

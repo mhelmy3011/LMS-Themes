@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Web Academy//Learning Demo//AR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:s10@webacademy.example
+DTSTAMP:20261109T080659Z
+DTSTART:20261105T120000Z
+DTEND:20261105T133000Z
+SUMMARY:بناء نظام تصميم ومشاركة خطواته (تجر
+ يبي)
+DESCRIPTION:نموذج لجلسة بناء تشرح قيم التصميم
+  والمكوّنات وتوثيق القرارات أثناء العم
+ ل. حدث تجريبي؛ لا يوجد صف مباشر أو تسجيل 
+ مرتبط.
+END:VEVENT
+END:VCALENDAR

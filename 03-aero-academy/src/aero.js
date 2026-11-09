@@ -2,14 +2,14 @@
 (function () {
   'use strict';
   var WA = window.WA;
-  var reduce = WA.reduce;
+  var reduce = WA.reduce,I=window.WAI18n,tr=I.t,num=I.number;
 
   /* ------------------------------------------------------------------ */
   /* R3 — one lime pill slides between the primary nav items             */
   /* ------------------------------------------------------------------ */
   var navLinks = WA.$('.nav .nav__links');
   if (navLinks) {
-    var ind = document.createElement('span');
+    var ind = document.createElement('li');
     ind.className = 'nav__indicator';
     ind.setAttribute('aria-hidden', 'true');
     navLinks.appendChild(ind);
@@ -18,7 +18,7 @@
     function place(el) {
       if (!el) { ind.style.opacity = 0; return; }
       ind.style.opacity = 1;
-      ind.style.width = el.offsetWidth + 'px';
+      ind.style.width = el.offsetWidth + 'px';ind.style.insetInlineStart='auto';ind.style.left='0';
       ind.style.transform = 'translateX(' + el.offsetLeft + 'px)';
     }
     place(current);
@@ -35,7 +35,7 @@
   /* R5 — the mono emphasis types itself in, once                        */
   /* ------------------------------------------------------------------ */
   WA.$$('[data-typein]').forEach(function (el) {
-    if (reduce.matches) return;
+    if (reduce.matches||I.language==='ar') return;
     var text = el.textContent;
     el.textContent = '';
     var frag = document.createDocumentFragment();
@@ -61,8 +61,8 @@
       secs++;
       var h = Math.floor(secs / 3600), m = Math.floor((secs % 3600) / 60), s = secs % 60;
       el.textContent =
-        (h ? String(h).padStart(2, '0') + ':' : '') +
-        String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+        (h ? (I.language==='ar'?num(String(h).padStart(2,'0')).padStart(2,'٠'):String(h).padStart(2,'0')) + ':' : '') +
+        (I.language==='ar'?num(String(m).padStart(2,'0')).padStart(2,'٠'):String(m).padStart(2,'0')) + ':' + (I.language==='ar'?num(String(s).padStart(2,'0')).padStart(2,'٠'):String(s).padStart(2,'0'));
     }, 1000);
     document.addEventListener('visibilitychange', function () {
       if (document.visibilityState === 'visible') start = Date.now();
@@ -82,8 +82,8 @@
       var d = Math.floor(diff / 86400000);
       var h = Math.floor((diff % 86400000) / 3600000);
       var m = Math.floor((diff % 3600000) / 60000);
-      out.textContent = (d > 0 ? d + 'd ' : '') +
-        String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
+      out.textContent = (d > 0 ? num(d) + tr('d')+' ' : '') +
+        (I.language==='ar'?num(String(h).padStart(2,'0')).padStart(2,'٠'):String(h).padStart(2,'0')) + ':' + (I.language==='ar'?num(String(m).padStart(2,'0')).padStart(2,'٠'):String(m).padStart(2,'0'));
     }
     update();
     setInterval(update, 30000);
@@ -93,7 +93,7 @@
   /* stage controls are real toggles (static, no backend)                */
   /* ------------------------------------------------------------------ */
   WA.$$('.stage').forEach(function (stage) {
-    WA.$$('.stage__btn[aria-pressed]', stage).forEach(function (btn) {
+    WA.$$('.stage__btn[aria-pressed]:not([data-motion-toggle])', stage).forEach(function (btn) {
       btn.addEventListener('click', function () {
         var on = btn.getAttribute('aria-pressed') === 'true';
         btn.setAttribute('aria-pressed', on ? 'false' : 'true');
@@ -110,7 +110,7 @@
     var result = WA.$('[data-result]', root);
     var bars = WA.$('[data-bars]', root);
     var timer;
-    function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+    function fmt(n) { return I.currency(n); }
     function read() {
       var v = {};
       inputs.forEach(function (i) { v[i.getAttribute('data-input')] = parseFloat(i.value); });
@@ -121,7 +121,7 @@
       inputs.forEach(function (i) {
         var out = WA.$('[data-out="' + i.getAttribute('data-input') + '"]', root);
         if (!out) return;
-        out.textContent = i.getAttribute('data-input') === 'price' ? fmt(parseFloat(i.value)) : i.value;
+        out.textContent = i.getAttribute('data-input') === 'price' ? fmt(parseFloat(i.value)) : num(i.value);
       });
       var yearly = v.seats * v.price * v.cohorts * 0.88;
       if (result) result.textContent = fmt(yearly);
@@ -148,7 +148,7 @@
   var params = new URLSearchParams(location.search);
   var track = params.get('track');
   if (track) {
-    var facet = WA.$('[data-facet="' + track + '"]');
+    var facet = WA.$$('[data-facet]').filter(function(b){return b.getAttribute('data-facet')===track;})[0];
     if (facet) facet.click();
   }
 })();

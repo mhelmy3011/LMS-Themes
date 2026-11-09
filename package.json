@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Four static academy/landing-page templates built from one visual identity — no framework, no bundler, no CDN.",
+  "description": "Four static academy/landing-page templates built from one visual identity \u2014 no framework, no bundler, no CDN.",
   "scripts": {
     "build": "node build-all.mjs",
     "build:nova": "node 01-nova-academy/build.mjs",
@@ -12,7 +12,18 @@
     "build:folio": "node 04-folio-landing/build.mjs",
     "check": "node tools/check.mjs",
     "serve": "node tools/serve.mjs",
-    "start": "node build-all.mjs && node tools/serve.mjs"
+    "start": "node build-all.mjs && node tools/serve.mjs",
+    "test": "node --test tools/tests/*.test.mjs && node tools/check.mjs && node tools/check-i18n.mjs",
+    "test:browser": "node tools/browser-check.mjs",
+    "test:perf": "node tools/performance-check.mjs",
+    "artwork:social": "node tools/export-social.mjs",
+    "artwork:arabic": "node tools/export-arabic-art.mjs",
+    "downloads:arabic": "node tools/export-arabic-downloads.mjs",
+    "test:i18n": "node tools/check-i18n.mjs",
+    "test:arabic": "node tools/browser-arabic-check.mjs",
+    "test:release": "node tools/browser-release-check.mjs"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  }
 }

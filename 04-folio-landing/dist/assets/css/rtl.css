@@ -1,0 +1,32 @@
+/* Arabic is a pre-rendered edition, not a client-side DOM translation. */
+@font-face{font-family:"Noto Sans Arabic";src:url('../fonts/noto-sans-arabic.woff2') format('woff2');font-style:normal;font-weight:200 500;font-display:swap}
+@font-face{font-family:"Noto Sans Arabic";src:url('../fonts/noto-sans-arabic-bold.woff2') format('woff2');font-style:normal;font-weight:600 900;font-display:swap}
+html[lang="ar"]{--font-sans:"Noto Sans Arabic",system-ui,sans-serif;--font-mono:"Noto Sans Arabic",system-ui,sans-serif;font-family:var(--font-sans)}
+html[lang="ar"] body *{letter-spacing:normal!important}
+html[lang="ar"] body{font-family:var(--font-sans);line-height:1.9}
+html[lang="ar"] :is(h1,h2,h3,h4,.h1,.h2,.h3,.h4,.hero__title){letter-spacing:normal;line-height:1.5}
+html[lang="ar"] :is(.mono,.kicker,.eyebrow,.meta,.chip,.brand__chip,.live-pill,.nav__link,.btn,.edu-fine,.edu-lab__number,.stat3__l){letter-spacing:normal;text-transform:none}
+html[lang="ar"] :is(button,input,select,textarea){font-family:var(--font-sans)}
+html[lang="ar"] :is(.lede,.prose,p){line-height:1.95}
+html[lang="ar"] :is(code,pre,kbd,samp){direction:ltr;unicode-bidi:isolate;text-align:left;font-family:"JetBrains Mono",ui-monospace,monospace;letter-spacing:normal}
+html[lang="ar"] :is(input[type=email],input[type=url],input[type=tel],input[type=password],input[type=number]){direction:ltr;unicode-bidi:plaintext;text-align:left}
+html[lang="ar"] :is(.num,.calc__val,.calc__big,[data-countdown-value],[data-timer]){unicode-bidi:isolate}
+html[lang="ar"] :is(.nav__link,.drawer__link){line-height:1.7}
+html[lang="ar"] .brand__word{letter-spacing:normal;white-space:nowrap}
+html[lang="ar"] .hero__title{max-inline-size:20ch}
+html[lang="ar"] :is(.edu-lesson-content,.reading,.prose){text-align:start}
+html[lang="ar"] .edu-art text{font-family:var(--font-sans);letter-spacing:normal}
+html[lang="ar"] .ic:is([data-icon=arrow],[data-icon=arrowUpRight],[data-icon=chevronLeft],[data-icon=chevronRight]){scale:-1 1}
+html[lang="ar"] [data-rule]{transform-origin:right center}
+html[lang="ar"] .edu-scene .edu-progress-stroke{transform-origin:right center}
+html[lang="ar"] .edu-editorial-hero .hero__title{font-size:clamp(2rem,3.8vw,3.7rem)}
+html[lang="ar"] :is(.hero__copy,.hero__inner,.head__text,.course-row__main,.res-row__main){min-inline-size:0}
+html[lang="ar"] .nav__inner .brand__word{font-size:1rem}
+html[lang="ar"] .hero__proof{align-items:center}
+html[lang="ar"] .stage__controls{direction:rtl}
+@media(max-width:767px){html[lang="ar"] :is(.hero .hero__title,.edu-editorial-hero .hero__title){font-size:clamp(1.9rem,6vw,2.6rem)}html[lang="ar"] .hero__lede{font-size:1rem}}
+@media(max-width:479px){html[lang="ar"] .nav__inner .brand__word{white-space:normal}}
+@media print{html[lang="ar"] body *{letter-spacing:normal!important}
+html[lang="ar"] body{font-family:"Noto Sans Arabic",sans-serif}}
+
+html[lang="ar"] :is([data-timer],[data-countdown-value],time[data-datetime-format=time]){direction:ltr;unicode-bidi:isolate}

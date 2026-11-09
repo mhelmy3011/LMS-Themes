@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Web Academy//Learning Demo//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:s7@webacademy.example
+DTSTAMP:20261109T080659Z
+DTSTART:20261116T120000Z
+DTEND:20261116T130000Z
+SUMMARY:Cohort design office hours (demo)
+DESCRIPTION:Open office hours for anyone designing or running a cohort. D
+ emonstration event\; no live room or registration is connected.
+END:VEVENT
+END:VCALENDAR

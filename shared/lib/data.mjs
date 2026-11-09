@@ -3,7 +3,7 @@
    Every template draws from these collections so cross-template links resolve
    and the family stays coherent.
    ========================================================================== */
-import { cover, portrait } from './art.mjs';
+import { subjectCover, portraitArt, scene, educationImageSet } from './education-art.mjs';
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
@@ -46,6 +46,18 @@ const courseSeed = [
   ['Interface animation with restraint', 'code', 'Intermediate', 8900, 232, 4, 'sofia', ['Timing tokens', 'Reduced motion', 'Performance']],
 ];
 
+function curriculumFor(outcomes, count, duration) {
+  const titles = ['Find your starting point', ...outcomes.map(s => `Explore: ${s.toLowerCase()}`), 'A guided worked example', 'Make your first draft', 'Use the critique checklist', 'Refine your project', 'Present the finished work', 'Your next learning step'];
+  const all = Array.from({ length: count }, (_, i) => titles[i % titles.length]);
+  const lengths = [Math.ceil(count / 3), Math.ceil((count - Math.ceil(count / 3)) / 2)];
+  lengths.push(count - lengths[0] - lengths[1]);
+  let offset = 0;
+  return lengths.map((length, i) => {
+    const start = offset; offset += length;
+    return { title: ['Understand the foundations', 'Put it into practice', 'Make it your own'][i], lessons: all.slice(start, offset), minutes: all.slice(start, offset).map((_, j) => Math.floor(duration / count) + (start + j < duration % count ? 1 : 0)) };
+  }).filter(s => s.lessons.length);
+}
+
 export const courses = courseSeed.map(([title, track, level, price, students, lessons, mentorId, outcomes], i) => {
   const mentor = mentors.find((m) => m.id === mentorId);
   const trackObj = tracks.find((t) => t.id === track);
@@ -58,12 +70,14 @@ export const courses = courseSeed.map(([title, track, level, price, students, le
     trackLabel: trackObj.label,
     level,
     price,
+    cohortPrice: Math.round(price * 1.6),
+    cohortDeposit: Math.round(price * .4),
     free: price === 0,
     currency: 'USD',
     rating: (4.5 + ((i * 7) % 5) / 10).toFixed(1),
     ratingCount: 80 + ((i * 137) % 900),
     students,
-    duration: 180 + ((i * 53) % 380),
+    duration: lessons * 18 + (i % 3) * 6,
     lessonCount: lessons,
     updated: 'September 2026',
     language: ['English'],
@@ -71,12 +85,11 @@ export const courses = courseSeed.map(([title, track, level, price, students, le
     mentorId,
     art: `cover-c${i + 1}`,
     outcomes,
-    sections: [
-      { title: 'Foundations', lessons: ['Why this matters', 'The vocabulary', 'A worked example', 'Common traps'] },
-      { title: 'Practice', lessons: ['First build', 'Critique', 'Iterating with intent', 'Shipping checklists'] },
-      { title: 'Going further', lessons: ['Advanced patterns', 'Case study', 'Where to read next'] },
-    ],
-    requirements: ['A laptop and a browser', 'No prior experience required', 'Curiosity about the craft'],
+    format: i % 4 === 0 ? 'Live + self-paced' : 'Self-paced',
+    project: ['A documented interface system', 'An editorial illustration series', 'An accessible interactive website', 'A carefully typeset publication', 'An evidence-led research report', 'A brand motion study', 'A keyboard-complete component', 'A clear data story', 'A useful Python notebook', 'A sustainable studio proposal', 'A complete cohort teaching plan', 'A portfolio case study', 'A short three-dimensional scene', 'A creative direction brief', 'Your first online lesson', 'An accessible motion prototype'][i],
+    audience: level === 'Beginner' ? 'Curious beginners, career changers and anyone ready to make a first project.' : level === 'Advanced' ? 'Practising professionals ready to sharpen an existing skill through a focused project.' : 'Learners with some experience who want a clearer method and constructive feedback.',
+    sections: curriculumFor(outcomes, lessons, lessons * 18 + (i % 3) * 6),
+    requirements: ['A laptop and a browser', level === 'Beginner' ? 'No previous experience in this subject' : 'Some practical experience with the subject', 'Time to practise and share a project'],
     description:
       'This course is built around one idea: you learn a craft by making things and having them looked at. Each section pairs a short demonstration with a project you can finish in an evening, then reviews the result against a clear standard.',
     reviews: [
@@ -87,6 +100,12 @@ export const courses = courseSeed.map(([title, track, level, price, students, le
     featured: i < 4,
   };
 });
+
+mentors.forEach(m => { const own = courses.filter(c => c.mentorId === m.id); m.courses = own.length; m.students = own.reduce((n,c)=>n+c.students,0); });
+
+tracks.forEach(t => { t.count=courses.filter(c=>c.track===t.id).length; });
+
+const demoDay = new Date(process.env.WA_DEMO_DATE || new Date().toISOString().slice(0, 10) + 'T12:00:00Z').getTime();
 
 export const sessions = [
   ['Critique night: portfolio reviews', 'ana', '2026-11-03T18:00:00Z', 90, 40, 33, 'upcoming', 'Live feedback on six student portfolios, with a repeatable review framework you can use on your own work.'],
@@ -105,37 +124,33 @@ export const sessions = [
   title,
   mentorId,
   mentor: mentors.find((m) => m.id === mentorId).name,
-  startsAt,
+  startsAt: new Date(demoDay + (status === 'live' ? -10 * 60000 : status === 'ended' ? -(i - 5) * 86400000 : (i + 1) * 86400000)).toISOString(),
   durationMin,
   seats,
   seatsFilled,
   status,
-  format: 'Live · Zoom-style room',
+  demo: true,
+  format: 'Interactive workshop · demo',
   blurb,
-  agenda: [
-    { time: '00:00', topic: 'Welcome and context' },
-    { time: '00:10', topic: 'Demonstration' },
-    { time: '00:35', topic: 'Hands-on practice' },
-    { time: '01:10', topic: 'Critique and questions' },
-  ],
+  agenda: [{ time: '00:00', topic: 'Welcome and the learning goal' }, { time: '00:10', topic: 'An instructor-led demonstration' }, { time: '00:25', topic: 'Hands-on practice' }, { time: '00:' + String(Math.min(50, durationMin - 10)).padStart(2, '0'), topic: 'Feedback, questions and your next step' }],
 }));
 
 export const resources = [
   ['The interface audit checklist', 'Guide', 24, '1.2 MB', 'Every check we run before a design review, in the order we run it.'],
   ['Cohort facilitation playbook', 'Guide', 46, '2.4 MB', 'Session structures, timing templates and the questions that open a room up.'],
-  ['Design token starter kit', 'Template', 12, '340 KB', 'A JSON token set plus the generator we use in production.'],
+  ['Design token starter kit', 'Template', 12, '340 KB', 'A small JSON token structure and a decision checklist for consistent interface patterns.'],
   ['Portfolio review scorecard', 'Checklist', 4, '180 KB', 'The six criteria we use in critique night, with anchors for each score.'],
   ['Motion timing reference', 'Guide', 18, '980 KB', 'Easing curves, durations and the reasoning behind each default.'],
   ['Accessibility testing script', 'Checklist', 8, '260 KB', 'A keyboard and screen-reader pass you can run in forty minutes.'],
   ['Data storytelling workbook', 'Template', 22, '1.6 MB', 'Framing worksheets and a chart-choice decision tree.'],
   ['Pricing calculator (sheet)', 'Template', 6, '96 KB', 'A rate model that accounts for admin, revisions and the work you did not quote.'],
-  ['Type specimen generator', 'Template', 10, '420 KB', 'Set a specimen for any typeface in under a minute.'],
+  ['Type specimen generator', 'Template', 10, '420 KB', 'Edit a local specimen and compare reading sizes, line heights and three font families.'],
   ['Illustration brief template', 'Template', 5, '210 KB', 'The brief we send clients so that round one is never a guess.'],
   ['Recording setup for instructors', 'Guide', 16, '1.1 MB', 'Microphones, lighting and the settings that make a difference.'],
   ['Critique language glossary', 'Guide', 9, '300 KB', 'Precise words for describing what is working and what is not.'],
 ].map(([title, type, pages, size, blurb], i) => {
   const s = slug(title);
-  return { id: `r${i + 1}`, slug: s, title, type, pages, size, blurb, art: `res-${i + 1}`, updated: 'Updated September 2026' };
+  return { id: `r${i + 1}`, slug: s, title, type, pages: 4, size: 'Sample PDF', blurb, art: `res-${i + 1}`, updated: 'Updated September 2026' };
 });
 
 export const posts = [
@@ -158,7 +173,7 @@ export const postsFull = posts.map(([title, category, excerpt, readingMin], i) =
   excerpt,
   readingMin,
   publishedAt: new Date(Date.UTC(2026, 9 - (i % 5), 20 - i)).toISOString(),
-  dateLabel: ['24 Sep 2026', '18 Sep 2026', '11 Sep 2026', '02 Sep 2026', '21 Aug 2026', '14 Aug 2026', '07 Aug 2026', '30 Jul 2026', '23 Jul 2026'][i],
+  dateLabel: new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(Date.UTC(2026, 9 - (i % 5), 20 - i))),
   authorId: mentors[i % mentors.length].id,
   author: mentors[i % mentors.length].name,
   art: `post-${i + 1}`,
@@ -174,19 +189,19 @@ export const testimonials = [
 ];
 
 export const faqs = [
-  { q: 'Is this a subscription or a one-off purchase?', a: 'Both exist. Individual courses are one-off purchases with lifetime access. The Live plan adds every live session, every replay and the library for a monthly or annual fee.' },
-  { q: 'What happens if I miss a live session?', a: 'Every session is recorded and published to the archive within a few hours. Registrants get the replay automatically, along with any resources shared in the room.' },
-  { q: 'Do I get a certificate?', a: 'Yes. Courses and cohorts issue a certificate of completion with a verifiable ID. Certificates name the course, the hours and the instructor.' },
-  { q: 'Can my employer pay for this?', a: 'Teams can purchase seats by invoice, with a purchase order and a single consolidated invoice. We also provide a written syllabus for procurement.' },
-  { q: 'How much time should I set aside?', a: 'Courses assume two to three hours a week. Cohorts assume four to five, including a live session and one piece of work you will show to the group.' },
-  { q: 'What is the refund policy?', a: 'Thirty days, no questions, as long as you have not completed more than half the course. Cohorts can be transferred to a later start date up to seven days before the first session.' },
+  { q: 'Can I try a lesson before I decide?', a: 'Yes. Every course includes an illustrated sample classroom with a practical exercise, a short knowledge check and progress saved only on your browser. No account is required.' },
+  { q: 'What happens in the live-session demo?', a: 'You can explore the agenda, preview room controls, try a local registration form and download a real calendar file. There is no connected meeting, live video, payment or email service.' },
+  { q: 'Do I get a certificate?', a: 'The artwork includes a sample completion certificate. Finishing the sample classroom records local progress only; it is not accreditation or a verifiable professional qualification.' },
+  { q: 'Can my academy or team use this?', a: 'The same themes support academy and independent-educator presets. Courses, instructor profiles, cohort applications and resources can be adapted to a real organisation. Connect your own enrolment and payment services before publishing.' },
+  { q: 'How much time should I set aside?', a: 'Start with a short sample lesson and a ten-minute exercise. Full course pages show the exact number of lessons and learning-material minutes; programme pages separately explain their weekly commitment.' },
+  { q: 'What is the refund policy?', a: 'This is a static demonstration: no money is collected and no booking or subscription is created. A real provider must publish its own access, cancellation and refund terms before accepting enrolments.' },
 ];
 
 export const stats = [
-  { value: 240, suffix: '+', label: 'Courses and cohorts' },
-  { value: 48, suffix: '', label: 'Named instructors' },
-  { value: 15.4, suffix: 'K', label: 'Learners worldwide' },
-  { value: 4.9, suffix: '/5', label: 'Average rating' },
+  { value: courses.length, suffix: '', label: 'Courses to explore' },
+  { value: mentors.length, suffix: '', label: 'Practising educators' },
+  { value: tracks.length, suffix: '', label: 'Learning tracks' },
+  { value: resources.length, suffix: '', label: 'Practical resources' },
 ];
 
 export const partners = ['Northline', 'Kestrel Studio', 'Foundry Labs', 'Marlowe & Co', 'Braid Collective', 'Atlas Type'];
@@ -196,17 +211,23 @@ export const disciplines = ['Illustration', 'Graphic design', 'Motion design', '
 /* -------------------------------------------------------------------------- */
 /* imagery                                                                    */
 /* -------------------------------------------------------------------------- */
-export function imageSet() {
-  const set = {};
-  courses.forEach((c, i) => { set[c.art] = cover(`course-${c.slug}`, { dark: i % 4 === 1 }); });
-  postsFull.forEach((p) => { set[p.art] = cover(`post-${p.slug}`, { dark: false }); });
-  mentors.forEach((m) => { set[`av-${m.id}`] = portrait(m.id); });
-  tracks.forEach((t, i) => { set[t.art || `track-${t.id}`] = cover(`track-${t.id}`, { dark: i % 2 === 1 }); });
-  resources.forEach((r) => { set[r.art] = cover(`res-${r.slug}`, { dark: false }); });
-  set['folio-hero'] = cover('folio-hero-art', { dark: false });
-  set['atelier-studio'] = cover('atelier-studio-art', { dark: false });
-  set['nova-collab'] = cover('nova-collab-art', { dark: false });
-  set['aero-room'] = cover('aero-room-art', { dark: true });
+export function imageSet(theme = 'nova') {
+  const set = educationImageSet(theme);
+  courses.forEach((c, i) => { set[c.art] = subjectCover(c.track, i, c.project.toUpperCase(), { dark: theme === 'aero', id: c.art }); });
+  postsFull.forEach((p, i) => { set[p.art] = subjectCover(({ Teaching:'teaching', Design:'design', Motion:'visual', Engineering:'code', Business:'business', 'Visual craft':'visual' })[p.category], i, p.category.toUpperCase() + ' / FIELD NOTES', { dark: theme === 'aero', id:p.art }); });
+  mentors.forEach((m, i) => { set[`av-${m.id}`] = portraitArt(m.id, i); });
+  tracks.forEach((t, i) => { set[`track-${t.id}`] = subjectCover(t.id, i, t.label.toUpperCase(), { dark: theme === 'aero', id: `track-${t.id}` }); });
+  resources.forEach((r, i) => { set[r.art] = subjectCover(['design','teaching','code','visual','visual','code','data','business','visual','visual','teaching','teaching'][i], i, r.type.toUpperCase() + ' / THE PRACTICAL LIBRARY', { dark: theme === 'aero', id: r.art }); });
+  set['folio-hero'] = scene('folio');
+  set['folio-pricing'] = scene('project');
+  set['folio-live'] = scene('workshop');
+  set['folio-students'] = scene('community');
+  set['folio-library'] = scene('library');
+  set['folio-paid'] = scene('certificate');
+  set['folio-frame'] = scene('project');
+  set['atelier-studio'] = scene('atelier');
+  set['nova-collab'] = scene('critique');
+  set['aero-room'] = scene('aero');
   return set;
 }
 

@@ -13,6 +13,6 @@ const { pages, distDir } = await build({
   routes: routes(),
   themeCss: path.join(ROOT, 'src/theme.css'),
   scripts: [path.join(ROOT, 'src/folio.js')],
-  images: { ...imageSet(), ...images },
+  images: { ...imageSet(site.id), ...images },
 });
 console.log(`Folio: ${pages} pages → ${path.relative(process.cwd(), distDir)}`);

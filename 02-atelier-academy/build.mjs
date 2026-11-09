@@ -13,6 +13,6 @@ const { pages, distDir } = await build({
   routes: routes(),
   themeCss: path.join(ROOT, 'src/theme.css'),
   scripts: [path.join(ROOT, 'src/atelier.js')],
-  images: imageSet(),
+  images: imageSet(site.id),
 });
 console.log(`Atelier: ${pages} pages → ${path.relative(process.cwd(), distDir)}`);

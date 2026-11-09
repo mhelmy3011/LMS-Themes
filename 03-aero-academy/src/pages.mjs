@@ -2,6 +2,9 @@
 import { page } from '../../shared/lib/site.mjs';
 import { icon, head, stars, courseCard, postCard, resourceRow, faqList, field, esc, fmtDuration, fmtPrice } from '../../shared/lib/ui.mjs';
 import data from '../../shared/lib/data.mjs';
+import { sceneFrame, learningExperience, projectShowcase } from '../../shared/lib/education-ui.mjs';
+import { profile } from '../../shared/lib/config.mjs';
+const presentation = profile('aero');
 
 const { courses, tracks, mentors, sessions, resources, posts, testimonials, faqs, partners, disciplines } = data;
 
@@ -13,8 +16,8 @@ export const site = {
   tagline: 'The live academy',
   navLayout: 'split',
   ctaLabel: 'Start learning',
-  ctaHref: 'pricing/',
-  loginLabel: 'Log in',
+  ctaHref: 'courses/',
+  loginLabel: 'Demo sign-in',
   loginHref: 'signin/',
   themeColor: '#001A3D',
   colorScheme: 'dark',
@@ -45,10 +48,10 @@ const upcoming = sessions.filter((s) => s.status === 'upcoming');
 const ended = sessions.filter((s) => s.status === 'ended');
 
 /* the stage component — one definition, used on home, live and room */
-const stage = ({ session = sessions[3], join = 'Join room', compact = false } = {}) => `
+const stage = ({ session = sessions[3], join = 'Explore the classroom', compact = false } = {}) => `
 <div class="stage" data-stage>
   <div class="stage__media">
-    <img src="${R() === '' ? '' : ''}${'assets/img/aero-room.svg'}" alt="Live session in progress" width="1280" height="800" fetchpriority="high">
+    ${sceneFrame('aero',`stage-${session.id}`,{controls:false})}
   </div>
   <div class="stage__scrim" aria-hidden="true"></div>
   <div class="stage__top">
@@ -56,9 +59,9 @@ const stage = ({ session = sessions[3], join = 'Join room', compact = false } = 
       <img src="assets/img/av-ana.svg" alt="" width="32" height="32">
       <img src="assets/img/av-idris.svg" alt="" width="32" height="32">
       <img src="assets/img/av-mei.svg" alt="" width="32" height="32">
-      <span>+ 38 in the room</span>
+      <span>Illustrated demo classroom</span>
     </div>
-    <span class="live-pill"><span class="live-dot" aria-hidden="true"></span>LIVE <span data-timer aria-live="off">00:14</span></span>
+    <span class="live-pill"><span class="live-dot" aria-hidden="true"></span>DEMO <span data-timer aria-live="off">00:14</span></span>
   </div>
   <div class="stage__join">
     <a class="btn btn--primary btn--lg" href="live/${session.slug}/">${join}</a>
@@ -68,6 +71,7 @@ const stage = ({ session = sessions[3], join = 'Join room', compact = false } = 
     <button class="stage__btn" type="button" aria-pressed="true" aria-label="Turn camera off">${icon('camera')}</button>
     <button class="stage__btn stage__btn--leave" type="button" aria-label="Leave the room">${icon('phone')}</button>
     <button class="stage__btn" type="button" aria-label="Room settings">${icon('settings')}</button>
+    <button class="stage__btn no-js-hide" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause illustration motion">${icon('play')}</button>
   </div>
 </div>`;
 
@@ -82,7 +86,7 @@ const sessionRowA = (s, Rr = '', { live = false } = {}) => `
 <li class="session-row">
   <div class="session-row__time">
     <span class="num" data-datetime="${s.startsAt}" data-datetime-format="time">—</span>
-    <span class="meta" data-datetime="${s.startsAt}">—</span>
+    <span class="meta" data-datetime="${s.startsAt}">${new Date(s.startsAt).toUTCString()}</span>
   </div>
   <div class="session-row__main">
     <div class="flex gap-2 items-center">
@@ -123,13 +127,13 @@ const home = () => shell('', {
         <div class="hero__copy">
           <p class="kicker"><span class="kicker__dot"></span>// Live academy</p>
           <h1 class="hero__title">
-            Learn from people who are
-            <span class="em" data-typein aria-label="still doing the work">still doing the work</span>
+            Learn it live.<br>Make it real.
+            <span class="em" data-typein aria-label="In good company.">In good company.</span>
           </h1>
-          <p class="lede">Live rooms every week, recordings the same day, and instructors you can ask a question to. Or teach here and keep 88% of what you charge.</p>
+          <p class="lede">A focused lesson, a working instructor and space for your questions. Learn by doing, together—then take your next idea further.</p>
           <div class="hero__actions">
-            <a class="btn btn--primary btn--lg" href="live/">Join a live session</a>
-            <a class="btn btn--ghost btn--lg" href="teach/">Teach on Web Academy ${icon('arrow', 'btn__icon')}</a>
+            <a class="btn btn--primary btn--lg" href="live/">Explore the live schedule</a>
+            <a class="btn btn--ghost btn--lg" href="learn/${courses[0].slug}/">Try a sample lesson ${icon('arrow', 'btn__icon')}</a>
           </div>
           <div class="proof">
             <div class="flex items-center gap-3">
@@ -138,26 +142,28 @@ const home = () => shell('', {
                 <img src="assets/img/av-omar.svg" alt="" width="36" height="36">
                 <img src="assets/img/av-hala.svg" alt="" width="36" height="36">
               </span>
-              <span><span class="proof__num" data-count="25400">25,400</span><span class="proof__label">learners since 2022</span></span>
+              <span><span class="proof__num" data-count="${mentors.length}">${mentors.length}</span><span class="proof__label">practising educators</span></span>
             </div>
             <div>
-              <span class="proof__num">4.9</span>
-              <span class="proof__label">avg. session rating</span>
+              <span class="proof__num">${courses.length}</span>
+              <span class="proof__label">courses to explore</span>
             </div>
           </div>
         </div>
         <div class="stage-wrap">
           ${stage({ session: sessions[3] })}
           <div class="stage-quote">
-            <p>“This is the only platform where I have actually finished a course.”</p>
-            <p>Priya S. · interface craft, cohort 6</p>
-            <a class="btn btn--ghost btn--sm" href="blog/">Read the story</a>
+            <p>A teaching studio, not a broadcast.</p>
+            <p>See the agenda. Ask a question. Try the method.</p>
+            <a class="edu-text-link" href="live/">Explore the schedule ${icon('arrow')}</a>
           </div>
         </div>
       </div>
     </div>
     ${horizon()}
   </section>
+  ${learningExperience('aero')}
+  ${projectShowcase('aero')}
 
   <section class="section section--tight">
     <div class="marquee" aria-label="Institutions that send teams">
@@ -178,9 +184,9 @@ const home = () => shell('', {
           <p class="lede" style="margin-block-start:14px">We started in 2022 with one live room and twelve people. The format has not changed, only the number of rooms.</p>
           <p class="small" style="margin-block-start:12px">Every instructor here still practises. Sessions are capped so questions get answered, and everything is recorded so nobody loses the material.</p>
           <div class="stat3" style="margin-block-start:24px">
-            <div><p class="stat3__v">1</p><p class="stat3__l">top-rated academy</p></div>
-            <div><p class="stat3__v" data-count="25400">25,400</p><p class="stat3__l">learners</p></div>
-            <div><p class="stat3__v">88%</p><p class="stat3__l">paid to instructors</p></div>
+            <div><p class="stat3__v">1</p><p class="stat3__l">shared classroom</p></div>
+            <div><p class="stat3__v" data-count="${courses.length}">${courses.length}</p><p class="stat3__l">focused courses</p></div>
+            <div><p class="stat3__v">${resources.length}</p><p class="stat3__l">practical resources</p></div>
           </div>
           <a class="btn btn--ghost" href="about/" style="margin-block-start:24px">Watch the film ${icon('play', 'btn__icon')}</a>
         </div>
@@ -327,7 +333,7 @@ const courseDetail = (c) => shell(`courses/${c.slug}/`, {
     <h1>${esc(c.title)}</h1>
     <p class="lede">${esc(c.subtitle)}</p>
     <div class="flex wrap gap-5 items-center">
-      <span class="flex items-center gap-2">${stars(5)} <strong class="num">${c.rating}</strong> <span class="meta">(${c.ratingCount})</span></span>
+      <span class="flex items-center gap-2">${stars(c.rating)} <strong class="num">${c.rating}</strong> <span class="meta">(${c.ratingCount})</span></span>
       <span class="flex items-center gap-2 meta">${icon('users')} <span class="num">${c.students.toLocaleString()}</span> learners</span>
       <span class="flex items-center gap-2 meta">${icon('clock')} ${fmtDuration(c.duration)}</span>
     </div>
@@ -420,7 +426,7 @@ const liveIndex = () => shell('live/', {
           <div>${stage({ join: 'Join now' })}</div>
           <div>
             ${liveSessions.map((s) => `<div class="earn__card" style="margin-block-end:12px">
-              <div class="flex items-center gap-2"><span class="chip chip--lime"><span class="live-dot" aria-hidden="true"></span>LIVE</span><span class="meta">${s.mentor}</span></div>
+              <div class="flex items-center gap-2"><span class="chip chip--lime"><span class="live-dot" aria-hidden="true"></span>DEMO LIVE</span><span class="meta">${s.mentor}</span></div>
               <h2 class="h4" style="color:#fff">${esc(s.title)}</h2>
               <p class="small">${esc(s.blurb)}</p>
               <a class="btn btn--ghost btn--sm" href="./${s.slug}/" style="align-self:flex-start">Enter the room</a>
@@ -471,7 +477,7 @@ const sessionDetail = (s) => {
         <div class="container">
           <div class="flex wrap items-center justify-between gap-3" style="margin-block-end:20px">
             <div class="flex items-center gap-3">
-              <span class="live-pill"><span class="live-dot" aria-hidden="true"></span>LIVE</span>
+              <span class="live-pill"><span class="live-dot" aria-hidden="true"></span>DEMO LIVE</span>
               <h1 class="h4" style="color:#fff">${esc(s.title)}</h1>
             </div>
             <span class="meta">${esc(s.mentor)} · ${s.durationMin} min</span>
@@ -487,10 +493,10 @@ const sessionDetail = (s) => {
             </div>
             <div class="earn__card">
               <p class="kicker">Questions</p>
-              <p class="small">Ask in the room, or leave a question here and it will be raised before the end.</p>
+              <p class="small">Try a question in this local room preview. Nothing is broadcast or sent to an instructor.</p>
               <form class="flex gap-2" style="margin-block-start:12px" data-validate novalidate>
                 <label class="sr-only" for="q">Your question</label>
-                <input class="input" id="q" placeholder="Type a question…" style="flex:1">
+                <input class="input" id="q" required data-rules="required" aria-label="Your question" placeholder="Type a question…" style="flex:1">
                 <button class="btn btn--primary btn--sm" type="submit">Send</button>
               </form>
             </div>
@@ -512,13 +518,13 @@ const sessionDetail = (s) => {
       </div>
       <h1>${esc(s.title)}</h1>
       <p class="lede">${esc(s.blurb)}</p>
-      <p class="small">${icon('calendar')} <span data-datetime="${s.startsAt}">—</span> · <span data-tz></span></p>
+      <p class="small">${icon('calendar')} <span data-datetime="${s.startsAt}">${new Date(s.startsAt).toUTCString()}</span> · <span data-tz></span></p>
     </div></div>
     <section class="section section--flush">
       <div class="container grid" style="grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:clamp(24px,4vw,48px);align-items:start">
         <div class="stack" style="--stack:var(--sp-7)">
           ${isEnded ? `<div class="stage" style="aspect-ratio:16/9"><div class="stage__media"><img src="../../assets/img/aero-room.svg" alt="" width="1280" height="720"></div>
-            <div class="stage__join"><button class="btn btn--primary btn--lg" type="button">${icon('play', 'btn__icon')} Watch the replay</button></div></div>`
+            <div class="stage__join"><a class="btn btn--primary btn--lg" href="../../learn/${courses.find(c=>c.mentorId===s.mentorId)?.slug||courses[0].slug}/">${icon('play', 'btn__icon')} Explore sample lesson</a></div></div>`
             : `<div data-countdown="${s.startsAt}" class="earn__card" style="text-align:center">
                 <p class="kicker">Starts in</p>
                 <p class="calc__big" data-countdown-value>00:00:00</p>
@@ -589,7 +595,7 @@ const instructorDetail = (m) => {
             <div><p class="stat3__v">${m.rating}</p><p class="stat3__l">rating</p></div>
           </div>
           <p class="small">“${esc(m.quote)}”</p>
-          <div class="flex wrap gap-3"><a class="btn btn--primary" href="../../contact/">Book a 1:1</a><button class="btn btn--ghost" type="button" aria-pressed="false">Follow</button></div>
+          <div class="flex wrap gap-3"><a class="btn btn--primary" href="../../contact/">Book a 1:1</a><button class="btn btn--ghost" type="button" data-follow="${m.id}" aria-pressed="false">Follow educator</button></div>
         </div>
       </div>
     </div></div>
@@ -684,7 +690,7 @@ const teach = () => shell('teach/', {
           <p class="kicker">Your share, per year</p>
           <p class="calc__big" data-result aria-live="polite">$7,761</p>
           <div class="calc__bars" aria-hidden="true" data-bars></div>
-          <p class="small" style="margin-block-start:14px">Estimates assume every seat sells. Most first cohorts sell out at a smaller size, which is why we cap them.</p>
+          <p class="small" style="margin-block-start:14px">Estimates assume every seat sells. No actual sales are implied. Change the assumptions to explore smaller cohorts.</p>
           <a class="btn btn--primary btn--sm" href="#apply" style="margin-block-start:14px">Start an application</a>
         </div>
       </div>
@@ -914,7 +920,7 @@ const about = () => shell('about/', {
         </div>
       </div>
       <div class="stat3" style="margin-block-start:48px">
-        <div><p class="stat3__v" data-count="25400">25,400</p><p class="stat3__l">learners, 62 countries</p></div>
+        <div><p class="stat3__v" data-count="${courses.length}">${courses.length}</p><p class="stat3__l">focused courses</p></div>
         <div><p class="stat3__v">48</p><p class="stat3__l">instructors, all practising</p></div>
         <div><p class="stat3__v">1,200</p><p class="stat3__l">live sessions run</p></div>
       </div>
@@ -949,7 +955,7 @@ const pricing = () => shell('pricing/', {
     <div class="container">
       <div class="plan-grid">
         ${[['Free', '0', 'The library and two courses.', ['The full library', 'Two self-paced courses', 'Community Q&A', 'No card needed'], 'Start free', false],
-          ['Live', '24', 'Every live session, every replay.', ['All 240 courses', 'Every live session + replay', 'Certificates', 'Office hours'], 'Go Live', true],
+          ['Live', '24', 'Every live session, every replay.', [`All ${courses.length} courses`, 'Every live session + replay', 'Certificates', 'Office hours'], 'Go Live', true],
           ['Studio', '89', 'Five seats and invoicing.', ['Everything in Live × 5', 'Consolidated invoice', 'Private session each quarter', 'Usage reporting'], 'Talk to us', false]]
           .map(([n, p, d, feats, cta, featured]) => `
           <div class="plan ${featured ? 'plan--featured' : ''}">

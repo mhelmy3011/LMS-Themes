@@ -1,5 +1,7 @@
 /* Shared icon set — 24px grid, 1.6px stroke, round caps. Single source. */
 const P = {
+  briefcase: '<rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V4h6v3M4 12h16M10 12v3h4v-3"/>',
+  headphones: '<path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="12" width="5" height="8" rx="2"/><rect x="16" y="12" width="5" height="8" rx="2"/>',
   arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
   arrowUpRight: '<path d="M7 17 17 7M8 7h9v9"/>',
   search: '<circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>',
@@ -49,7 +51,7 @@ const P = {
 
 export function icon(name, cls = '') {
   const body = P[name] || P.sparkle;
-  return `<svg class="ic ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${body}</svg>`;
+  return `<svg class="ic ${cls}" data-icon="${name}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${body}</svg>`;
 }
 
 export function stars(rating = 5, count = 5) {
@@ -65,11 +67,7 @@ export const fmtDuration = (min) => {
   const h = Math.floor(min / 60), m = min % 60;
   return h ? `${h}h ${m ? m + 'm' : ''}`.trim() : `${m}m`;
 };
-export const fmtPrice = (minor, currency = 'USD') => {
-  const v = minor / 100;
-  const sym = { USD: '$', GBP: '£', EUR: '€' }[currency] || '';
-  return sym + (Number.isInteger(v) ? v : v.toFixed(2));
-};
+export const fmtPrice = (minor, currency = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency, minimumFractionDigits: minor % 100 ? 2 : 0, maximumFractionDigits: 2 }).format(minor / 100);
 
 /* ---------- structural components (styled per template) ---------- */
 
@@ -86,21 +84,23 @@ export function head({ kicker, title, lede, action = '', align = 'left', id }) {
   </div>`;
 }
 
-export function field({ id, label, type = 'text', name, rules = '', msg = '', hint = '', placeholder = '', optional = false, tag = 'input', options = [], autocomplete = '', rows = 5 }) {
+export function field({ id, label, type = 'text', name, rules = '', msg = '', hint = '', placeholder = '', optional = false, tag = 'input', options = [], autocomplete = '', rows = 5, minLength = 0, maxLength = 0 }) {
   const req = rules.includes('required') ? ' required' : '';
+  const validation = ` data-rules="${esc(rules)}" data-msg="${esc(msg)}"${minLength ? ` minlength="${minLength}"` : ''}${maxLength ? ` maxlength="${maxLength}"` : ''}`;
+  if (tag === 'input' && ['select','textarea'].includes(type)) tag = type;
   const control =
     tag === 'textarea'
-      ? `<textarea class="textarea" id="${id}" name="${name || id}" rows="${rows}" placeholder="${placeholder}"${req} aria-describedby="${id}-err">${''}</textarea>`
+      ? `<textarea class="textarea" id="${id}" name="${name || id}" rows="${rows}" placeholder="${esc(placeholder)}"${req}${validation} aria-describedby="${id}-err${hint ? ` ${id}-hint` : ''}">${''}</textarea>`
       : tag === 'select'
-        ? `<select class="select" id="${id}" name="${name || id}"${req} aria-describedby="${id}-err">${options
-            .map((o) => `<option value="${esc(o)}">${esc(o)}</option>`)
+        ? `<select class="select" id="${id}" name="${name || id}"${req}${validation} aria-describedby="${id}-err${hint ? ` ${id}-hint` : ''}">${req ? '<option value="">Choose one…</option>' : ''}${options
+            .map((o) => `<option value="${esc(typeof o === 'string' ? o : o.value)}">${esc(typeof o === 'string' ? o : o.label)}</option>`)
             .join('')}</select>`
-        : `<input class="input" id="${id}" name="${name || id}" type="${type}" placeholder="${placeholder}"${req}${autocomplete ? ` autocomplete="${autocomplete}"` : ''} aria-describedby="${id}-err">`;
+        : `<input class="input" id="${id}" name="${name || id}" type="${type}" placeholder="${esc(placeholder)}"${req}${validation}${autocomplete ? ` autocomplete="${autocomplete}"` : ''} aria-describedby="${id}-err${hint ? ` ${id}-hint` : ''}">`;
   return `
   <div class="field" data-field>
     <label class="label ${optional ? 'label--opt' : ''}" for="${id}">${label}</label>
     ${control}
-    ${hint ? `<p class="field__hint">${hint}</p>` : ''}
+    ${hint ? `<p class="field__hint" id="${id}-hint">${hint}</p>` : ''}
     <p class="field__error" id="${id}-err" data-msg="${esc(msg)}"></p>
   </div>`;
 }
@@ -108,15 +108,17 @@ export function field({ id, label, type = 'text', name, rules = '', msg = '', hi
 export function courseCard(c, R, { dark = false } = {}) {
   const price = c.free ? 'FREE' : fmtPrice(c.price, c.currency);
   return `
-  <article class="card card--link course-card" data-tags="${c.track} ${c.level}" data-text="${esc(c.title)} ${esc(c.mentor)} ${c.track}">
+  <article class="card card--link course-card" data-course-id="${c.id}" data-price="${c.price}" data-level="${c.level.toLowerCase()}" data-duration="${c.duration}" data-tags="${c.track} ${c.level.toLowerCase()}" data-text="${esc(c.title)} ${esc(c.mentor)} ${c.track}">
     <div class="card__media">
       <img src="${R}assets/img/${c.art}.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-      <span class="chip ${c.free ? 'chip--lime' : 'card__flag chip--solid'} card__badge">${c.level}</span>
+      <span class="chip chip--solid card__badge">${c.level}</span>
       <span class="chip ${c.free ? 'chip--lime' : 'chip--solid'} card__flag">${price}</span>
+      <button class="edu-save" type="button" data-fav="${c.id}" aria-pressed="false" aria-label="Save ${esc(c.title)}">${icon('heart')}</button>
     </div>
     <div class="card__body">
       <div class="card__meta"><span>${c.trackLabel}</span><span>·</span><span>${c.lessonCount} lessons</span></div>
       <h3 class="card__title"><a class="card__cover" href="${R}courses/${c.slug}/">${esc(c.title)}</a></h3>
+      <p class="edu-card-outcome">${esc(c.project)}</p>
       <div class="card__foot">
         <span class="meta flex items-center gap-2">
           <img class="avatar" src="${R}assets/img/av-${c.mentorId}.svg" alt="" width="24" height="24">
@@ -163,7 +165,7 @@ export function sessionRow(s, R, { live = false } = {}) {
       <span class="meta"><span data-datetime="${s.startsAt}">—</span></span>
     </div>
     <div class="session-row__main">
-      <span class="chip ${live ? 'chip--lime' : 'chip--outline'}">${live ? '<span class="chip__dot pulse"></span>LIVE' : s.status === 'ended' ? 'REPLAY' : s.durationMin + ' min'}</span>
+      <span class="chip ${live ? 'chip--lime' : 'chip--outline'}">${live ? '<span class="chip__dot"></span>DEMO LIVE' : s.status === 'ended' ? 'REPLAY' : s.durationMin + ' min'}</span>
       <h3 class="session-row__title"><a href="${R}live/${s.slug}/">${esc(s.title)}</a></h3>
       <p class="meta">${esc(s.mentor)} · ${s.format}</p>
     </div>

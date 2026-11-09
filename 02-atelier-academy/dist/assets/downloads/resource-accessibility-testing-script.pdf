@@ -1,0 +1,131 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Length 1453 >>
+stream
+0.004 0.165 0.365 rg 0 718 595 124 re f
+BT /F2 11 Tf 1 1 1 rg 44 796 Td (WEB ACADEMY / THE PRACTICAL LIBRARY) Tj ET
+BT /F2 20 Tf 1 1 1 rg 44 765 Td (Accessibility testing script) Tj ET
+BT /F2 17 Tf 0.004 0.165 0.365 rg 44 681 Td (01 / Understand the task) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 648 Td (A keyboard and screen-reader pass you can run in forty minutes.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 618 Td (Run a repeatable first accessibility pass on one complete learner task.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 588 Td (Choose one small, real example to work on. A focused attempt gives you better) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 571 Td (evidence than a general impression.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 541 Td (Your example: ____________________________________________________________) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 511 Td (Your audience: ___________________________________________________________) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 481 Td (Your intended outcome: ___________________________________________________) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 451 Td (One constraint: __________________________________________________________) Tj ET
+0.55 0.72 1 RG 44 59 m 551 59 l S
+BT /F1 9 Tf 0.004 0.165 0.365 rg 44 41 Td (Editable sample learning material. No accreditation or external service is implied.) Tj ET
+BT /F1 9 Tf 0.004 0.165 0.365 rg 511 41 Td (1 / 4) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 1583 >>
+stream
+0.004 0.165 0.365 rg 0 718 595 124 re f
+BT /F2 11 Tf 1 1 1 rg 44 796 Td (WEB ACADEMY / THE PRACTICAL LIBRARY) Tj ET
+BT /F2 20 Tf 1 1 1 rg 44 765 Td (Accessibility testing script) Tj ET
+BT /F2 17 Tf 0.004 0.165 0.365 rg 44 681 Td (02 / Put a method to work) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 648 Td (1. Tab from the address bar: find the skip link, main navigation and primary task.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 618 Td (2. Use Shift+Tab to confirm a sensible reverse order and visible focus.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 588 Td (3. Open a menu/dialog with Enter or Space; close it with Escape and check focus) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 571 Td (return.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 541 Td (4. Submit an empty form, then an invalid value; read the summary and field errors.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 511 Td (5. Check headings, control names and status updates with a screen reader.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 481 Td (6. Repeat at 320px, with 200% text, reduced motion and high-contrast settings.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 451 Td (Working notes: __________________________________________________________) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 421 Td (_________________________________________________________________________) Tj ET
+0.55 0.72 1 RG 44 59 m 551 59 l S
+BT /F1 9 Tf 0.004 0.165 0.365 rg 44 41 Td (Editable sample learning material. No accreditation or external service is implied.) Tj ET
+BT /F1 9 Tf 0.004 0.165 0.365 rg 511 41 Td (2 / 4) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 1325 >>
+stream
+0.004 0.165 0.365 rg 0 718 595 124 re f
+BT /F2 11 Tf 1 1 1 rg 44 796 Td (WEB ACADEMY / THE PRACTICAL LIBRARY) Tj ET
+BT /F2 20 Tf 1 1 1 rg 44 765 Td (Accessibility testing script) Tj ET
+BT /F2 17 Tf 0.004 0.165 0.365 rg 44 681 Td (03 / A worked practice scenario) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 648 Td (Task: open a course, inspect the curriculum and find a sample lesson.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 618 Td (Record the browser, screen reader, input method, viewport and exact failing step.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 588 Td (An automated report is useful evidence, not proof of complete WCAG conformance.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 571 Td (Retest the task after each fix.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 541 Td (Apply the method to your own example. What changes?) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 511 Td (Your first attempt: _______________________________________________________) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 481 Td (Your revision: ___________________________________________________________) Tj ET
+0.55 0.72 1 RG 44 59 m 551 59 l S
+BT /F1 9 Tf 0.004 0.165 0.365 rg 44 41 Td (Editable sample learning material. No accreditation or external service is implied.) Tj ET
+BT /F1 9 Tf 0.004 0.165 0.365 rg 511 41 Td (3 / 4) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 1935 >>
+stream
+0.004 0.165 0.365 rg 0 718 595 124 re f
+BT /F2 11 Tf 1 1 1 rg 44 796 Td (WEB ACADEMY / THE PRACTICAL LIBRARY) Tj ET
+BT /F2 20 Tf 1 1 1 rg 44 765 Td (Accessibility testing script) Tj ET
+BT /F2 17 Tf 0.004 0.165 0.365 rg 44 681 Td (04 / Reflect and keep going) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 648 Td (Can the learner complete the task without a pointer, colour or animation being) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 631 Td (required?) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 601 Td (What is clearer after using this workbook?) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 571 Td (_________________________________________________________________________) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 541 Td (What evidence supports that conclusion?) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 511 Td (_________________________________________________________________________) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 481 Td (What is the smallest useful next step?) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 451 Td (_________________________________________________________________________) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 421 Td (Feedback prompt: "I noticed ____. That helped / made it harder to ____. One thing to) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 404 Td (try is ____.") Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 374 Td (You may adapt this original sample workbook for personal learning and classroom) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 357 Td (demonstrations.) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 327 Td (This is sample learning material, not legal, financial, medical or accreditation) Tj ET
+BT /F1 11 Tf 0.004 0.165 0.365 rg 44 310 Td (advice.) Tj ET
+0.55 0.72 1 RG 44 59 m 551 59 l S
+BT /F1 9 Tf 0.004 0.165 0.365 rg 44 41 Td (Editable sample learning material. No accreditation or external service is implied.) Tj ET
+BT /F1 9 Tf 0.004 0.165 0.365 rg 511 41 Td (4 / 4) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000135 00000 n 
+0000000205 00000 n 
+0000000280 00000 n 
+0000001784 00000 n 
+0000001920 00000 n 
+0000003554 00000 n 
+0000003690 00000 n 
+0000005066 00000 n 
+0000005203 00000 n 
+0000007190 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R >>
+startxref
+7328
+%%EOF

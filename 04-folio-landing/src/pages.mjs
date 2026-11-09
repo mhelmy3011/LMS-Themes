@@ -2,7 +2,10 @@
 import { page } from '../../shared/lib/site.mjs';
 import { icon, esc, fmtDuration, fmtPrice, field } from '../../shared/lib/ui.mjs';
 import data from '../../shared/lib/data.mjs';
-import { all as folioArt, connector, swash } from './art.mjs';
+import { sceneFrame, learningExperience, projectShowcase } from '../../shared/lib/education-ui.mjs';
+import { profile } from '../../shared/lib/config.mjs';
+const presentation = profile('folio');
+import { connector, swash } from './art.mjs';
 
 const { courses, mentors, sessions, resources, posts, testimonials, faqs, disciplines } = data;
 
@@ -10,13 +13,13 @@ export const site = {
   id: 'folio',
   name: 'Folio',
   fullName: 'Web Academy',
-  chip: 'FOR CREATORS',
-  tagline: 'A landing page for visual instructors',
+  chip: 'LEARNING STUDIO',
+  tagline: 'The independent learning studio',
   navLayout: 'folio',
-  ctaLabel: 'Start teaching',
-  ctaHref: '#start',
+  ctaLabel: 'Explore courses',
+  ctaHref: 'courses/',
   loginHref: 'contact/',
-  loginLabel: 'Log in',
+  loginLabel: 'Say hello',
   themeColor: '#FFFFFF',
   colorScheme: 'light',
   faviconBg: '#012A5D',
@@ -24,15 +27,15 @@ export const site = {
   ogBg: '#FFFFFF',
   ogInk: '#012A5D',
   ogSub: '#012A5D',
-  ogTitle: 'Teach what you make.',
-  ogKicker: 'FOR VISUAL INSTRUCTORS',
+  ogTitle: 'Make something only you can make.',
+  ogKicker: 'THE INDEPENDENT LEARNING STUDIO',
   footerBlurb:
-    'A gallery that converts: your work is the hero and the brand is the frame around it. A fictional academy used to demonstrate this template.',
+    'A little structure for your creative practice. Thoughtful lessons, useful projects and a fresh perspective from working educators.',
   nav: [
-    { label: 'How it works', href: '#how' },
-    { label: 'What you get', href: '#everything' },
-    { label: 'Work', href: '#work' },
-    { label: 'Pricing', href: '#pricing' },
+    { label: 'The method', href: '#how' },
+    { label: 'Your classroom', href: '#everything' },
+    { label: 'The courses', href: '#work' },
+    { label: 'Start here', href: '#pricing' },
   ],
   footerCols: [
     {
@@ -45,10 +48,10 @@ export const site = {
       ],
     },
     {
-      title: 'Teach',
+      title: 'The studio',
       links: [
-        { label: 'Start teaching', href: '#start' },
-        { label: 'Pricing', href: '#pricing' },
+        { label: 'Find your first lesson', href: '#start' },
+        { label: 'Start here', href: '#pricing' },
         { label: 'Creator stories', href: 'creators/' },
         { label: 'About', href: 'about/' },
       ],
@@ -78,89 +81,19 @@ const img = (name, w, h, alt = '', extra = '') =>
 /* LANDING                                                                    */
 /* ========================================================================== */
 const hero = () => `
-<section class="hero" id="hero" aria-labelledby="hero-title">
-  <div class="container">
-    <div class="hero__grid">
-      <div class="hero__copy">
-        <p class="kicker">For visual instructors</p>
-        <h1 class="display hero__title" id="hero-title">
-          Turn your craft<br>
-          into a classroom.
-          ${swash().replace('<svg ', '<svg class="swash" aria-hidden="true" ').replace(' aria-hidden="true" preserveAspectRatio', ' preserveAspectRatio')}
-        </h1>
-        <p class="lede">Illustrators, designers and 3D artists teach on Web Academy. Live or self-paced, your pricing, your audience.</p>
-        <div class="hero__buttons">
-          <a class="btn btn--primary btn--lg" href="#start" data-cta="hero">Start teaching free ${icon('arrow')}</a>
-          <a class="hero__secondary" href="#how">See how it works <span class="round">${icon('arrow')}</span></a>
-        </div>
-        <ul class="hero__bullets">
-          <li>${tick} No platform fee for the first 3 months</li>
-          <li>${tick} Your students, your pricing</li>
-          <li>${tick} Live + self-paced in one place</li>
-        </ul>
-        <div class="hero__proof">
-          <span class="avatar-stack" aria-hidden="true" style="display:flex">
-            ${['ana', 'idris', 'mei'].map((m) => `<img src="{{R}}assets/img/av-${m}.svg" width="32" height="32" alt="" style="width:32px;height:32px;border-radius:999px;margin-inline-start:-8px;border:2px solid #fff">`).join('')}
-          </span>
-          <p><strong>2,400+ creators</strong> teaching · 4.9 avg. rating</p>
-        </div>
-      </div>
-      <div class="hero__art">
-        <div class="hero__block" aria-hidden="true"></div>
-        <img src="{{R}}assets/img/folio-hero.svg" width="800" height="1000" alt="A visual instructor at a desk with a drawing tablet, ring light and a portfolio wall" fetchpriority="high" decoding="async">
-      </div>
-    </div>
-  </div>
-</section>`;
+<section class="hero" id="hero" aria-labelledby="hero-title"><div class="container"><div class="hero__grid"><div class="hero__copy">
+<p class="kicker">${presentation.mode === 'creator' ? `A learning studio by ${presentation.creator} & friends` : 'A small academy for creative people'}</p>
+<h1 class="display hero__title" id="hero-title">Make something<br>only <em>you</em> can make.${swash().replace('<svg ', '<svg class="swash" aria-hidden="true" ')}</h1>
+<p class="lede">A little guidance. A lot of possibility. Thoughtful lessons for designers, illustrators and curious people ready to make their next good thing.</p>
+<div class="hero__buttons"><a class="btn btn--primary btn--lg" href="courses/">Find your next course ${icon('arrow')}</a><a class="hero__secondary" href="learn/${courses[1].slug}/">Try a sample lesson <span class="round">${icon('play')}</span></a></div>
+<ul class="hero__bullets"><li>${tick} Learn at your pace</li><li>${tick} Make a project, not just notes</li><li>${tick} Taught by practising creatives</li></ul>
+<div class="hero__proof"><span class="avatar-stack">${['ana','idris','mei'].map(m=>`<img class="avatar" src="assets/img/av-${m}.svg" width="32" height="32" alt="">`).join('')}</span><p><strong>${courses.length} focused courses</strong> · ${mentors.length} generous educators</p></div>
+</div><div class="hero__art edu-hero-art">${sceneFrame('folio','folio-home',{caption:'Your idea. Your hands. A little help along the way.'})}<div class="edu-hero-label"><span class="edu-status-dot"></span> A space to find your own way of making.</div></div></div></div></section>`;
 
-const trust = () => `
-<section class="trust" id="trust" aria-label="Creators from">
-  <div class="container">
-    <p class="trust__label">Trusted by creators from</p>
-    <ul class="trust__row">
-      <li>Northlight</li><li>Palette&amp;Co</li><li>Studio Verdant</li><li>Fieldnote</li><li>Atlas Grey</li>
-    </ul>
-  </div>
-</section>`;
+const trust = () => `<section class="trust" id="trust" aria-label="Creative learning subjects"><div class="container"><p class="trust__label">For the things you love making</p><ul class="trust__row"><li>Illustration</li><li>Design</li><li>Creative code</li><li>Motion</li><li>New ideas</li></ul></div></section>`;
 
-const STEP_ART = ['layers', 'chart', 'megaphone', 'wand'];
-const steps = () => `
-<section class="section" id="how" aria-labelledby="how-title">
-  <div class="container">
-    <div class="section__head section__head--center">
-      <p class="kicker">Three minutes to go live</p>
-      <h2 class="h2" id="how-title">From portfolio to paid, in four steps.</h2>
-      <p class="lede">No application, no interview, no waiting list. Upload three pieces and your first lesson outline builds itself.</p>
-    </div>
-    <div class="steps__wrap">
-      <div class="steps__line" data-connector aria-hidden="true">
-        ${connector(1200, 120)}
-      </div>
-      <ol class="steps">
-      ${[
-        ['Upload your work', 'Three portfolio pieces become your first lesson outline.'],
-        ['Set your price', 'Choose live, self-paced, or both. You keep 88%.'],
-        ['Open enrolment', 'A public page in the brand’s format, your domain, your voice.'],
-        ['Teach and get paid', 'Automatic payouts on the 5th, every month.'],
-      ]
-        .map(
-          ([t, b], i) => `<li class="step" data-reveal style="--i:${i}">
-        <div class="step__top">
-          <span class="step__plate">${icon(STEP_ART[i])}</span>
-          <span class="step__n">${String(i + 1).padStart(2, '0')}</span>
-        </div>
-        <h3>${t}</h3>
-        <p>${b}</p>
-      </li>`
-        )
-        .join('')}
-      </ol>
-    </div>
-    <p class="small" style="margin-block-start:28px;text-align:center">
-      <a class="hero__secondary" href="#start" data-cta="steps">Start teaching free <span class="round">${icon('arrow')}</span></a>
-    </p>
-  </div>
-</section>`;
+const STEP_ART = ['book','pencil','chat','award'];
+const steps = () => `<section class="section" id="how" aria-labelledby="how-title"><div class="container"><div class="section__head section__head--center"><p class="kicker">A simple rhythm for good work</p><h2 class="h2" id="how-title">Find your starting point.<br>Make your next small leap.</h2><p class="lede">No perfect setup. No previous masterpiece. Just a focused lesson and space to try something of your own.</p></div><div class="steps__wrap"><div class="steps__line" data-connector aria-hidden="true">${connector(1200,120)}</div><ol class="steps">${[['Follow a clear idea','A visual explanation that makes the method easier to see.'],['Make a small project','Put your new skill to work while the idea is fresh.'],['Review and refine','A practical rubric helps you see what could be stronger.'],['Keep what you made','A finished piece and a method you can use again.']].map(([t,b],i)=>`<li class="step" data-reveal><div class="step__top"><span class="step__plate">${icon(STEP_ART[i])}</span><span class="step__n">0${i+1}</span></div><h3>${t}</h3><p>${b}</p></li>`).join('')}</ol></div></div></section>`;
 
 const feature = ({ id, flip, art, alt, kicker, title, lede, checks, cta }) => `
 <div class="feature ${flip ? 'feature--flip' : ''}" ${id ? `id="${id}"` : ''}>
@@ -176,50 +109,10 @@ const feature = ({ id, flip, art, alt, kicker, title, lede, checks, cta }) => `
   </div>
 </div>`;
 
-const everything = () => `
-<section class="section" id="everything" aria-labelledby="everything-title">
-  <div class="container" style="display:grid;gap:clamp(48px,7vw,96px)">
-    <h2 class="sr-only" id="everything-title">What you get</h2>
-    ${feature({
-      flip: false,
-      art: 'folio-pricing',
-      alt: 'Hands arranging price tags beside a colour fan deck',
-      kicker: 'Your work, your pricing',
-      title: 'A course page that looks like your portfolio.',
-      lede: 'Type, layout, motion — the same craft you put into your work goes into the page that sells it.',
-      checks: ['Portfolio-grade course pages', 'Live + self-paced in one', 'Set any price, any currency', 'Own your student list'],
-      cta: { label: 'Explore the tools', href: 'courses/' },
-    })}
-    ${feature({
-      flip: true,
-      art: 'folio-live',
-      alt: 'A ring-lit camera on a tripod facing a laptop showing a live room',
-      kicker: 'Teach live, from anywhere',
-      title: 'One click, and the room is yours.',
-      lede: 'A ring light, a laptop and a quiet hour is the whole studio. We handle the rest.',
-      checks: ['One-click live rooms', 'Automatic recordings', 'Q&A + chat built in', 'Calendar invites that work'],
-      cta: { label: 'See a live room', href: 'live/' },
-    })}
-    <div class="trio">
-      ${[
-        ['folio-library', 'The library', 'Guides, checklists and swatches you can hand to a student mid-lesson.', 'library/'],
-        ['folio-paid', 'Get paid', '88% of every sale, payouts on the 5th, invoices handled.', '#pricing'],
-        ['folio-students', 'Your students', 'Your list stays yours. Export it any time, in one click.', 'about/'],
-      ]
-        .map(
-          ([art, t, b, href], i) => `<a class="trio__item" href="${href}" style="text-decoration:none;color:inherit;--i:${i}" data-reveal>
-        <img src="{{R}}assets/img/${art}.svg" width="800" height="600" alt="" loading="lazy" decoding="async" data-float>
-        <h3>${t}</h3><p>${b}</p>
-        <span class="card__meta" style="margin-block-start:auto">${icon('arrowUpRight')} Open</span>
-      </a>`
-        )
-        .join('')}
-    </div>
-  </div>
-</section>`;
+const everything = () => `<section class="section" id="everything" aria-labelledby="everything-title"><div class="container" style="display:grid;gap:clamp(40px,6vw,88px)"><h2 class="sr-only" id="everything-title">Your creative classroom</h2>${feature({art:'folio-pricing',alt:'A finished project presented beside a sketchbook and creative tools',kicker:'Your idea, made tangible',title:'A skill to use.<br>A project to keep.',lede:'Start with a small brief, work through the process and leave with a piece you can explain, adapt and be proud of.',checks:['Clear learning outcomes','Subject-specific working examples','A practical project brief','A downloadable course syllabus'],cta:{label:'Explore the courses',href:'courses/'}})}${feature({flip:true,art:'folio-library',alt:'An open learning notebook with lesson cards and a progress checklist',kicker:'A thoughtful set of tools',title:'A little structure.<br>Room for your own voice.',lede:'Your classroom comes with focused exercises, review prompts and practical resources. Enough structure to get started. Enough freedom to make it yours.',checks:['Useful lessons, not filler','Hands-on experiments','Print-ready practice resources','An accessible sample classroom'],cta:{label:'Open the practical library',href:'library/'}})}</div></section>`;
 
 const workCard = (c) => `
-<a class="card card--link" href="{{R}}courses/${c.slug}/" data-reveal>
+<article class="edu-collection-card" data-course-id="${c.id}" data-item data-price="${c.price}" data-level="${c.level.toLowerCase()}" data-duration="${c.duration}" data-tags="${c.track}" data-text="${esc(c.title)} ${esc(c.mentor)}" data-reveal><a class="card card--link" href="{{R}}courses/${c.slug}/">
   <div class="card__media">
     <img src="{{R}}assets/img/${c.art}.svg" width="640" height="480" alt="" loading="lazy" decoding="async">
     <span class="card__badge">Course</span>
@@ -232,28 +125,28 @@ const workCard = (c) => `
       <span class="card__meta">${c.price === 0 ? 'Free' : fmtPrice(c.price)}</span>
     </div>
   </div>
-</a>`;
+</a><button class="edu-collection-save" type="button" data-fav="${c.id}" aria-pressed="false" aria-label="Save ${esc(c.title)}">${icon('heart')}</button></article>`;
 
 const work = () => `
 <section class="section section--tight" id="work" aria-labelledby="work-title">
   <div class="container">
     <div class="section__head" style="flex-direction:row;align-items:flex-end;justify-content:space-between;max-width:none">
       <div class="section__head" style="gap:12px">
-        <p class="kicker">Proof of craft</p>
-        <h2 class="h2" id="work-title">Made on Web Academy.</h2>
+        <p class="kicker">The course collection</p>
+        <h2 class="h2" id="work-title">Choose your next good thing.</h2>
       </div>
       <a class="btn btn--quiet" href="courses/">View all ${icon('arrow')}</a>
     </div>
     <div class="cards">${courses.slice(0, 3).map(workCard).join('')}</div>
   </div>
   <div style="margin-block-start:clamp(32px,5vw,56px)">
-    <div class="container"><p class="meta" style="margin-block-end:14px">Student work gallery</p></div>
-    <div class="ribbon" aria-label="Student work gallery" tabindex="0">
+    <div class="container"><p class="meta" style="margin-block-end:14px">Illustrative course projects</p></div>
+    <div class="ribbon" aria-label="Illustrative course projects" tabindex="0">
       ${courses
         .slice(0, 6)
         .map(
           (c, i) => `<figure class="ribbon__item" style="margin:0">
-        <img src="{{R}}assets/img/${c.art}.svg" width="480" height="480" alt="Student work from ${esc(c.title)}" loading="lazy" decoding="async">
+        <img src="{{R}}assets/img/work-${i % 3 + 1}.svg" width="800" height="500" alt="Example project artwork for ${esc(c.title)}" loading="lazy" decoding="async">
         <figcaption class="ribbon__cap">${c.mentor} · ${c.trackLabel} · 0${i + 1}</figcaption>
       </figure>`
         )
@@ -268,19 +161,19 @@ const voices = () => `
     <div class="rail" data-rail>
       <div class="rail__head">
         <div class="section__head" style="gap:12px">
-          <p class="kicker">Peer proof</p>
-          <h2 class="h2" id="voices-title">Instructors who made the switch.</h2>
+          <p class="kicker">Illustrative learner reflections</p>
+          <h2 class="h2" id="voices-title">Little moments of “I can do this.”</h2>
         </div>
         <div class="rail__nav">
           <button class="rail__btn" type="button" data-rail-prev aria-label="Previous story">${icon('chevronLeft')}</button>
           <button class="rail__btn" type="button" data-rail-next aria-label="Next story">${icon('chevronRight')}</button>
         </div>
       </div>
-      <div class="rail__track" data-rail-track tabindex="0" aria-label="Instructor stories">
+      <div class="rail__track" data-rail-track tabindex="0" aria-label="Illustrative learner reflections">
         ${[
-          [testimonials[0], 'ana', '14 courses · 3.1K students'],
-          [testimonials[1], 'idris', '9 courses · 1.8K students'],
-          [testimonials[2], 'mei', '21 courses · 6.4K students'],
+          [testimonials[0], 'ana', 'Illustrative learner reflection'],
+          [testimonials[1], 'idris', 'Illustrative learner reflection'],
+          [testimonials[2], 'mei', 'Illustrative learner reflection'],
         ]
           .map(
             ([t, avatar, stat], i) => `<article class="voice" data-reveal style="--i:${i}">
@@ -295,170 +188,25 @@ const voices = () => `
           )
           .join('')}
       </div>
-      <div class="rail__dots" aria-hidden="true">
-        ${[0, 1, 2].map((i) => `<button class="rail__dot" type="button" data-rail-dot aria-current="${i === 0}"></button>`).join('')}
+      <div class="rail__dots" aria-label="Choose a reflection">
+        ${[0, 1, 2].map((i) => `<button class="rail__dot" type="button" data-rail-dot aria-label="Reflection ${i+1}" aria-current="${i === 0}"></button>`).join('')}
       </div>
     </div>
     <p class="small" style="margin-block-start:24px;text-align:center">
-      <a class="hero__secondary" href="creators/">Read more creator stories <span class="round">${icon('arrow')}</span></a>
+      <a class="hero__secondary" href="creators/">Meet the creative educators <span class="round">${icon('arrow')}</span></a>
     </p>
   </div>
 </section>`;
 
-const plans = () => `
-<section class="section section--ice" id="pricing" aria-labelledby="pricing-title">
-  <div class="container">
-    <div class="section__head section__head--center">
-      <p class="kicker">Simple pricing</p>
-      <h2 class="h2" id="pricing-title">You keep 88%. That is the whole idea.</h2>
-      <p class="lede">No setup fee, no lock-in, no charge until your first student pays.</p>
-    </div>
-    <div class="plans">
-      <article class="plan" data-reveal>
-        <div class="plan__top">
-          <h3 class="plan__name">Creator</h3>
-          <span class="chip">Free to start</span>
-        </div>
-        <p class="plan__tag">For a first course, built on evenings and weekends.</p>
-        <p class="plan__fee"><b>12%</b><span>platform fee per sale</span></p>
-        <ul class="plan__list">
-          <li>${tick}<span>Live + self-paced courses</span></li>
-          <li>${tick}<span>Unlimited lessons and students</span></li>
-          <li>${tick}<span>Payouts on the 5th, every month</span></li>
-          <li>${tick}<span>Your list, exportable any time</span></li>
-        </ul>
-        <p class="plan__cta"><a class="btn btn--ghost btn--block" href="#start" data-cta="plan-creator">Start teaching free</a></p>
-      </article>
-      <article class="plan plan--hl" data-reveal style="--i:1">
-        <div class="plan__top">
-          <h3 class="plan__name">Studio</h3>
-          <span class="chip" style="background:rgba(1,42,93,.1)">Best for teams</span>
-        </div>
-        <p class="plan__tag">For a small studio shipping courses together.</p>
-        <p class="plan__fee"><b>8%</b><span>platform fee per sale</span></p>
-        <ul class="plan__list">
-          <li>${tick}<span>Everything in Creator</span></li>
-          <li>${tick}<span>Three seats, shared library</span></li>
-          <li>${tick}<span>Custom domain + advanced analytics</span></li>
-          <li>${tick}<span>Priority support, 1 business day</span></li>
-        </ul>
-        <p class="plan__cta"><a class="btn btn--navy btn--block" href="contact/" data-cta="plan-studio">Talk to us</a></p>
-      </article>
-    </div>
-    <div class="compare">
-      <table>
-        <caption class="sr-only">Plan comparison</caption>
-        <thead><tr><th scope="col">What you get</th><th scope="col">Creator</th><th scope="col">Studio</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Platform fee</th><td>12%</td><td>8%</td></tr>
-          <tr><th scope="row">Live rooms</th><td>Unlimited</td><td>Unlimited</td></tr>
-          <tr><th scope="row">Custom domain</th><td>—</td><td>Included</td></tr>
-          <tr><th scope="row">Analytics</th><td>Standard</td><td>Advanced</td></tr>
-          <tr><th scope="row">Support</th><td>Community</td><td>Priority · 1 day</td></tr>
-          <tr><th scope="row">Payout speed</th><td>Monthly, the 5th</td><td>Monthly, the 5th</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="meta" style="text-align:center;margin-block-start:24px">No setup fee · No lock-in · Cancel anytime</p>
-  </div>
-</section>`;
+const plans = () => `<section class="section section--ice" id="pricing" aria-labelledby="pricing-title"><div class="container"><div class="section__head section__head--center"><p class="kicker">Two ways to begin</p><h2 class="h2" id="pricing-title">Start with a little curiosity.</h2><p class="lede">Try a real sample lesson first. Find the project you want to make next. No account or card needed to explore this demonstration.</p></div><div class="plans"><article class="plan"><div class="plan__top"><h3 class="plan__name">A small first step</h3><span class="chip">Free sample</span></div><p class="plan__fee"><b>$0</b><span>no signup required</span></p><ul class="plan__list"><li>${tick}<span>A complete illustrated sample lesson</span></li><li>${tick}<span>A ten-minute hands-on exercise</span></li><li>${tick}<span>A quick check with useful feedback</span></li><li>${tick}<span>Private, browser-local progress</span></li></ul><p class="plan__cta"><a class="btn btn--ghost btn--block" href="learn/${courses[1].slug}/">Step into the classroom ${icon('arrow')}</a></p></article><article class="plan plan--hl"><div class="plan__top"><h3 class="plan__name">Your next good project</h3><span class="chip">The course collection</span></div><p class="plan__fee"><b>${fmtPrice(Math.min(...courses.filter(c=>c.price>0).map(c=>c.price)))}</b><span>starting price · illustrative catalogue</span></p><ul class="plan__list"><li>${tick}<span>${courses.length} focused courses across six subjects</span></li><li>${tick}<span>A clear curriculum and project brief</span></li><li>${tick}<span>Practical resources to keep</span></li><li>${tick}<span>Meet your educator before you begin</span></li></ul><p class="plan__cta"><a class="btn btn--navy btn--block" href="courses/">Find your next course ${icon('arrow')}</a></p></article></div><p class="edu-fine" style="text-align:center;margin-block-start:24px">A static storefront demonstration. Payments, video hosting and email delivery require your own integrations.</p></div></section>`;
 
-const faq = () => `
-<section class="section" id="faq" aria-labelledby="faq-title">
-  <div class="container">
-    <div class="section__head section__head--center" style="margin-block-end:32px">
-      <p class="kicker">Questions</p>
-      <h2 class="h2" id="faq-title">Before you upload anything.</h2>
-    </div>
-    <div class="faq" data-acc="single">
-      ${[
-        ['Do I need to be a professional?', 'No. Most creators on Web Academy teach what they have been practising for two or three years. What matters is that you can show finished work and explain how you got there.'],
-        ['How much does it cost?', 'Nothing to start. We take 12% of each sale on Creator, or 8% on Studio. No setup fee, no monthly minimum, no charge for a course that never sells.'],
-        ['Can I keep selling elsewhere?', 'Yes. Courses are yours and there is no exclusivity clause. Many instructors keep a personal shop and use Web Academy for the live side.'],
-        ['Who owns my content?', 'You do. We hold a licence to host and stream it while your course is live, and that licence ends the moment you unpublish.'],
-        ['How and when do I get paid?', 'On the 5th of every month, for everything sold in the previous month, to any bank account in the supported list. There is no minimum payout.'],
-        ['What if nobody enrols?', 'Publish for free and use the audience tools to build a list first. If a course sells nothing in 90 days you can delete it with no fee and no question.'],
-      ]
-        .map(
-          ([q, a], i) => `<div class="faq__item">
-        <h3 style="margin:0"><button class="faq__btn" type="button" data-acc-btn aria-expanded="${i === 0}" aria-controls="faq-p-${i}" id="faq-b-${i}">
-          <span>${q}</span><span class="faq__sign" aria-hidden="true"></span>
-        </button></h3>
-        <div class="faq__panel" id="faq-p-${i}" role="region" aria-labelledby="faq-b-${i}"><div><p>${a}</p></div></div>
-      </div>`
-        )
-        .join('')}
-    </div>
-  </div>
-</section>`;
+const faq = () => `<section class="section" id="faq" aria-labelledby="faq-title"><div class="container"><div class="section__head section__head--center"><p class="kicker">A few good questions</p><h2 class="h2" id="faq-title">Before your first small leap.</h2></div><div class="faq" data-acc="single">${[['Do I need to be a professional?','No. Each course lists its starting level, tools and learning outcomes. Beginner courses are designed for a first project; more advanced courses build on existing practice.'],['Can I try a lesson first?','Yes. Every course has an illustrated sample classroom with a practical exercise, a short knowledge check and progress saved only on your browser. No account is required.'],['What will I make?','Each course works towards a specific project, from an illustration series to an accessible interface. The course page and downloadable syllabus show the brief before you begin.'],['Can I learn at my own pace?','Self-paced lessons let you pause and return. Cohort and live-session dates are shown separately, in your local timezone, with downloadable calendar files.'],['What happens when I enrol in this demo?','You can practise the form and continue to a sample lesson. No payment is taken, no account is created and no email is sent. Connect your own services for a production site.']].map(([q,a],i)=>`<div class="acc__item"><h3><button class="acc__btn" type="button" data-acc-btn aria-expanded="${i===0}" aria-controls="folio-faq-${i}"><span>${q}</span><span class="acc__sign" aria-hidden="true"></span></button></h3><div class="acc__panel" id="folio-faq-${i}"><div class="acc__inner"><p>${a}</p></div></div></div>`).join('')}</div></div></section>`;
 
-const start = () => `
-<section class="section section--tight" id="start" aria-labelledby="start-title">
-  <div class="container">
-    <div class="start">
-      <div class="start__copy">
-        <p class="kicker">Three fields and a button</p>
-        <h2 class="h2" id="start-title">Start teaching this week.</h2>
-        <p class="lede">Tell us what you make. We will set up your studio and send the first lesson template within an hour.</p>
-        <ul class="hero__bullets">
-          <li>${tick} Free while you build</li>
-          <li>${tick} No card required</li>
-          <li>${tick} Leave whenever you like</li>
-        </ul>
-        <form class="form" data-validate novalidate aria-describedby="start-err">
-          <div class="form__error-summary" data-error-summary id="start-err" role="alert" hidden></div>
-          ${field({ id: 'creator-name', label: 'Your name', name: 'name', rules: 'required', msg: 'Please tell us your name.', autocomplete: 'name' })}
-          ${field({ id: 'creator-email', label: 'Email', type: 'email', name: 'email', rules: 'required email', msg: 'Enter a valid email address.', autocomplete: 'email' })}
-          <div class="field" data-field>
-            <label class="label" for="creator-what">What do you teach?</label>
-            <select class="select" id="creator-what" name="discipline" data-rules="required" data-msg="Choose the closest discipline." required>
-              <option value="">Choose one…</option>
-              ${disciplines.map((d) => `<option>${d}</option>`).join('')}
-            </select>
-            <p class="field__error" id="creator-what-err"></p>
-          </div>
-          <input type="hidden" name="source" data-source value="direct">
-          <button class="btn btn--primary btn--lg btn--block" type="submit">Start teaching free ${icon('arrow')}</button>
-          <p class="form__consent">By continuing you agree to the <a href="legal/terms/">Terms</a> and <a href="legal/privacy/">Privacy Policy</a>.</p>
-        </form>
-        <div class="done" data-done aria-live="polite">
-          <span class="done__tick">${icon('check')}</span>
-          <h3 class="h2" style="font-size:26px">You are in.</h3>
-          <p class="small">We have sent a setup link to your inbox. Nothing else is needed today.</p>
-          <p style="margin-block-start:16px"><a class="btn btn--ghost" href="thank-you/">What happens next ${icon('arrow')}</a></p>
-        </div>
-      </div>
-      <aside class="start__panel" aria-label="Creator note">
-        <img src="{{R}}assets/img/folio-frame.svg" width="800" height="800" alt="A tilted empty frame with a paintbrush" loading="lazy" decoding="async" data-float>
-        <p class="start__quote">“I uploaded three illustrations on a Tuesday and taught my first live room eleven days later.” <b>Léa M. · Illustrator, Lyon</b></p>
-        <p class="meta" style="margin:0">2,400+ creators · 4.9 avg rating</p>
-      </aside>
-    </div>
-  </div>
-</section>`;
+const start = () => `<section class="section section--tight" id="start" aria-labelledby="start-title"><div class="container"><div class="start"><div class="start__copy" data-form-host><p class="kicker">Make a little room for a new idea</p><h2 class="h2" id="start-title">Your next chapter<br>can start small.</h2><p class="lede">Tell us what you are curious about. Try this local interest form, or step straight into a sample lesson.</p><form class="form" data-validate novalidate><div class="form-error-summary" data-error-summary role="alert" hidden></div>${field({id:'creator-name',label:'Your name',rules:'required',autocomplete:'name',msg:'Please enter your name.'})}${field({id:'creator-email',label:'Email address',type:'email',rules:'required email',autocomplete:'email',msg:'Please enter a valid email address.'})}${field({id:'creator-what',label:'What would you like to explore?',type:'select',options:['Design','Illustration & visual craft','Creative coding','Data storytelling','Creative business','Teaching'],rules:'required',msg:'Choose a subject you are curious about.'})}<button class="btn btn--primary btn--lg btn--block" type="submit">Try the interest form · demo ${icon('arrow')}</button><p class="edu-fine">Demo only. Your details stay in this page and are not stored or sent. <a href="legal/privacy/">Privacy</a></p></form><div class="form-success" data-success hidden><span class="form-success__tick">${icon('check')}</span><h3 class="h3" data-success-focus tabindex="-1">A little curiosity looks good on you.</h3><p>This local demo is complete. No email was sent.</p><a class="btn btn--primary" href="learn/${courses[1].slug}/">Try a sample lesson ${icon('arrow')}</a></div></div><aside class="start__panel" aria-label="Your creative practice"><img src="{{R}}assets/img/folio-frame.svg" width="1200" height="760" alt="A creative project with a completed composition and review checklist" loading="lazy"><p class="start__quote">“Start where you are.<br>Make one small thing.<br>Then make the next one.”<b>A note from the teaching studio</b></p><a class="edu-text-link" href="learn/${courses[1].slug}/">No signup? Go straight to a lesson ${icon('arrow')}</a></aside></div></div></section>`;
 
-const newsletter = () => `
-<section class="section section--tight news" id="newsletter" aria-labelledby="news-title">
-  <div class="container">
-    <div class="news__inner">
-      <h2 id="news-title">Keep the loop.</h2>
-      <p>One email a month. New courses, live sessions, no noise.</p>
-      <form class="news__form" data-news novalidate>
-        <div class="field">
-          <label class="sr-only" for="news-email">Email address</label>
-          <input class="input" id="news-email" name="email" type="email" placeholder="you@work.com" autocomplete="email" required>
-        </div>
-        <button class="btn btn--primary" type="submit">Subscribe</button>
-      </form>
-      <p class="news__done" data-news-done aria-live="polite">${tick} You are in. Look for one email a month.</p>
-    </div>
-  </div>
-</section>`;
+const newsletter = () => `<section class="section section--tight news" id="newsletter" aria-labelledby="news-title"><div class="container"><div class="news__inner"><p class="kicker">For your next quiet hour</p><h2 id="news-title">Good tools. Generously shared.</h2><p>Practical guides, checklists and workbooks for the work you love making.</p><a class="btn btn--primary" href="library/">Open the practical library ${icon('arrow')}</a></div></div></section>`;
 
-const sticky = () => `
-<div class="sticky-cta" data-sticky aria-hidden="true">
-  <a class="btn btn--primary btn--block" href="#start" data-cta="sticky">Start teaching free</a>
-</div>`;
+const sticky = () => `<div class="sticky-cta" data-sticky aria-hidden="true" inert><a class="btn btn--primary btn--block" href="courses/">Find your next course ${icon('arrow')}</a></div>`;
 
 /* ========================================================================== */
 /* SUB PAGES                                                                  */
@@ -601,7 +349,7 @@ const courseDetail = (c) =>
         <div class="aside__row"><span>Level</span><span>${c.level}</span></div>
         <div class="aside__row"><span>Rating</span><span>${c.rating} · ${c.ratingCount} reviews</span></div>
         <div class="aside__row"><span>Price</span><span>${c.price === 0 ? 'Free' : fmtPrice(c.price)}</span></div>
-        <a class="btn btn--primary btn--block" href="../../#start" data-cta="course:${c.slug}">Start teaching free</a>
+        <a class="btn btn--primary btn--block" href="#course-start">${c.free ? 'Start the free sample' : 'Try enrolment · demo'}</a>
         <p class="meta" style="text-align:center;margin:0">${c.students} students enrolled</p>
       </aside>
     </div>
@@ -836,7 +584,7 @@ const postDetail = (p) =>
         <div class="aside__row"><span>Published</span><span>${p.dateLabel}</span></div>
         <div class="aside__row"><span>Reading</span><span>${p.readingMin} min</span></div>
         <div class="aside__row"><span>Category</span><span>${p.category}</span></div>
-        <a class="btn btn--primary btn--block" href="../../#start" data-cta="post:${p.slug}">Start teaching free</a>
+        <a class="btn btn--primary btn--block" href="../../#start" data-cta="post:${p.slug}">Explore the courses</a>
       </aside>
     </div>
   </div>
@@ -904,7 +652,7 @@ const creators = () =>
         <h2 class="h2">${name}</h2>
         <p class="lede">${line}</p>
         <div class="prose"><p>“The thing nobody tells you is that the first lesson is the product. Everything after it is retention.”</p></div>
-        <a class="btn btn--ghost" href="../#start" data-cta="creators">Start teaching free ${icon('arrow')}</a>
+        <a class="btn btn--ghost" href="../#start" data-cta="creators">Explore the courses ${icon('arrow')}</a>
       </div>
     </article>`
       )
@@ -926,9 +674,9 @@ const thankYou = () =>
   <div class="container">
     <div class="steps" style="max-width:900px">
       ${[
-        ['Check your inbox', 'A setup link, valid for seven days.'],
-        ['Upload three pieces', 'Any medium. Finished work only, no process shots.'],
-        ['Open your first room', 'Pick a date ten days out. Invite the list you already have.'],
+        ['Explore a sample lesson', 'No signup, email or payment is needed to try the classroom.'],
+        ['Try the small project', 'Use the brief and keep your first draft.'],
+        ['Reflect and refine', 'Check your understanding, then make a stronger second version.'],
       ]
         .map(
           ([t, b], i) => `<article class="step"><h2 class="sr-only">Step</h2><div class="step__top"><span class="step__plate">${icon(['mail', 'layers', 'video'][i])}</span><span class="step__n">0${i + 1}</span></div><h3>${t}</h3><p>${b}</p></article>`
@@ -1004,6 +752,8 @@ export function routes() {
     hero(),
     trust(),
     steps(),
+    learningExperience('folio'),
+    projectShowcase('folio'),
     everything(),
     work(),
     voices(),
@@ -1018,7 +768,7 @@ export function routes() {
     '',
     page(site, '', {
       title: site.name,
-      desc: 'Web Academy for visual instructors — teach what you make. Live or self-paced, your pricing, 88% payout. A demonstration of the Folio landing template.',
+      desc: 'A creator-owned learning studio. Thoughtful lessons, creative projects and useful resources for curious minds.',
       body: landing,
       bodyClass: 'folio',
       path: '',
@@ -1029,8 +779,8 @@ export function routes() {
           '@context': 'https://schema.org',
           '@type': 'FAQPage',
           mainEntity: [
-            { q: 'Do I need to be a professional?', a: 'No. Most creators teach what they have practised for two or three years.' },
-            { q: 'How much does it cost?', a: 'Nothing to start. 12% of each sale on Creator, 8% on Studio.' },
+            { q: 'Do I need to be a professional?', a: 'No. Each course lists its starting level, tools and learning outcomes.' },
+            { q: 'Can I try a lesson first?', a: 'Yes. Every course has an illustrated sample classroom, a practical exercise and a short knowledge check.' },
           ].map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })),
         },
       ],
@@ -1058,4 +808,4 @@ export function routes() {
   return out;
 }
 
-export const images = { ...folioArt };
+export const images = {};

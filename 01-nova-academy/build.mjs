@@ -14,7 +14,7 @@ const { pages, distDir } = await build({
   routes: routes(),
   themeCss: path.join(ROOT, 'src/theme.css'),
   scripts: [path.join(ROOT, 'src/nova.js')],
-  images: imageSet(),
+  images: imageSet(site.id),
 });
 
 console.log(`Nova: ${pages} pages → ${path.relative(process.cwd(), distDir)}`);
